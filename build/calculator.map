@@ -1,0 +1,365 @@
+AREA .  .ABS.
+	RADIX HEX
+	BASE 0000
+	SIZE 0000
+	ATTRIB ABS OVR
+	GLOBALS
+		l__DATA	0000
+		l__HEAP	0000
+		l__BSEG	0000
+		l_.  .ABS.	0000
+		l__GSFINAL	0000
+		l__ISEG	0000
+		s_.  .ABS.	0000
+		s__HEADER	0000
+		l__XSEG	0000
+		.init	0000
+		l__OVERLAY	0000
+		l__LIT	0000
+		l__GSINIT	0000
+		s__SFR	0000
+		l__GSINITTAIL	0001
+		l__BSS	0087
+		l__HEADER	01EB
+		s__CODE	0200
+		l__HOME	04AF
+		l__CODE	0789
+		s__HOME	0989
+		s__BASE	0E38
+		l__BASE	0F11
+		s__GSINITTAIL	1D49
+		s__LIT	1D49
+		s__GSINIT	1D49
+		s__GSFINAL	1D4A
+		.OAM	C000
+		s__DATA	C0A0
+		s__BSS	C0A0
+		s__HEAP	C127
+		s__BSEG	C127
+		s__ISEG	C127
+		s__XSEG	C127
+		s__OVERLAY	C127
+		.STACK	E000
+		.refresh_OAM	FF80
+		l__SFR	10000
+AREA _CODE
+	RADIX HEX
+	BASE 0200
+	SIZE 0789
+	ATTRIB REL CON
+	GLOBALS
+		_main	0200
+		_putchar	0218
+		_setchar	0221
+		_gotoxy	022A
+		_posx	0235
+		_posy	0246
+		.adv_gcurs	0257
+		.circle	0274
+		.horlin	0317
+		.verlin	034F
+		.circplot	03AB
+		.box	0429
+		.line	04FF
+		.xonly	0620
+		.yonly	076F
+		.plot	0790
+		.wrbyte	07AD
+		.getpix	082F
+		.wrtchr	0864
+		_gotogxy	08C8
+		_wrtchr	08D3
+		_getpix	08E8
+		_color	08F4
+		_circle	0903
+		_box	091D
+		_line	0941
+		_plot_point	0959
+		_plot	096D
+AREA _HEADER
+	RADIX HEX
+	BASE 0000
+	SIZE 01EB
+	ATTRIB ABS OVR
+	GLOBALS
+		_exit	01D2
+AREA _HOME
+	RADIX HEX
+	BASE 0989
+	SIZE 04AF
+	ATTRIB REL CON
+	GLOBALS
+		.set_mode	0989
+		.remove_VBL	0999
+		.remove_LCD	099F
+		.remove_TIM	09A5
+		.remove_SIO	09AB
+		.remove_JOY	09B1
+		.add_VBL	09B7
+		.add_LCD	09BD
+		.add_TIM	09C3
+		.add_SIO	09C9
+		.add_JOY	09CF
+		.remove_int	09D5
+		.add_int	09F5
+		.wait_vbl_done	0A11
+		_wait_vbl_done	0A11
+		_display_off	0A28
+		.display_off	0A28
+		.serial_IO	0A49
+		_mode	0A78
+		_get_mode	0A81
+		_enable_interrupts	0A86
+		_disable_interrupts	0A88
+		_reset	0A8A
+		.reset	0A8A
+		_set_interrupts	0A90
+		_remove_VBL	0A9B
+		_remove_LCD	0AA6
+		_remove_TIM	0AB1
+		_remove_SIO	0ABC
+		_remove_JOY	0AC7
+		_add_VBL	0AD2
+		_add_LCD	0ADD
+		_add_TIM	0AE8
+		_add_SIO	0AF3
+		_add_JOY	0AFE
+		_clock	0B09
+		__printTStates	0B12
+		banked_call	0B13
+		banked_ret	0B2C
+		_printf	0B35
+		_sprintf	0B64
+AREA _BASE
+	RADIX HEX
+	BASE 0E38
+	SIZE 0F11
+	ATTRIB REL CON
+	GLOBALS
+		__modslong	0E38
+		__divslong	0E38
+		__mulslong	0E38
+		__divschar	0E39
+		__modschar	0E45
+		__divsint	0E50
+		__modsint	0E61
+		__divuchar	0E70
+		__moduchar	0E7C
+		__divuint	0E87
+		__moduint	0E98
+		.mod8	0EA7
+		.div8	0EA7
+		.mod16	0EAF
+		.div16	0EAF
+		.modu8	0EE5
+		.divu8	0EE5
+		.modu16	0EE8
+		.divu16	0EE8
+		font_copy_uncompressed	0F25
+		font_copy_compressed	0F5B
+		font_load	0FB0
+		font_copy_current	0FF8
+		font_set	1040
+		.put_char	104D
+		.out_char	1066
+		.del_char	106D
+		_font_load	10C8
+		_font_set	10D6
+		_font_init	10E5
+		_cls	1107
+		.cls	1107
+		.cr_curs	1139
+		.adv_curs	114E
+		.tmode	11AA
+		.tmode_out	11D3
+		_font_load_ibm_fixed	11E3
+		_font_ibm_fixed	11EA
+		_font_ibm_fixed_tiles	12EC
+		.gmode	1AEC
+		.vbl	1B4E
+		.lcd	1B59
+		.draw_image	1B66
+		.switch_data	1B70
+		_switch_data	1BA7
+		_draw_image	1BC2
+		.y_table	1BD5
+		.init_vram	1CF5
+		.init_wtt	1D03
+		.init_btt	1D13
+		.init_tt	1D21
+		.copy_vram	1D27
+		_get_data	1D36
+		_set_data	1D36
+AREA _LIT
+	RADIX HEX
+	BASE 1D49
+	SIZE 0000
+	ATTRIB REL CON
+AREA _GSINIT
+	RADIX HEX
+	BASE 1D49
+	SIZE 0000
+	ATTRIB REL CON
+	GLOBALS
+		gsinit	1D49
+AREA _GSINITTAIL
+	RADIX HEX
+	BASE 1D49
+	SIZE 0001
+	ATTRIB REL CON
+AREA _GSFINAL
+	RADIX HEX
+	BASE 1D4A
+	SIZE 0000
+	ATTRIB REL CON
+AREA _DATA
+	RADIX HEX
+	BASE C0A0
+	SIZE 0000
+	ATTRIB REL CON
+AREA _BSS
+	RADIX HEX
+	BASE C0A0
+	SIZE 0087
+	ATTRIB REL CON
+	GLOBALS
+		__cpu	C0A0
+		.mode	C0A1
+		__io_out	C0A2
+		__io_in	C0A3
+		__io_status	C0A4
+		.vbl_done	C0A5
+		__current_bank	C0A6
+		_sys_time	C0A7
+		.sys_time	C0A7
+		.int_0x40	C0A9
+		.int_0x48	C0B9
+		.int_0x50	C0C9
+		.int_0x58	C0D9
+		.int_0x60	C0E9
+		font_current	C0FC
+		font_first_free_tile	C0FF
+		font_table	C100
+		.curx	C112
+		.cury	C113
+		.fg_colour	C114
+		.bg_colour	C115
+AREA _HEAP
+	RADIX HEX
+	BASE C127
+	SIZE 0000
+	ATTRIB REL CON
+	GLOBALS
+		_malloc_heap_start	C127
+AREA _OVERLAY
+	RADIX HEX
+	BASE C127
+	SIZE 0000
+	ATTRIB REL CON
+AREA _ISEG
+	RADIX HEX
+	BASE C127
+	SIZE 0000
+	ATTRIB REL CON
+AREA _BSEG
+	RADIX HEX
+	BASE C127
+	SIZE 0000
+	ATTRIB REL CON
+AREA _XSEG
+	RADIX HEX
+	BASE C127
+	SIZE 0000
+	ATTRIB REL CON
+AREA _SFR
+	RADIX HEX
+	BASE 0000
+	SIZE 10000
+	ATTRIB ABS OVR
+	GLOBALS
+		_P1_REG	FF00
+		_SB_REG	FF01
+		_SC_REG	FF02
+		_DIV_REG	FF04
+		_TIMA_REG	FF05
+		_TMA_REG	FF06
+		_TAC_REG	FF07
+		_IF_REG	FF0F
+		_NR10_REG	FF10
+		_NR11_REG	FF11
+		_NR12_REG	FF12
+		_NR13_REG	FF13
+		_NR14_REG	FF14
+		_NR21_REG	FF16
+		_NR22_REG	FF17
+		_NR23_REG	FF18
+		_NR24_REG	FF19
+		_NR30_REG	FF1A
+		_NR31_REG	FF1B
+		_NR32_REG	FF1C
+		_NR33_REG	FF1D
+		_NR34_REG	FF1E
+		_NR41_REG	FF20
+		_NR42_REG	FF21
+		_NR43_REG	FF22
+		_NR44_REG	FF23
+		_NR50_REG	FF24
+		_NR51_REG	FF25
+		_NR52_REG	FF26
+		_LCDC_REG	FF40
+		_STAT_REG	FF41
+		_SCY_REG	FF42
+		_SCX_REG	FF43
+		_LY_REG	FF44
+		_LYC_REG	FF45
+		_DMA_REG	FF46
+		_BGP_REG	FF47
+		_OBP0_REG	FF48
+		_OBP1_REG	FF49
+		_WY_REG	FF4A
+		_WX_REG	FF4B
+		_KEY1_REG	FF4D
+		_VBK_REG	FF4F
+		_HDMA1_REG	FF51
+		_HDMA2_REG	FF52
+		_HDMA3_REG	FF53
+		_HDMA4_REG	FF54
+		_HDMA5_REG	FF55
+		_RP_REG	FF56
+		_BCPS_REG	FF68
+		_BCPD_REG	FF69
+		_OCPS_REG	FF6A
+		_OCPD_REG	FF6B
+		_SVBK_REG	FF70
+		_IE_REG	FFFF
+MODULES
+	FILE c:\gbdk\lib/small/asxxxx/gb/crt0.o
+		NAME Runtime
+	FILE build\main.o
+		NAME lcc94800
+LIBRARIES
+	LIBRARY c:\gbdk\lib/small/asxxxx/gb/gb.lib
+		MODULE sfr.o
+	LIBRARY c:\gbdk\lib/small/asxxxx/gbz80/gbz80.lib
+		MODULE printf.o
+	LIBRARY c:\gbdk\lib/small/asxxxx/gbz80/gbz80.lib
+		MODULE div.o
+	LIBRARY c:\gbdk\lib/small/asxxxx/gb/gb.lib
+		MODULE font.o
+	LIBRARY c:\gbdk\lib/small/asxxxx/gb/gb.lib
+		MODULE ibmfixed.o
+	LIBRARY c:\gbdk\lib/small/asxxxx/gb/gb.lib
+		MODULE drawing.o
+	LIBRARY c:\gbdk\lib/small/asxxxx/gb/gb.lib
+		MODULE init_tt.o
+	LIBRARY c:\gbdk\lib/small/asxxxx/gb/gb.lib
+		MODULE cpy_data.o
+USERBASEDEF
+	_CODE=0x0200
+	_DATA=0xC0A0
+	_CODE_1=0x4000
+USERGLOBALDEF
+	.OAM=0xC000
+	.STACK=0xE000
+	.refresh_OAM=0xFF80
+	.init=0x0000
