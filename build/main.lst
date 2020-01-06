@@ -1,150 +1,150 @@
                               1 ;--------------------------------------------------------
                               2 ; File Created by SDCC : FreeWare ANSI-C Compiler
-                              3 ; Version 2.2.1 Fri Jan 03 18:45:31 2020
+                              3 ; Version 2.2.1 Mon Jan 06 20:28:40 2020
                               4 
                               5 ;--------------------------------------------------------
-                              6 	.module lcc157480
+                              6 	.module lcc115480
                               7 	
                               8 ;--------------------------------------------------------
                               9 ; Public variables in this module
                              10 ;--------------------------------------------------------
                              11 	.globl _main
-                             12 	.globl _toDisplay
-                             13 	.globl _changeCursorSprite
-                             14 	.globl _changeCursorPosition
-                             15 	.globl _changeCursorDelay
+                             12 	.globl _changeCursorSprite
+                             13 	.globl _changeCursorPosition
+                             14 	.globl _changeCursorDelay
+                             15 	.globl _addToDisplay
                              16 	.globl _updateDisplay
-                             17 	.globl _keyboard
-                             18 	.globl _pow
+                             17 	.globl _action
+                             18 	.globl _keyboard
                              19 	.globl _clock
                              20 	.globl _strlen
-                             21 	.globl _strcat
-                             22 	.globl _strcpy
-                             23 	.globl _abs
-                             24 	.globl _move_sprite
-                             25 	.globl _set_sprite_tile
-                             26 	.globl _set_sprite_data
-                             27 	.globl _set_bkg_tiles
-                             28 	.globl _set_bkg_data
-                             29 	.globl _joypad
-                             30 	.globl _delay
-                             31 	.globl _maxPosY
-                             32 	.globl _maxPosX
-                             33 	.globl _cursorY
-                             34 	.globl _cursorX
-                             35 	.globl _cursorLocations
-                             36 	.globl _currentCursorSpriteIndex
-                             37 	.globl _lastTime
-                             38 	.globl _displayDigits
-                             39 	.globl _display
-                             40 	.globl _keyboardMap
-                             41 	.globl _keyboardTiles
-                             42 	.globl _cursor
-                             43 	.globl _pow
-                             44 	.globl _toDisplay
-                             45 	.globl _changeCursorSprite
-                             46 	.globl _changeCursorDelay
-                             47 	.globl _changeCursorPosition
-                             48 	.globl _keyboard
-                             49 	.globl _updateDisplay
-                             50 	.globl _main
+                             21 	.globl _move_sprite
+                             22 	.globl _set_sprite_tile
+                             23 	.globl _set_sprite_data
+                             24 	.globl _set_bkg_tiles
+                             25 	.globl _set_bkg_data
+                             26 	.globl _waitpadup
+                             27 	.globl _joypad
+                             28 	.globl _keydown
+                             29 	.globl _maxPosY
+                             30 	.globl _maxPosX
+                             31 	.globl _cursorY
+                             32 	.globl _cursorX
+                             33 	.globl _keyboardOptions
+                             34 	.globl _cursorLocations
+                             35 	.globl _currentCursorSpriteIndex
+                             36 	.globl _lastTime
+                             37 	.globl _display
+                             38 	.globl _keyboardMap
+                             39 	.globl _keyboardTiles
+                             40 	.globl _cursor
+                             41 	.globl _changeCursorSprite
+                             42 	.globl _changeCursorDelay
+                             43 	.globl _changeCursorPosition
+                             44 	.globl _addToDisplay
+                             45 	.globl _action
+                             46 	.globl _keyboard
+                             47 	.globl _updateDisplay
+                             48 	.globl _main
+                             49 ;--------------------------------------------------------
+                             50 ; Externals used
                              51 ;--------------------------------------------------------
-                             52 ; Externals used
-                             53 ;--------------------------------------------------------
-                             54 	.globl _IE_REG
-                             55 	.globl _SVBK_REG
-                             56 	.globl _OCPD_REG
-                             57 	.globl _OCPS_REG
-                             58 	.globl _BCPD_REG
-                             59 	.globl _BCPS_REG
-                             60 	.globl _RP_REG
-                             61 	.globl _HDMA5_REG
-                             62 	.globl _HDMA4_REG
-                             63 	.globl _HDMA3_REG
-                             64 	.globl _HDMA2_REG
-                             65 	.globl _HDMA1_REG
-                             66 	.globl _VBK_REG
-                             67 	.globl _KEY1_REG
-                             68 	.globl _WX_REG
-                             69 	.globl _WY_REG
-                             70 	.globl _OBP1_REG
-                             71 	.globl _OBP0_REG
-                             72 	.globl _BGP_REG
-                             73 	.globl _DMA_REG
-                             74 	.globl _LYC_REG
-                             75 	.globl _LY_REG
-                             76 	.globl _SCX_REG
-                             77 	.globl _SCY_REG
-                             78 	.globl _STAT_REG
-                             79 	.globl _LCDC_REG
-                             80 	.globl _NR52_REG
-                             81 	.globl _NR51_REG
-                             82 	.globl _NR50_REG
-                             83 	.globl _NR44_REG
-                             84 	.globl _NR43_REG
-                             85 	.globl _NR42_REG
-                             86 	.globl _NR41_REG
-                             87 	.globl _NR34_REG
-                             88 	.globl _NR33_REG
-                             89 	.globl _NR32_REG
-                             90 	.globl _NR31_REG
-                             91 	.globl _NR30_REG
-                             92 	.globl _NR24_REG
-                             93 	.globl _NR23_REG
-                             94 	.globl _NR22_REG
-                             95 	.globl _NR21_REG
-                             96 	.globl _NR14_REG
-                             97 	.globl _NR13_REG
-                             98 	.globl _NR12_REG
-                             99 	.globl _NR11_REG
-                            100 	.globl _NR10_REG
-                            101 	.globl _IF_REG
-                            102 	.globl _TAC_REG
-                            103 	.globl _TMA_REG
-                            104 	.globl _TIMA_REG
-                            105 	.globl _DIV_REG
-                            106 	.globl _SC_REG
-                            107 	.globl _SB_REG
-                            108 	.globl _P1_REG
-                            109 	.globl __io_out
-                            110 	.globl __io_in
-                            111 	.globl __io_status
-                            112 	.globl _sys_time
-                            113 	.globl __cpu
+                             52 	.globl _IE_REG
+                             53 	.globl _SVBK_REG
+                             54 	.globl _OCPD_REG
+                             55 	.globl _OCPS_REG
+                             56 	.globl _BCPD_REG
+                             57 	.globl _BCPS_REG
+                             58 	.globl _RP_REG
+                             59 	.globl _HDMA5_REG
+                             60 	.globl _HDMA4_REG
+                             61 	.globl _HDMA3_REG
+                             62 	.globl _HDMA2_REG
+                             63 	.globl _HDMA1_REG
+                             64 	.globl _VBK_REG
+                             65 	.globl _KEY1_REG
+                             66 	.globl _WX_REG
+                             67 	.globl _WY_REG
+                             68 	.globl _OBP1_REG
+                             69 	.globl _OBP0_REG
+                             70 	.globl _BGP_REG
+                             71 	.globl _DMA_REG
+                             72 	.globl _LYC_REG
+                             73 	.globl _LY_REG
+                             74 	.globl _SCX_REG
+                             75 	.globl _SCY_REG
+                             76 	.globl _STAT_REG
+                             77 	.globl _LCDC_REG
+                             78 	.globl _NR52_REG
+                             79 	.globl _NR51_REG
+                             80 	.globl _NR50_REG
+                             81 	.globl _NR44_REG
+                             82 	.globl _NR43_REG
+                             83 	.globl _NR42_REG
+                             84 	.globl _NR41_REG
+                             85 	.globl _NR34_REG
+                             86 	.globl _NR33_REG
+                             87 	.globl _NR32_REG
+                             88 	.globl _NR31_REG
+                             89 	.globl _NR30_REG
+                             90 	.globl _NR24_REG
+                             91 	.globl _NR23_REG
+                             92 	.globl _NR22_REG
+                             93 	.globl _NR21_REG
+                             94 	.globl _NR14_REG
+                             95 	.globl _NR13_REG
+                             96 	.globl _NR12_REG
+                             97 	.globl _NR11_REG
+                             98 	.globl _NR10_REG
+                             99 	.globl _IF_REG
+                            100 	.globl _TAC_REG
+                            101 	.globl _TMA_REG
+                            102 	.globl _TIMA_REG
+                            103 	.globl _DIV_REG
+                            104 	.globl _SC_REG
+                            105 	.globl _SB_REG
+                            106 	.globl _P1_REG
+                            107 	.globl __io_out
+                            108 	.globl __io_in
+                            109 	.globl __io_status
+                            110 	.globl _sys_time
+                            111 	.globl __cpu
+                            112 ;--------------------------------------------------------
+                            113 ; special function registers
                             114 ;--------------------------------------------------------
-                            115 ; special function registers
-                            116 ;--------------------------------------------------------
+                            115 ;--------------------------------------------------------
+                            116 ; special function bits 
                             117 ;--------------------------------------------------------
-                            118 ; special function bits 
-                            119 ;--------------------------------------------------------
+                            118 ;--------------------------------------------------------
+                            119 ; internal ram data
                             120 ;--------------------------------------------------------
-                            121 ; internal ram data
-                            122 ;--------------------------------------------------------
-                            123 	.area _DATA
-   0000                     124 _cursor::
-   0000                     125 	.ds 128
-   0080                     126 _keyboardTiles::
-   0080                     127 	.ds 1664
-   0700                     128 _keyboardMap::
-   0700                     129 	.ds 360
-   0868                     130 _display::
-   0868                     131 	.ds 15
-   0877                     132 _displayDigits::
-   0877                     133 	.ds 24
-   088F                     134 _lastTime::
-   088F                     135 	.ds 2
-   0891                     136 _currentCursorSpriteIndex::
-   0891                     137 	.ds 2
-   0893                     138 _cursorLocations::
-   0893                     139 	.ds 80
-   08E3                     140 _cursorX::
-   08E3                     141 	.ds 2
-   08E5                     142 _cursorY::
-   08E5                     143 	.ds 2
-   08E7                     144 _maxPosX::
-   08E7                     145 	.ds 2
-   08E9                     146 _maxPosY::
-   08E9                     147 	.ds 2
+                            121 	.area _DATA
+   0000                     122 _cursor::
+   0000                     123 	.ds 128
+   0080                     124 _keyboardTiles::
+   0080                     125 	.ds 1664
+   0700                     126 _keyboardMap::
+   0700                     127 	.ds 360
+   0868                     128 _display::
+   0868                     129 	.ds 12
+   0874                     130 _lastTime::
+   0874                     131 	.ds 2
+   0876                     132 _currentCursorSpriteIndex::
+   0876                     133 	.ds 2
+   0878                     134 _cursorLocations::
+   0878                     135 	.ds 80
+   08C8                     136 _keyboardOptions::
+   08C8                     137 	.ds 20
+   08DC                     138 _cursorX::
+   08DC                     139 	.ds 2
+   08DE                     140 _cursorY::
+   08DE                     141 	.ds 2
+   08E0                     142 _maxPosX::
+   08E0                     143 	.ds 2
+   08E2                     144 _maxPosY::
+   08E2                     145 	.ds 2
+   08E4                     146 _keydown::
+   08E4                     147 	.ds 2
                             148 ;--------------------------------------------------------
                             149 ; overlayable items in internal ram 
                             150 ;--------------------------------------------------------
@@ -167,7 +167,7 @@
                             167 	.area _GSINIT
                             168 	.area _GSFINAL
                             169 	.area _GSINIT
-                            170 ;	main.c 202
+                            170 ;	main.c 214
                             171 ; genAssign (pointer)
    0000 11 00 00            172 	ld	de,#_cursor + 0
    0003 3E 00               173 	ld	a,#0x00
@@ -934,7 +934,7 @@
                             934 ; genAssign (pointer)
    02FD 3E 00               935 	ld	a,#0x00
    02FF 12                  936 	ld	(de),a
-                            937 ;	main.c 202
+                            937 ;	main.c 214
                             938 ; genAssign (pointer)
    0300 11 80 00            939 	ld	de,#_keyboardTiles + 0
    0303 3E 00               940 	ld	a,#0x00
@@ -10917,7 +10917,7 @@
                           10917 ; genAssign (pointer)
    29FD 3E 07             10918 	ld	a,#0x07
    29FF 12                10919 	ld	(de),a
-                          10920 ;	main.c 202
+                          10920 ;	main.c 214
                           10921 ; genAssign (pointer)
    2A00 11 00 07          10922 	ld	de,#_keyboardMap + 0
    2A03 3E 00             10923 	ld	a,#0x00
@@ -13076,1860 +13076,1875 @@
                           13076 ; genAssign (pointer)
    326D 3E 00             13077 	ld	a,#0x00
    326F 12                13078 	ld	(de),a
-                          13079 ;	main.c 202
+                          13079 ;	main.c 214
                           13080 ; genAssign (pointer)
    3270 11 68 08          13081 	ld	de,#_display + 0
-   3273 3E 31             13082 	ld	a,#0x31
+   3273 3E 30             13082 	ld	a,#0x30
    3275 12                13083 	ld	(de),a
                           13084 ; genPlus
                           13085 ; genPlusIncr
    3276 11 69 08          13086 	ld	de,#_display + 0 + 1
                           13087 ; genAssign (pointer)
-   3279 3E 30             13088 	ld	a,#0x30
+   3279 3E 00             13088 	ld	a,#0x00
    327B 12                13089 	ld	(de),a
-                          13090 ; genPlus
-                          13091 ; genPlusIncr
-   327C 11 6A 08          13092 	ld	de,#_display + 0 + 2
-                          13093 ; genAssign (pointer)
-   327F 3E 30             13094 	ld	a,#0x30
-   3281 12                13095 	ld	(de),a
-                          13096 ; genPlus
-                          13097 ; genPlusIncr
-   3282 11 6B 08          13098 	ld	de,#_display + 0 + 3
-                          13099 ; genAssign (pointer)
-   3285 3E 30             13100 	ld	a,#0x30
-   3287 12                13101 	ld	(de),a
-                          13102 ; genPlus
-                          13103 ; genPlusIncr
-   3288 11 6C 08          13104 	ld	de,#_display + 0 + 4
+                          13090 ;	main.c 214
+                          13091 ; genAssign
+                          13092 ; AOP_HL for _lastTime
+   327C 21 74 08          13093 	ld	hl,#_lastTime + 0
+   327F 36 00             13094 	ld	(hl),#0x00
+   3281 23                13095 	inc	hl
+   3282 36 00             13096 	ld	(hl),#0x00
+                          13097 ;	main.c 214
+                          13098 ; genAssign
+                          13099 ; AOP_HL for _currentCursorSpriteIndex
+   3284 21 76 08          13100 	ld	hl,#_currentCursorSpriteIndex + 0
+   3287 36 00             13101 	ld	(hl),#0x00
+   3289 23                13102 	inc	hl
+   328A 36 00             13103 	ld	(hl),#0x00
+                          13104 ;	main.c 214
                           13105 ; genAssign (pointer)
-   328B 3E 30             13106 	ld	a,#0x30
-   328D 12                13107 	ld	(de),a
-                          13108 ; genPlus
-                          13109 ; genPlusIncr
-   328E 11 6D 08          13110 	ld	de,#_display + 0 + 5
-                          13111 ; genAssign (pointer)
-   3291 3E 30             13112 	ld	a,#0x30
-   3293 12                13113 	ld	(de),a
-                          13114 ; genPlus
-                          13115 ; genPlusIncr
-   3294 11 6E 08          13116 	ld	de,#_display + 0 + 6
-                          13117 ; genAssign (pointer)
-   3297 3E 00             13118 	ld	a,#0x00
-   3299 12                13119 	ld	(de),a
-                          13120 ;	main.c 202
-                          13121 ; genAssign
-                          13122 ; AOP_HL for _lastTime
-   329A 21 8F 08          13123 	ld	hl,#_lastTime + 0
-   329D 36 00             13124 	ld	(hl),#0x00
-   329F 23                13125 	inc	hl
-   32A0 36 00             13126 	ld	(hl),#0x00
-                          13127 ;	main.c 202
-                          13128 ; genAssign
-                          13129 ; AOP_HL for _currentCursorSpriteIndex
-   32A2 21 91 08          13130 	ld	hl,#_currentCursorSpriteIndex + 0
-   32A5 36 00             13131 	ld	(hl),#0x00
-   32A7 23                13132 	inc	hl
-   32A8 36 00             13133 	ld	(hl),#0x00
-                          13134 ;	main.c 202
-                          13135 ; genAssign (pointer)
-   32AA 11 93 08          13136 	ld	de,#_cursorLocations + 0
-   32AD 3E 28             13137 	ld	a,#0x28
-   32AF 12                13138 	ld	(de),a
-   32B0 13                13139 	inc	de
-   32B1 3E 00             13140 	ld	a,#0x00
-   32B3 12                13141 	ld	(de),a
-                          13142 ; genPlus
-                          13143 ; genPlusIncr
-   32B4 11 95 08          13144 	ld	de,#_cursorLocations + 0 + 2
-                          13145 ; genAssign (pointer)
-   32B7 3E 30             13146 	ld	a,#0x30
-   32B9 12                13147 	ld	(de),a
-   32BA 13                13148 	inc	de
-   32BB 3E 00             13149 	ld	a,#0x00
-   32BD 12                13150 	ld	(de),a
-                          13151 ; genPlus
-                          13152 ; genPlusIncr
-   32BE 11 97 08          13153 	ld	de,#_cursorLocations + 0 + 4
-                          13154 ; genAssign (pointer)
-   32C1 3E 40             13155 	ld	a,#0x40
-   32C3 12                13156 	ld	(de),a
-   32C4 13                13157 	inc	de
-   32C5 3E 00             13158 	ld	a,#0x00
-   32C7 12                13159 	ld	(de),a
-                          13160 ; genPlus
-                          13161 ; genPlusIncr
-   32C8 11 99 08          13162 	ld	de,#_cursorLocations + 0 + 6
-                          13163 ; genAssign (pointer)
-   32CB 3E 30             13164 	ld	a,#0x30
-   32CD 12                13165 	ld	(de),a
-   32CE 13                13166 	inc	de
-   32CF 3E 00             13167 	ld	a,#0x00
-   32D1 12                13168 	ld	(de),a
-                          13169 ; genPlus
-                          13170 ; genPlusIncr
-   32D2 11 9B 08          13171 	ld	de,#_cursorLocations + 0 + 8
-                          13172 ; genAssign (pointer)
-   32D5 3E 58             13173 	ld	a,#0x58
-   32D7 12                13174 	ld	(de),a
-   32D8 13                13175 	inc	de
-   32D9 3E 00             13176 	ld	a,#0x00
-   32DB 12                13177 	ld	(de),a
-                          13178 ; genPlus
-                          13179 ; genPlusIncr
-   32DC 11 9D 08          13180 	ld	de,#_cursorLocations + 0 + 10
-                          13181 ; genAssign (pointer)
-   32DF 3E 30             13182 	ld	a,#0x30
-   32E1 12                13183 	ld	(de),a
-   32E2 13                13184 	inc	de
-   32E3 3E 00             13185 	ld	a,#0x00
-   32E5 12                13186 	ld	(de),a
-                          13187 ; genPlus
-                          13188 ; genPlusIncr
-   32E6 11 9F 08          13189 	ld	de,#_cursorLocations + 0 + 12
-                          13190 ; genAssign (pointer)
-   32E9 3E 78             13191 	ld	a,#0x78
-   32EB 12                13192 	ld	(de),a
-   32EC 13                13193 	inc	de
-   32ED 3E 00             13194 	ld	a,#0x00
-   32EF 12                13195 	ld	(de),a
-                          13196 ; genPlus
-                          13197 ; genPlusIncr
-   32F0 11 A1 08          13198 	ld	de,#_cursorLocations + 0 + 14
-                          13199 ; genAssign (pointer)
-   32F3 3E 30             13200 	ld	a,#0x30
-   32F5 12                13201 	ld	(de),a
-   32F6 13                13202 	inc	de
-   32F7 3E 00             13203 	ld	a,#0x00
-   32F9 12                13204 	ld	(de),a
-                          13205 ; genPlus
-                          13206 ; genPlusIncr
-   32FA 11 A3 08          13207 	ld	de,#_cursorLocations + 0 + 16
-                          13208 ; genAssign (pointer)
-   32FD 3E 28             13209 	ld	a,#0x28
-   32FF 12                13210 	ld	(de),a
-   3300 13                13211 	inc	de
-   3301 3E 00             13212 	ld	a,#0x00
-   3303 12                13213 	ld	(de),a
-                          13214 ; genPlus
-                          13215 ; genPlusIncr
-   3304 11 A5 08          13216 	ld	de,#_cursorLocations + 0 + 18
-                          13217 ; genAssign (pointer)
-   3307 3E 48             13218 	ld	a,#0x48
-   3309 12                13219 	ld	(de),a
-   330A 13                13220 	inc	de
-   330B 3E 00             13221 	ld	a,#0x00
-   330D 12                13222 	ld	(de),a
-                          13223 ; genPlus
-                          13224 ; genPlusIncr
-   330E 11 A7 08          13225 	ld	de,#_cursorLocations + 0 + 20
-                          13226 ; genAssign (pointer)
-   3311 3E 40             13227 	ld	a,#0x40
-   3313 12                13228 	ld	(de),a
-   3314 13                13229 	inc	de
-   3315 3E 00             13230 	ld	a,#0x00
-   3317 12                13231 	ld	(de),a
-                          13232 ; genPlus
-                          13233 ; genPlusIncr
-   3318 11 A9 08          13234 	ld	de,#_cursorLocations + 0 + 22
-                          13235 ; genAssign (pointer)
-   331B 3E 48             13236 	ld	a,#0x48
-   331D 12                13237 	ld	(de),a
-   331E 13                13238 	inc	de
-   331F 3E 00             13239 	ld	a,#0x00
-   3321 12                13240 	ld	(de),a
-                          13241 ; genPlus
-                          13242 ; genPlusIncr
-   3322 11 AB 08          13243 	ld	de,#_cursorLocations + 0 + 24
-                          13244 ; genAssign (pointer)
-   3325 3E 58             13245 	ld	a,#0x58
-   3327 12                13246 	ld	(de),a
-   3328 13                13247 	inc	de
-   3329 3E 00             13248 	ld	a,#0x00
-   332B 12                13249 	ld	(de),a
-                          13250 ; genPlus
-                          13251 ; genPlusIncr
-   332C 11 AD 08          13252 	ld	de,#_cursorLocations + 0 + 26
-                          13253 ; genAssign (pointer)
-   332F 3E 48             13254 	ld	a,#0x48
-   3331 12                13255 	ld	(de),a
-   3332 13                13256 	inc	de
-   3333 3E 00             13257 	ld	a,#0x00
-   3335 12                13258 	ld	(de),a
-                          13259 ; genPlus
-                          13260 ; genPlusIncr
-   3336 11 AF 08          13261 	ld	de,#_cursorLocations + 0 + 28
-                          13262 ; genAssign (pointer)
-   3339 3E 78             13263 	ld	a,#0x78
-   333B 12                13264 	ld	(de),a
-   333C 13                13265 	inc	de
-   333D 3E 00             13266 	ld	a,#0x00
-   333F 12                13267 	ld	(de),a
-                          13268 ; genPlus
-                          13269 ; genPlusIncr
-   3340 11 B1 08          13270 	ld	de,#_cursorLocations + 0 + 30
-                          13271 ; genAssign (pointer)
-   3343 3E 48             13272 	ld	a,#0x48
-   3345 12                13273 	ld	(de),a
-   3346 13                13274 	inc	de
-   3347 3E 00             13275 	ld	a,#0x00
-   3349 12                13276 	ld	(de),a
-                          13277 ; genPlus
-                          13278 ; genPlusIncr
-   334A 11 B3 08          13279 	ld	de,#_cursorLocations + 0 + 32
-                          13280 ; genAssign (pointer)
-   334D 3E 28             13281 	ld	a,#0x28
-   334F 12                13282 	ld	(de),a
-   3350 13                13283 	inc	de
-   3351 3E 00             13284 	ld	a,#0x00
-   3353 12                13285 	ld	(de),a
-                          13286 ; genPlus
-                          13287 ; genPlusIncr
-   3354 11 B5 08          13288 	ld	de,#_cursorLocations + 0 + 34
-                          13289 ; genAssign (pointer)
-   3357 3E 60             13290 	ld	a,#0x60
-   3359 12                13291 	ld	(de),a
-   335A 13                13292 	inc	de
-   335B 3E 00             13293 	ld	a,#0x00
-   335D 12                13294 	ld	(de),a
-                          13295 ; genPlus
-                          13296 ; genPlusIncr
-   335E 11 B7 08          13297 	ld	de,#_cursorLocations + 0 + 36
-                          13298 ; genAssign (pointer)
-   3361 3E 40             13299 	ld	a,#0x40
-   3363 12                13300 	ld	(de),a
-   3364 13                13301 	inc	de
-   3365 3E 00             13302 	ld	a,#0x00
-   3367 12                13303 	ld	(de),a
-                          13304 ; genPlus
-                          13305 ; genPlusIncr
-   3368 11 B9 08          13306 	ld	de,#_cursorLocations + 0 + 38
-                          13307 ; genAssign (pointer)
-   336B 3E 60             13308 	ld	a,#0x60
-   336D 12                13309 	ld	(de),a
-   336E 13                13310 	inc	de
-   336F 3E 00             13311 	ld	a,#0x00
-   3371 12                13312 	ld	(de),a
-                          13313 ; genPlus
-                          13314 ; genPlusIncr
-   3372 11 BB 08          13315 	ld	de,#_cursorLocations + 0 + 40
-                          13316 ; genAssign (pointer)
-   3375 3E 58             13317 	ld	a,#0x58
-   3377 12                13318 	ld	(de),a
-   3378 13                13319 	inc	de
-   3379 3E 00             13320 	ld	a,#0x00
-   337B 12                13321 	ld	(de),a
-                          13322 ; genPlus
-                          13323 ; genPlusIncr
-   337C 11 BD 08          13324 	ld	de,#_cursorLocations + 0 + 42
-                          13325 ; genAssign (pointer)
-   337F 3E 60             13326 	ld	a,#0x60
-   3381 12                13327 	ld	(de),a
-   3382 13                13328 	inc	de
-   3383 3E 00             13329 	ld	a,#0x00
-   3385 12                13330 	ld	(de),a
-                          13331 ; genPlus
-                          13332 ; genPlusIncr
-   3386 11 BF 08          13333 	ld	de,#_cursorLocations + 0 + 44
-                          13334 ; genAssign (pointer)
-   3389 3E 78             13335 	ld	a,#0x78
-   338B 12                13336 	ld	(de),a
-   338C 13                13337 	inc	de
-   338D 3E 00             13338 	ld	a,#0x00
-   338F 12                13339 	ld	(de),a
-                          13340 ; genPlus
-                          13341 ; genPlusIncr
-   3390 11 C1 08          13342 	ld	de,#_cursorLocations + 0 + 46
-                          13343 ; genAssign (pointer)
-   3393 3E 60             13344 	ld	a,#0x60
-   3395 12                13345 	ld	(de),a
-   3396 13                13346 	inc	de
-   3397 3E 00             13347 	ld	a,#0x00
-   3399 12                13348 	ld	(de),a
-                          13349 ; genPlus
-                          13350 ; genPlusIncr
-   339A 11 C3 08          13351 	ld	de,#_cursorLocations + 0 + 48
-                          13352 ; genAssign (pointer)
-   339D 3E 28             13353 	ld	a,#0x28
-   339F 12                13354 	ld	(de),a
-   33A0 13                13355 	inc	de
-   33A1 3E 00             13356 	ld	a,#0x00
-   33A3 12                13357 	ld	(de),a
-                          13358 ; genPlus
-                          13359 ; genPlusIncr
-   33A4 11 C5 08          13360 	ld	de,#_cursorLocations + 0 + 50
-                          13361 ; genAssign (pointer)
-   33A7 3E 78             13362 	ld	a,#0x78
-   33A9 12                13363 	ld	(de),a
-   33AA 13                13364 	inc	de
-   33AB 3E 00             13365 	ld	a,#0x00
-   33AD 12                13366 	ld	(de),a
-                          13367 ; genPlus
-                          13368 ; genPlusIncr
-   33AE 11 C7 08          13369 	ld	de,#_cursorLocations + 0 + 52
-                          13370 ; genAssign (pointer)
-   33B1 3E 40             13371 	ld	a,#0x40
-   33B3 12                13372 	ld	(de),a
-   33B4 13                13373 	inc	de
-   33B5 3E 00             13374 	ld	a,#0x00
-   33B7 12                13375 	ld	(de),a
-                          13376 ; genPlus
-                          13377 ; genPlusIncr
-   33B8 11 C9 08          13378 	ld	de,#_cursorLocations + 0 + 54
-                          13379 ; genAssign (pointer)
-   33BB 3E 78             13380 	ld	a,#0x78
-   33BD 12                13381 	ld	(de),a
-   33BE 13                13382 	inc	de
-   33BF 3E 00             13383 	ld	a,#0x00
-   33C1 12                13384 	ld	(de),a
-                          13385 ; genPlus
-                          13386 ; genPlusIncr
-   33C2 11 CB 08          13387 	ld	de,#_cursorLocations + 0 + 56
-                          13388 ; genAssign (pointer)
-   33C5 3E 58             13389 	ld	a,#0x58
-   33C7 12                13390 	ld	(de),a
-   33C8 13                13391 	inc	de
-   33C9 3E 00             13392 	ld	a,#0x00
-   33CB 12                13393 	ld	(de),a
-                          13394 ; genPlus
-                          13395 ; genPlusIncr
-   33CC 11 CD 08          13396 	ld	de,#_cursorLocations + 0 + 58
-                          13397 ; genAssign (pointer)
-   33CF 3E 78             13398 	ld	a,#0x78
-   33D1 12                13399 	ld	(de),a
-   33D2 13                13400 	inc	de
-   33D3 3E 00             13401 	ld	a,#0x00
-   33D5 12                13402 	ld	(de),a
-                          13403 ; genPlus
-                          13404 ; genPlusIncr
-   33D6 11 CF 08          13405 	ld	de,#_cursorLocations + 0 + 60
-                          13406 ; genAssign (pointer)
-   33D9 3E 78             13407 	ld	a,#0x78
-   33DB 12                13408 	ld	(de),a
-   33DC 13                13409 	inc	de
-   33DD 3E 00             13410 	ld	a,#0x00
-   33DF 12                13411 	ld	(de),a
-                          13412 ; genPlus
-                          13413 ; genPlusIncr
-   33E0 11 D1 08          13414 	ld	de,#_cursorLocations + 0 + 62
-                          13415 ; genAssign (pointer)
-   33E3 3E 78             13416 	ld	a,#0x78
-   33E5 12                13417 	ld	(de),a
-   33E6 13                13418 	inc	de
-   33E7 3E 00             13419 	ld	a,#0x00
-   33E9 12                13420 	ld	(de),a
-                          13421 ; genPlus
-                          13422 ; genPlusIncr
-   33EA 11 D3 08          13423 	ld	de,#_cursorLocations + 0 + 64
-                          13424 ; genAssign (pointer)
-   33ED 3E 28             13425 	ld	a,#0x28
-   33EF 12                13426 	ld	(de),a
-   33F0 13                13427 	inc	de
-   33F1 3E 00             13428 	ld	a,#0x00
-   33F3 12                13429 	ld	(de),a
-                          13430 ; genPlus
-                          13431 ; genPlusIncr
-   33F4 11 D5 08          13432 	ld	de,#_cursorLocations + 0 + 66
-                          13433 ; genAssign (pointer)
-   33F7 3E 90             13434 	ld	a,#0x90
-   33F9 12                13435 	ld	(de),a
-   33FA 13                13436 	inc	de
-   33FB 3E 00             13437 	ld	a,#0x00
-   33FD 12                13438 	ld	(de),a
-                          13439 ; genPlus
-                          13440 ; genPlusIncr
-   33FE 11 D7 08          13441 	ld	de,#_cursorLocations + 0 + 68
-                          13442 ; genAssign (pointer)
-   3401 3E 40             13443 	ld	a,#0x40
-   3403 12                13444 	ld	(de),a
-   3404 13                13445 	inc	de
-   3405 3E 00             13446 	ld	a,#0x00
-   3407 12                13447 	ld	(de),a
-                          13448 ; genPlus
-                          13449 ; genPlusIncr
-   3408 11 D9 08          13450 	ld	de,#_cursorLocations + 0 + 70
-                          13451 ; genAssign (pointer)
-   340B 3E 90             13452 	ld	a,#0x90
-   340D 12                13453 	ld	(de),a
-   340E 13                13454 	inc	de
-   340F 3E 00             13455 	ld	a,#0x00
-   3411 12                13456 	ld	(de),a
-                          13457 ; genPlus
-                          13458 ; genPlusIncr
-   3412 11 DB 08          13459 	ld	de,#_cursorLocations + 0 + 72
-                          13460 ; genAssign (pointer)
-   3415 3E 58             13461 	ld	a,#0x58
-   3417 12                13462 	ld	(de),a
-   3418 13                13463 	inc	de
-   3419 3E 00             13464 	ld	a,#0x00
-   341B 12                13465 	ld	(de),a
-                          13466 ; genPlus
-                          13467 ; genPlusIncr
-   341C 11 DD 08          13468 	ld	de,#_cursorLocations + 0 + 74
-                          13469 ; genAssign (pointer)
-   341F 3E 90             13470 	ld	a,#0x90
-   3421 12                13471 	ld	(de),a
-   3422 13                13472 	inc	de
-   3423 3E 00             13473 	ld	a,#0x00
-   3425 12                13474 	ld	(de),a
-                          13475 ; genPlus
-                          13476 ; genPlusIncr
-   3426 11 DF 08          13477 	ld	de,#_cursorLocations + 0 + 76
-                          13478 ; genAssign (pointer)
-   3429 3E 78             13479 	ld	a,#0x78
-   342B 12                13480 	ld	(de),a
-   342C 13                13481 	inc	de
-   342D 3E 00             13482 	ld	a,#0x00
-   342F 12                13483 	ld	(de),a
-                          13484 ; genPlus
-                          13485 ; genPlusIncr
-   3430 11 E1 08          13486 	ld	de,#_cursorLocations + 0 + 78
-                          13487 ; genAssign (pointer)
-   3433 3E 90             13488 	ld	a,#0x90
-   3435 12                13489 	ld	(de),a
-   3436 13                13490 	inc	de
-   3437 3E 00             13491 	ld	a,#0x00
-   3439 12                13492 	ld	(de),a
-                          13493 ;	main.c 202
-                          13494 ; genAssign
-                          13495 ; AOP_HL for _cursorX
-   343A 21 E3 08          13496 	ld	hl,#_cursorX + 0
-   343D 36 00             13497 	ld	(hl),#0x00
-   343F 23                13498 	inc	hl
-   3440 36 00             13499 	ld	(hl),#0x00
-                          13500 ;	main.c 202
-                          13501 ; genAssign
-                          13502 ; AOP_HL for _cursorY
-   3442 21 E5 08          13503 	ld	hl,#_cursorY + 0
-   3445 36 00             13504 	ld	(hl),#0x00
-   3447 23                13505 	inc	hl
-   3448 36 00             13506 	ld	(hl),#0x00
-                          13507 ;	main.c 202
-                          13508 ; genAssign
-                          13509 ; AOP_HL for _maxPosX
-   344A 21 E7 08          13510 	ld	hl,#_maxPosX + 0
-   344D 36 00             13511 	ld	(hl),#0x00
-   344F 23                13512 	inc	hl
-   3450 36 00             13513 	ld	(hl),#0x00
-                          13514 ;	main.c 202
-                          13515 ; genAssign
-                          13516 ; AOP_HL for _maxPosY
-   3452 21 E9 08          13517 	ld	hl,#_maxPosY + 0
-   3455 36 00             13518 	ld	(hl),#0x00
-   3457 23                13519 	inc	hl
-   3458 36 00             13520 	ld	(hl),#0x00
-                          13521 ;--------------------------------------------------------
-                          13522 ; Home
-                          13523 ;--------------------------------------------------------
-                          13524 	.area _HOME
-                          13525 	.area _CODE
-                          13526 ;--------------------------------------------------------
-                          13527 ; code
-                          13528 ;--------------------------------------------------------
-                          13529 	.area _CODE
-                          13530 ;	main.c 39
-                          13531 ; genLabel
-                          13532 ; genFunction
-                          13533 ;	---------------------------------
-                          13534 ; Function main
-                          13535 ; ---------------------------------
-   0000                   13536 ___main_start:
-   0000                   13537 _main:
-                          13538 	
-                          13539 ;	main.c 41
-                          13540 ; genAssign
-                          13541 ; AOP_HL for _maxPosX
-   0000 21 E7 08          13542 	ld	hl,#_maxPosX + 0
-   0003 36 03             13543 	ld	(hl),#0x03
-   0005 23                13544 	inc	hl
-   0006 36 00             13545 	ld	(hl),#0x00
-                          13546 ;	main.c 42
-                          13547 ; genAssign
-                          13548 ; AOP_HL for _maxPosY
-   0008 21 E9 08          13549 	ld	hl,#_maxPosY + 0
-   000B 36 04             13550 	ld	(hl),#0x04
-   000D 23                13551 	inc	hl
-   000E 36 00             13552 	ld	(hl),#0x00
-                          13553 ;	main.c 44
-                          13554 ; genOr
-                          13555 ; AOP_SFR for _LCDC_REG
-                          13556 ; Type res[4] = l[4]&r[1]
-                          13557 ; Size res[1] = l[1]&r[1]
-   0010 F0 00             13558 	ldh	a,(_LCDC_REG+0) ; x
-   0012 F6 04             13559 	or	a,#0x04
-   0014 E0 00             13560 	ldh	(_LCDC_REG+0),a
-                          13561 ;	main.c 45
-                          13562 ; genIpush
-   0016 21 00 00          13563 	ld	hl,#_cursor + 0
-   0019 E5                13564 	push	hl
-                          13565 ; genIpush
-   001A 3E 08             13566 	ld	a,#0x08
-   001C F5                13567 	push	af
-   001D 33                13568 	inc	sp
-                          13569 ; genIpush
-   001E 3E 00             13570 	ld	a,#0x00
-   0020 F5                13571 	push	af
-   0021 33                13572 	inc	sp
-                          13573 ; genCall
-   0022 CD 00 00          13574 	call	_set_sprite_data
-   0025 E8 04             13575 	lda	sp,4(sp)
-                          13576 ;	main.c 46
-                          13577 ; genIpush
-   0027 3E 00             13578 	ld	a,#0x00
-   0029 F5                13579 	push	af
-   002A 33                13580 	inc	sp
-                          13581 ; genIpush
-   002B 3E 00             13582 	ld	a,#0x00
-   002D F5                13583 	push	af
-   002E 33                13584 	inc	sp
-                          13585 ; genCall
-   002F CD 00 00          13586 	call	_set_sprite_tile
-   0032 E8 02             13587 	lda	sp,2(sp)
-                          13588 ;	main.c 47
-                          13589 ; genIpush
-   0034 3E 02             13590 	ld	a,#0x02
-   0036 F5                13591 	push	af
-   0037 33                13592 	inc	sp
-                          13593 ; genIpush
-   0038 3E 01             13594 	ld	a,#0x01
-   003A F5                13595 	push	af
-   003B 33                13596 	inc	sp
-                          13597 ; genCall
-   003C CD 00 00          13598 	call	_set_sprite_tile
-   003F E8 02             13599 	lda	sp,2(sp)
-                          13600 ;	main.c 49
-                          13601 ; genIpush
-   0041 3E 48             13602 	ld	a,#0x48
-   0043 F5                13603 	push	af
-   0044 33                13604 	inc	sp
-                          13605 ; genIpush
-   0045 3E 28             13606 	ld	a,#0x28
-   0047 F5                13607 	push	af
-   0048 33                13608 	inc	sp
-                          13609 ; genIpush
-   0049 3E 00             13610 	ld	a,#0x00
-   004B F5                13611 	push	af
-   004C 33                13612 	inc	sp
-                          13613 ; genCall
-   004D CD 00 00          13614 	call	_move_sprite
-   0050 E8 03             13615 	lda	sp,3(sp)
-                          13616 ;	main.c 50
-                          13617 ; genIpush
-   0052 3E 48             13618 	ld	a,#0x48
-   0054 F5                13619 	push	af
-   0055 33                13620 	inc	sp
-                          13621 ; genIpush
-   0056 3E 30             13622 	ld	a,#0x30
-   0058 F5                13623 	push	af
-   0059 33                13624 	inc	sp
-                          13625 ; genIpush
-   005A 3E 01             13626 	ld	a,#0x01
-   005C F5                13627 	push	af
-   005D 33                13628 	inc	sp
-                          13629 ; genCall
-   005E CD 00 00          13630 	call	_move_sprite
-   0061 E8 03             13631 	lda	sp,3(sp)
-                          13632 ;	main.c 52
-                          13633 ; genIpush
-   0063 21 80 00          13634 	ld	hl,#_keyboardTiles + 0
-   0066 E5                13635 	push	hl
-                          13636 ; genIpush
-   0067 3E 67             13637 	ld	a,#0x67
-   0069 F5                13638 	push	af
-   006A 33                13639 	inc	sp
-                          13640 ; genIpush
-   006B 3E 00             13641 	ld	a,#0x00
-   006D F5                13642 	push	af
-   006E 33                13643 	inc	sp
-                          13644 ; genCall
-   006F CD 00 00          13645 	call	_set_bkg_data
-   0072 E8 04             13646 	lda	sp,4(sp)
-                          13647 ;	main.c 53
-                          13648 ; genIpush
-   0074 21 00 07          13649 	ld	hl,#_keyboardMap + 0
-   0077 E5                13650 	push	hl
-                          13651 ; genIpush
-   0078 3E 12             13652 	ld	a,#0x12
-   007A F5                13653 	push	af
-   007B 33                13654 	inc	sp
-                          13655 ; genIpush
-   007C 3E 14             13656 	ld	a,#0x14
-   007E F5                13657 	push	af
-   007F 33                13658 	inc	sp
-                          13659 ; genIpush
-   0080 3E 00             13660 	ld	a,#0x00
-   0082 F5                13661 	push	af
-   0083 33                13662 	inc	sp
-                          13663 ; genIpush
-   0084 3E 00             13664 	ld	a,#0x00
-   0086 F5                13665 	push	af
-   0087 33                13666 	inc	sp
-                          13667 ; genCall
-   0088 CD 00 00          13668 	call	_set_bkg_tiles
-   008B E8 06             13669 	lda	sp,6(sp)
-                          13670 ;	main.c 55
-                          13671 ; genOr
-                          13672 ; AOP_SFR for _LCDC_REG
-                          13673 ; Type res[4] = l[4]&r[1]
-                          13674 ; Size res[1] = l[1]&r[1]
-   008D F0 00             13675 	ldh	a,(_LCDC_REG+0) ; x
-   008F F6 01             13676 	or	a,#0x01
-   0091 E0 00             13677 	ldh	(_LCDC_REG+0),a
-                          13678 ;	main.c 56
-                          13679 ; genOr
-                          13680 ; AOP_SFR for _LCDC_REG
-                          13681 ; Type res[4] = l[4]&r[1]
-                          13682 ; Size res[1] = l[1]&r[1]
-   0093 F0 00             13683 	ldh	a,(_LCDC_REG+0) ; x
-   0095 F6 02             13684 	or	a,#0x02
-   0097 E0 00             13685 	ldh	(_LCDC_REG+0),a
-                          13686 ;	main.c 57
-                          13687 ; genOr
-                          13688 ; AOP_SFR for _LCDC_REG
-                          13689 ; Type res[4] = l[4]&r[1]
-                          13690 ; Size res[1] = l[1]&r[1]
-   0099 F0 00             13691 	ldh	a,(_LCDC_REG+0) ; x
-   009B F6 80             13692 	or	a,#0x80
-   009D E0 00             13693 	ldh	(_LCDC_REG+0),a
-                          13694 ;	main.c 59
-                          13695 ; genIpush
-   009F 21 00 00          13696 	ld	hl,#0x0000
-   00A2 E5                13697 	push	hl
-                          13698 ; genCall
-   00A3 CD BF 03          13699 	call	_toDisplay
-   00A6 E8 02             13700 	lda	sp,2(sp)
-                          13701 ;	main.c 61
-                          13702 ; genLabel
-   00A8                   13703 00102$:
-                          13704 ;	main.c 63
-                          13705 ; genCall
-   00A8 CD C7 00          13706 	call	_updateDisplay
-                          13707 ;	main.c 64
-                          13708 ; genCall
-   00AB CD C1 01          13709 	call	_keyboard
-                          13710 ;	main.c 65
-                          13711 ; genCall
-   00AE CD 9A 02          13712 	call	_changeCursorPosition
-                          13713 ;	main.c 67
-                          13714 ; genIpush
-   00B1 21 8F 08          13715 	ld	hl,#_lastTime + 0
-   00B4 E5                13716 	push	hl
-                          13717 ; genCall
-   00B5 CD 23 03          13718 	call	_changeCursorDelay
-   00B8 E8 02             13719 	lda	sp,2(sp)
-                          13720 ;	main.c 68
+   328C 11 78 08          13106 	ld	de,#_cursorLocations + 0
+   328F 3E 28             13107 	ld	a,#0x28
+   3291 12                13108 	ld	(de),a
+   3292 13                13109 	inc	de
+   3293 3E 00             13110 	ld	a,#0x00
+   3295 12                13111 	ld	(de),a
+                          13112 ; genPlus
+                          13113 ; genPlusIncr
+   3296 11 7A 08          13114 	ld	de,#_cursorLocations + 0 + 2
+                          13115 ; genAssign (pointer)
+   3299 3E 30             13116 	ld	a,#0x30
+   329B 12                13117 	ld	(de),a
+   329C 13                13118 	inc	de
+   329D 3E 00             13119 	ld	a,#0x00
+   329F 12                13120 	ld	(de),a
+                          13121 ; genPlus
+                          13122 ; genPlusIncr
+   32A0 11 7C 08          13123 	ld	de,#_cursorLocations + 0 + 4
+                          13124 ; genAssign (pointer)
+   32A3 3E 40             13125 	ld	a,#0x40
+   32A5 12                13126 	ld	(de),a
+   32A6 13                13127 	inc	de
+   32A7 3E 00             13128 	ld	a,#0x00
+   32A9 12                13129 	ld	(de),a
+                          13130 ; genPlus
+                          13131 ; genPlusIncr
+   32AA 11 7E 08          13132 	ld	de,#_cursorLocations + 0 + 6
+                          13133 ; genAssign (pointer)
+   32AD 3E 30             13134 	ld	a,#0x30
+   32AF 12                13135 	ld	(de),a
+   32B0 13                13136 	inc	de
+   32B1 3E 00             13137 	ld	a,#0x00
+   32B3 12                13138 	ld	(de),a
+                          13139 ; genPlus
+                          13140 ; genPlusIncr
+   32B4 11 80 08          13141 	ld	de,#_cursorLocations + 0 + 8
+                          13142 ; genAssign (pointer)
+   32B7 3E 58             13143 	ld	a,#0x58
+   32B9 12                13144 	ld	(de),a
+   32BA 13                13145 	inc	de
+   32BB 3E 00             13146 	ld	a,#0x00
+   32BD 12                13147 	ld	(de),a
+                          13148 ; genPlus
+                          13149 ; genPlusIncr
+   32BE 11 82 08          13150 	ld	de,#_cursorLocations + 0 + 10
+                          13151 ; genAssign (pointer)
+   32C1 3E 30             13152 	ld	a,#0x30
+   32C3 12                13153 	ld	(de),a
+   32C4 13                13154 	inc	de
+   32C5 3E 00             13155 	ld	a,#0x00
+   32C7 12                13156 	ld	(de),a
+                          13157 ; genPlus
+                          13158 ; genPlusIncr
+   32C8 11 84 08          13159 	ld	de,#_cursorLocations + 0 + 12
+                          13160 ; genAssign (pointer)
+   32CB 3E 78             13161 	ld	a,#0x78
+   32CD 12                13162 	ld	(de),a
+   32CE 13                13163 	inc	de
+   32CF 3E 00             13164 	ld	a,#0x00
+   32D1 12                13165 	ld	(de),a
+                          13166 ; genPlus
+                          13167 ; genPlusIncr
+   32D2 11 86 08          13168 	ld	de,#_cursorLocations + 0 + 14
+                          13169 ; genAssign (pointer)
+   32D5 3E 30             13170 	ld	a,#0x30
+   32D7 12                13171 	ld	(de),a
+   32D8 13                13172 	inc	de
+   32D9 3E 00             13173 	ld	a,#0x00
+   32DB 12                13174 	ld	(de),a
+                          13175 ; genPlus
+                          13176 ; genPlusIncr
+   32DC 11 88 08          13177 	ld	de,#_cursorLocations + 0 + 16
+                          13178 ; genAssign (pointer)
+   32DF 3E 28             13179 	ld	a,#0x28
+   32E1 12                13180 	ld	(de),a
+   32E2 13                13181 	inc	de
+   32E3 3E 00             13182 	ld	a,#0x00
+   32E5 12                13183 	ld	(de),a
+                          13184 ; genPlus
+                          13185 ; genPlusIncr
+   32E6 11 8A 08          13186 	ld	de,#_cursorLocations + 0 + 18
+                          13187 ; genAssign (pointer)
+   32E9 3E 48             13188 	ld	a,#0x48
+   32EB 12                13189 	ld	(de),a
+   32EC 13                13190 	inc	de
+   32ED 3E 00             13191 	ld	a,#0x00
+   32EF 12                13192 	ld	(de),a
+                          13193 ; genPlus
+                          13194 ; genPlusIncr
+   32F0 11 8C 08          13195 	ld	de,#_cursorLocations + 0 + 20
+                          13196 ; genAssign (pointer)
+   32F3 3E 40             13197 	ld	a,#0x40
+   32F5 12                13198 	ld	(de),a
+   32F6 13                13199 	inc	de
+   32F7 3E 00             13200 	ld	a,#0x00
+   32F9 12                13201 	ld	(de),a
+                          13202 ; genPlus
+                          13203 ; genPlusIncr
+   32FA 11 8E 08          13204 	ld	de,#_cursorLocations + 0 + 22
+                          13205 ; genAssign (pointer)
+   32FD 3E 48             13206 	ld	a,#0x48
+   32FF 12                13207 	ld	(de),a
+   3300 13                13208 	inc	de
+   3301 3E 00             13209 	ld	a,#0x00
+   3303 12                13210 	ld	(de),a
+                          13211 ; genPlus
+                          13212 ; genPlusIncr
+   3304 11 90 08          13213 	ld	de,#_cursorLocations + 0 + 24
+                          13214 ; genAssign (pointer)
+   3307 3E 58             13215 	ld	a,#0x58
+   3309 12                13216 	ld	(de),a
+   330A 13                13217 	inc	de
+   330B 3E 00             13218 	ld	a,#0x00
+   330D 12                13219 	ld	(de),a
+                          13220 ; genPlus
+                          13221 ; genPlusIncr
+   330E 11 92 08          13222 	ld	de,#_cursorLocations + 0 + 26
+                          13223 ; genAssign (pointer)
+   3311 3E 48             13224 	ld	a,#0x48
+   3313 12                13225 	ld	(de),a
+   3314 13                13226 	inc	de
+   3315 3E 00             13227 	ld	a,#0x00
+   3317 12                13228 	ld	(de),a
+                          13229 ; genPlus
+                          13230 ; genPlusIncr
+   3318 11 94 08          13231 	ld	de,#_cursorLocations + 0 + 28
+                          13232 ; genAssign (pointer)
+   331B 3E 78             13233 	ld	a,#0x78
+   331D 12                13234 	ld	(de),a
+   331E 13                13235 	inc	de
+   331F 3E 00             13236 	ld	a,#0x00
+   3321 12                13237 	ld	(de),a
+                          13238 ; genPlus
+                          13239 ; genPlusIncr
+   3322 11 96 08          13240 	ld	de,#_cursorLocations + 0 + 30
+                          13241 ; genAssign (pointer)
+   3325 3E 48             13242 	ld	a,#0x48
+   3327 12                13243 	ld	(de),a
+   3328 13                13244 	inc	de
+   3329 3E 00             13245 	ld	a,#0x00
+   332B 12                13246 	ld	(de),a
+                          13247 ; genPlus
+                          13248 ; genPlusIncr
+   332C 11 98 08          13249 	ld	de,#_cursorLocations + 0 + 32
+                          13250 ; genAssign (pointer)
+   332F 3E 28             13251 	ld	a,#0x28
+   3331 12                13252 	ld	(de),a
+   3332 13                13253 	inc	de
+   3333 3E 00             13254 	ld	a,#0x00
+   3335 12                13255 	ld	(de),a
+                          13256 ; genPlus
+                          13257 ; genPlusIncr
+   3336 11 9A 08          13258 	ld	de,#_cursorLocations + 0 + 34
+                          13259 ; genAssign (pointer)
+   3339 3E 60             13260 	ld	a,#0x60
+   333B 12                13261 	ld	(de),a
+   333C 13                13262 	inc	de
+   333D 3E 00             13263 	ld	a,#0x00
+   333F 12                13264 	ld	(de),a
+                          13265 ; genPlus
+                          13266 ; genPlusIncr
+   3340 11 9C 08          13267 	ld	de,#_cursorLocations + 0 + 36
+                          13268 ; genAssign (pointer)
+   3343 3E 40             13269 	ld	a,#0x40
+   3345 12                13270 	ld	(de),a
+   3346 13                13271 	inc	de
+   3347 3E 00             13272 	ld	a,#0x00
+   3349 12                13273 	ld	(de),a
+                          13274 ; genPlus
+                          13275 ; genPlusIncr
+   334A 11 9E 08          13276 	ld	de,#_cursorLocations + 0 + 38
+                          13277 ; genAssign (pointer)
+   334D 3E 60             13278 	ld	a,#0x60
+   334F 12                13279 	ld	(de),a
+   3350 13                13280 	inc	de
+   3351 3E 00             13281 	ld	a,#0x00
+   3353 12                13282 	ld	(de),a
+                          13283 ; genPlus
+                          13284 ; genPlusIncr
+   3354 11 A0 08          13285 	ld	de,#_cursorLocations + 0 + 40
+                          13286 ; genAssign (pointer)
+   3357 3E 58             13287 	ld	a,#0x58
+   3359 12                13288 	ld	(de),a
+   335A 13                13289 	inc	de
+   335B 3E 00             13290 	ld	a,#0x00
+   335D 12                13291 	ld	(de),a
+                          13292 ; genPlus
+                          13293 ; genPlusIncr
+   335E 11 A2 08          13294 	ld	de,#_cursorLocations + 0 + 42
+                          13295 ; genAssign (pointer)
+   3361 3E 60             13296 	ld	a,#0x60
+   3363 12                13297 	ld	(de),a
+   3364 13                13298 	inc	de
+   3365 3E 00             13299 	ld	a,#0x00
+   3367 12                13300 	ld	(de),a
+                          13301 ; genPlus
+                          13302 ; genPlusIncr
+   3368 11 A4 08          13303 	ld	de,#_cursorLocations + 0 + 44
+                          13304 ; genAssign (pointer)
+   336B 3E 78             13305 	ld	a,#0x78
+   336D 12                13306 	ld	(de),a
+   336E 13                13307 	inc	de
+   336F 3E 00             13308 	ld	a,#0x00
+   3371 12                13309 	ld	(de),a
+                          13310 ; genPlus
+                          13311 ; genPlusIncr
+   3372 11 A6 08          13312 	ld	de,#_cursorLocations + 0 + 46
+                          13313 ; genAssign (pointer)
+   3375 3E 60             13314 	ld	a,#0x60
+   3377 12                13315 	ld	(de),a
+   3378 13                13316 	inc	de
+   3379 3E 00             13317 	ld	a,#0x00
+   337B 12                13318 	ld	(de),a
+                          13319 ; genPlus
+                          13320 ; genPlusIncr
+   337C 11 A8 08          13321 	ld	de,#_cursorLocations + 0 + 48
+                          13322 ; genAssign (pointer)
+   337F 3E 28             13323 	ld	a,#0x28
+   3381 12                13324 	ld	(de),a
+   3382 13                13325 	inc	de
+   3383 3E 00             13326 	ld	a,#0x00
+   3385 12                13327 	ld	(de),a
+                          13328 ; genPlus
+                          13329 ; genPlusIncr
+   3386 11 AA 08          13330 	ld	de,#_cursorLocations + 0 + 50
+                          13331 ; genAssign (pointer)
+   3389 3E 78             13332 	ld	a,#0x78
+   338B 12                13333 	ld	(de),a
+   338C 13                13334 	inc	de
+   338D 3E 00             13335 	ld	a,#0x00
+   338F 12                13336 	ld	(de),a
+                          13337 ; genPlus
+                          13338 ; genPlusIncr
+   3390 11 AC 08          13339 	ld	de,#_cursorLocations + 0 + 52
+                          13340 ; genAssign (pointer)
+   3393 3E 40             13341 	ld	a,#0x40
+   3395 12                13342 	ld	(de),a
+   3396 13                13343 	inc	de
+   3397 3E 00             13344 	ld	a,#0x00
+   3399 12                13345 	ld	(de),a
+                          13346 ; genPlus
+                          13347 ; genPlusIncr
+   339A 11 AE 08          13348 	ld	de,#_cursorLocations + 0 + 54
+                          13349 ; genAssign (pointer)
+   339D 3E 78             13350 	ld	a,#0x78
+   339F 12                13351 	ld	(de),a
+   33A0 13                13352 	inc	de
+   33A1 3E 00             13353 	ld	a,#0x00
+   33A3 12                13354 	ld	(de),a
+                          13355 ; genPlus
+                          13356 ; genPlusIncr
+   33A4 11 B0 08          13357 	ld	de,#_cursorLocations + 0 + 56
+                          13358 ; genAssign (pointer)
+   33A7 3E 58             13359 	ld	a,#0x58
+   33A9 12                13360 	ld	(de),a
+   33AA 13                13361 	inc	de
+   33AB 3E 00             13362 	ld	a,#0x00
+   33AD 12                13363 	ld	(de),a
+                          13364 ; genPlus
+                          13365 ; genPlusIncr
+   33AE 11 B2 08          13366 	ld	de,#_cursorLocations + 0 + 58
+                          13367 ; genAssign (pointer)
+   33B1 3E 78             13368 	ld	a,#0x78
+   33B3 12                13369 	ld	(de),a
+   33B4 13                13370 	inc	de
+   33B5 3E 00             13371 	ld	a,#0x00
+   33B7 12                13372 	ld	(de),a
+                          13373 ; genPlus
+                          13374 ; genPlusIncr
+   33B8 11 B4 08          13375 	ld	de,#_cursorLocations + 0 + 60
+                          13376 ; genAssign (pointer)
+   33BB 3E 78             13377 	ld	a,#0x78
+   33BD 12                13378 	ld	(de),a
+   33BE 13                13379 	inc	de
+   33BF 3E 00             13380 	ld	a,#0x00
+   33C1 12                13381 	ld	(de),a
+                          13382 ; genPlus
+                          13383 ; genPlusIncr
+   33C2 11 B6 08          13384 	ld	de,#_cursorLocations + 0 + 62
+                          13385 ; genAssign (pointer)
+   33C5 3E 78             13386 	ld	a,#0x78
+   33C7 12                13387 	ld	(de),a
+   33C8 13                13388 	inc	de
+   33C9 3E 00             13389 	ld	a,#0x00
+   33CB 12                13390 	ld	(de),a
+                          13391 ; genPlus
+                          13392 ; genPlusIncr
+   33CC 11 B8 08          13393 	ld	de,#_cursorLocations + 0 + 64
+                          13394 ; genAssign (pointer)
+   33CF 3E 28             13395 	ld	a,#0x28
+   33D1 12                13396 	ld	(de),a
+   33D2 13                13397 	inc	de
+   33D3 3E 00             13398 	ld	a,#0x00
+   33D5 12                13399 	ld	(de),a
+                          13400 ; genPlus
+                          13401 ; genPlusIncr
+   33D6 11 BA 08          13402 	ld	de,#_cursorLocations + 0 + 66
+                          13403 ; genAssign (pointer)
+   33D9 3E 90             13404 	ld	a,#0x90
+   33DB 12                13405 	ld	(de),a
+   33DC 13                13406 	inc	de
+   33DD 3E 00             13407 	ld	a,#0x00
+   33DF 12                13408 	ld	(de),a
+                          13409 ; genPlus
+                          13410 ; genPlusIncr
+   33E0 11 BC 08          13411 	ld	de,#_cursorLocations + 0 + 68
+                          13412 ; genAssign (pointer)
+   33E3 3E 40             13413 	ld	a,#0x40
+   33E5 12                13414 	ld	(de),a
+   33E6 13                13415 	inc	de
+   33E7 3E 00             13416 	ld	a,#0x00
+   33E9 12                13417 	ld	(de),a
+                          13418 ; genPlus
+                          13419 ; genPlusIncr
+   33EA 11 BE 08          13420 	ld	de,#_cursorLocations + 0 + 70
+                          13421 ; genAssign (pointer)
+   33ED 3E 90             13422 	ld	a,#0x90
+   33EF 12                13423 	ld	(de),a
+   33F0 13                13424 	inc	de
+   33F1 3E 00             13425 	ld	a,#0x00
+   33F3 12                13426 	ld	(de),a
+                          13427 ; genPlus
+                          13428 ; genPlusIncr
+   33F4 11 C0 08          13429 	ld	de,#_cursorLocations + 0 + 72
+                          13430 ; genAssign (pointer)
+   33F7 3E 58             13431 	ld	a,#0x58
+   33F9 12                13432 	ld	(de),a
+   33FA 13                13433 	inc	de
+   33FB 3E 00             13434 	ld	a,#0x00
+   33FD 12                13435 	ld	(de),a
+                          13436 ; genPlus
+                          13437 ; genPlusIncr
+   33FE 11 C2 08          13438 	ld	de,#_cursorLocations + 0 + 74
+                          13439 ; genAssign (pointer)
+   3401 3E 90             13440 	ld	a,#0x90
+   3403 12                13441 	ld	(de),a
+   3404 13                13442 	inc	de
+   3405 3E 00             13443 	ld	a,#0x00
+   3407 12                13444 	ld	(de),a
+                          13445 ; genPlus
+                          13446 ; genPlusIncr
+   3408 11 C4 08          13447 	ld	de,#_cursorLocations + 0 + 76
+                          13448 ; genAssign (pointer)
+   340B 3E 78             13449 	ld	a,#0x78
+   340D 12                13450 	ld	(de),a
+   340E 13                13451 	inc	de
+   340F 3E 00             13452 	ld	a,#0x00
+   3411 12                13453 	ld	(de),a
+                          13454 ; genPlus
+                          13455 ; genPlusIncr
+   3412 11 C6 08          13456 	ld	de,#_cursorLocations + 0 + 78
+                          13457 ; genAssign (pointer)
+   3415 3E 90             13458 	ld	a,#0x90
+   3417 12                13459 	ld	(de),a
+   3418 13                13460 	inc	de
+   3419 3E 00             13461 	ld	a,#0x00
+   341B 12                13462 	ld	(de),a
+                          13463 ;	main.c 214
+                          13464 ; genAssign (pointer)
+   341C 11 C8 08          13465 	ld	de,#_keyboardOptions + 0
+   341F 3E 20             13466 	ld	a,#0x20
+   3421 12                13467 	ld	(de),a
+                          13468 ; genPlus
+                          13469 ; genPlusIncr
+   3422 11 C9 08          13470 	ld	de,#_keyboardOptions + 0 + 1
+                          13471 ; genAssign (pointer)
+   3425 3E 63             13472 	ld	a,#0x63
+   3427 12                13473 	ld	(de),a
+                          13474 ; genPlus
+                          13475 ; genPlusIncr
+   3428 11 CA 08          13476 	ld	de,#_keyboardOptions + 0 + 2
+                          13477 ; genAssign (pointer)
+   342B 3E 3C             13478 	ld	a,#0x3C
+   342D 12                13479 	ld	(de),a
+                          13480 ; genPlus
+                          13481 ; genPlusIncr
+   342E 11 CB 08          13482 	ld	de,#_keyboardOptions + 0 + 3
+                          13483 ; genAssign (pointer)
+   3431 3E 2F             13484 	ld	a,#0x2F
+   3433 12                13485 	ld	(de),a
+                          13486 ; genPlus
+                          13487 ; genPlusIncr
+   3434 11 CC 08          13488 	ld	de,#_keyboardOptions + 0 + 4
+                          13489 ; genAssign (pointer)
+   3437 3E 37             13490 	ld	a,#0x37
+   3439 12                13491 	ld	(de),a
+                          13492 ; genPlus
+                          13493 ; genPlusIncr
+   343A 11 CD 08          13494 	ld	de,#_keyboardOptions + 0 + 5
+                          13495 ; genAssign (pointer)
+   343D 3E 38             13496 	ld	a,#0x38
+   343F 12                13497 	ld	(de),a
+                          13498 ; genPlus
+                          13499 ; genPlusIncr
+   3440 11 CE 08          13500 	ld	de,#_keyboardOptions + 0 + 6
+                          13501 ; genAssign (pointer)
+   3443 3E 39             13502 	ld	a,#0x39
+   3445 12                13503 	ld	(de),a
+                          13504 ; genPlus
+                          13505 ; genPlusIncr
+   3446 11 CF 08          13506 	ld	de,#_keyboardOptions + 0 + 7
+                          13507 ; genAssign (pointer)
+   3449 3E 2A             13508 	ld	a,#0x2A
+   344B 12                13509 	ld	(de),a
+                          13510 ; genPlus
+                          13511 ; genPlusIncr
+   344C 11 D0 08          13512 	ld	de,#_keyboardOptions + 0 + 8
+                          13513 ; genAssign (pointer)
+   344F 3E 34             13514 	ld	a,#0x34
+   3451 12                13515 	ld	(de),a
+                          13516 ; genPlus
+                          13517 ; genPlusIncr
+   3452 11 D1 08          13518 	ld	de,#_keyboardOptions + 0 + 9
+                          13519 ; genAssign (pointer)
+   3455 3E 35             13520 	ld	a,#0x35
+   3457 12                13521 	ld	(de),a
+                          13522 ; genPlus
+                          13523 ; genPlusIncr
+   3458 11 D2 08          13524 	ld	de,#_keyboardOptions + 0 + 10
+                          13525 ; genAssign (pointer)
+   345B 3E 36             13526 	ld	a,#0x36
+   345D 12                13527 	ld	(de),a
+                          13528 ; genPlus
+                          13529 ; genPlusIncr
+   345E 11 D3 08          13530 	ld	de,#_keyboardOptions + 0 + 11
+                          13531 ; genAssign (pointer)
+   3461 3E 2D             13532 	ld	a,#0x2D
+   3463 12                13533 	ld	(de),a
+                          13534 ; genPlus
+                          13535 ; genPlusIncr
+   3464 11 D4 08          13536 	ld	de,#_keyboardOptions + 0 + 12
+                          13537 ; genAssign (pointer)
+   3467 3E 31             13538 	ld	a,#0x31
+   3469 12                13539 	ld	(de),a
+                          13540 ; genPlus
+                          13541 ; genPlusIncr
+   346A 11 D5 08          13542 	ld	de,#_keyboardOptions + 0 + 13
+                          13543 ; genAssign (pointer)
+   346D 3E 32             13544 	ld	a,#0x32
+   346F 12                13545 	ld	(de),a
+                          13546 ; genPlus
+                          13547 ; genPlusIncr
+   3470 11 D6 08          13548 	ld	de,#_keyboardOptions + 0 + 14
+                          13549 ; genAssign (pointer)
+   3473 3E 33             13550 	ld	a,#0x33
+   3475 12                13551 	ld	(de),a
+                          13552 ; genPlus
+                          13553 ; genPlusIncr
+   3476 11 D7 08          13554 	ld	de,#_keyboardOptions + 0 + 15
+                          13555 ; genAssign (pointer)
+   3479 3E 2B             13556 	ld	a,#0x2B
+   347B 12                13557 	ld	(de),a
+                          13558 ; genPlus
+                          13559 ; genPlusIncr
+   347C 11 D8 08          13560 	ld	de,#_keyboardOptions + 0 + 16
+                          13561 ; genAssign (pointer)
+   347F 3E 25             13562 	ld	a,#0x25
+   3481 12                13563 	ld	(de),a
+                          13564 ; genPlus
+                          13565 ; genPlusIncr
+   3482 11 D9 08          13566 	ld	de,#_keyboardOptions + 0 + 17
+                          13567 ; genAssign (pointer)
+   3485 3E 30             13568 	ld	a,#0x30
+   3487 12                13569 	ld	(de),a
+                          13570 ; genPlus
+                          13571 ; genPlusIncr
+   3488 11 DA 08          13572 	ld	de,#_keyboardOptions + 0 + 18
+                          13573 ; genAssign (pointer)
+   348B 3E 2C             13574 	ld	a,#0x2C
+   348D 12                13575 	ld	(de),a
+                          13576 ; genPlus
+                          13577 ; genPlusIncr
+   348E 11 DB 08          13578 	ld	de,#_keyboardOptions + 0 + 19
+                          13579 ; genAssign (pointer)
+   3491 3E 3D             13580 	ld	a,#0x3D
+   3493 12                13581 	ld	(de),a
+                          13582 ;	main.c 214
+                          13583 ; genAssign
+                          13584 ; AOP_HL for _cursorX
+   3494 21 DC 08          13585 	ld	hl,#_cursorX + 0
+   3497 36 00             13586 	ld	(hl),#0x00
+   3499 23                13587 	inc	hl
+   349A 36 00             13588 	ld	(hl),#0x00
+                          13589 ;	main.c 214
+                          13590 ; genAssign
+                          13591 ; AOP_HL for _cursorY
+   349C 21 DE 08          13592 	ld	hl,#_cursorY + 0
+   349F 36 00             13593 	ld	(hl),#0x00
+   34A1 23                13594 	inc	hl
+   34A2 36 00             13595 	ld	(hl),#0x00
+                          13596 ;	main.c 214
+                          13597 ; genAssign
+                          13598 ; AOP_HL for _maxPosX
+   34A4 21 E0 08          13599 	ld	hl,#_maxPosX + 0
+   34A7 36 00             13600 	ld	(hl),#0x00
+   34A9 23                13601 	inc	hl
+   34AA 36 00             13602 	ld	(hl),#0x00
+                          13603 ;	main.c 214
+                          13604 ; genAssign
+                          13605 ; AOP_HL for _maxPosY
+   34AC 21 E2 08          13606 	ld	hl,#_maxPosY + 0
+   34AF 36 00             13607 	ld	(hl),#0x00
+   34B1 23                13608 	inc	hl
+   34B2 36 00             13609 	ld	(hl),#0x00
+                          13610 ;	main.c 214
+                          13611 ; genAssign
+                          13612 ; AOP_HL for _keydown
+   34B4 21 E4 08          13613 	ld	hl,#_keydown + 0
+   34B7 36 00             13614 	ld	(hl),#0x00
+   34B9 23                13615 	inc	hl
+   34BA 36 00             13616 	ld	(hl),#0x00
+                          13617 ;--------------------------------------------------------
+                          13618 ; Home
+                          13619 ;--------------------------------------------------------
+                          13620 	.area _HOME
+                          13621 	.area _CODE
+                          13622 ;--------------------------------------------------------
+                          13623 ; code
+                          13624 ;--------------------------------------------------------
+                          13625 	.area _CODE
+                          13626 ;	main.c 48
+                          13627 ; genLabel
+                          13628 ; genFunction
+                          13629 ;	---------------------------------
+                          13630 ; Function main
+                          13631 ; ---------------------------------
+   0000                   13632 ___main_start:
+   0000                   13633 _main:
+                          13634 	
+                          13635 ;	main.c 50
+                          13636 ; genAssign
+                          13637 ; AOP_HL for _maxPosX
+   0000 21 E0 08          13638 	ld	hl,#_maxPosX + 0
+   0003 36 03             13639 	ld	(hl),#0x03
+   0005 23                13640 	inc	hl
+   0006 36 00             13641 	ld	(hl),#0x00
+                          13642 ;	main.c 51
+                          13643 ; genAssign
+                          13644 ; AOP_HL for _maxPosY
+   0008 21 E2 08          13645 	ld	hl,#_maxPosY + 0
+   000B 36 04             13646 	ld	(hl),#0x04
+   000D 23                13647 	inc	hl
+   000E 36 00             13648 	ld	(hl),#0x00
+                          13649 ;	main.c 53
+                          13650 ; genOr
+                          13651 ; AOP_SFR for _LCDC_REG
+                          13652 ; Type res[4] = l[4]&r[1]
+                          13653 ; Size res[1] = l[1]&r[1]
+   0010 F0 00             13654 	ldh	a,(_LCDC_REG+0) ; x
+   0012 F6 04             13655 	or	a,#0x04
+   0014 E0 00             13656 	ldh	(_LCDC_REG+0),a
+                          13657 ;	main.c 54
+                          13658 ; genIpush
+   0016 21 00 00          13659 	ld	hl,#_cursor + 0
+   0019 E5                13660 	push	hl
+                          13661 ; genIpush
+   001A 3E 08             13662 	ld	a,#0x08
+   001C F5                13663 	push	af
+   001D 33                13664 	inc	sp
+                          13665 ; genIpush
+   001E 3E 00             13666 	ld	a,#0x00
+   0020 F5                13667 	push	af
+   0021 33                13668 	inc	sp
+                          13669 ; genCall
+   0022 CD 00 00          13670 	call	_set_sprite_data
+   0025 E8 04             13671 	lda	sp,4(sp)
+                          13672 ;	main.c 55
+                          13673 ; genIpush
+   0027 3E 00             13674 	ld	a,#0x00
+   0029 F5                13675 	push	af
+   002A 33                13676 	inc	sp
+                          13677 ; genIpush
+   002B 3E 00             13678 	ld	a,#0x00
+   002D F5                13679 	push	af
+   002E 33                13680 	inc	sp
+                          13681 ; genCall
+   002F CD 00 00          13682 	call	_set_sprite_tile
+   0032 E8 02             13683 	lda	sp,2(sp)
+                          13684 ;	main.c 56
+                          13685 ; genIpush
+   0034 3E 02             13686 	ld	a,#0x02
+   0036 F5                13687 	push	af
+   0037 33                13688 	inc	sp
+                          13689 ; genIpush
+   0038 3E 01             13690 	ld	a,#0x01
+   003A F5                13691 	push	af
+   003B 33                13692 	inc	sp
+                          13693 ; genCall
+   003C CD 00 00          13694 	call	_set_sprite_tile
+   003F E8 02             13695 	lda	sp,2(sp)
+                          13696 ;	main.c 58
+                          13697 ; genIpush
+   0041 3E 48             13698 	ld	a,#0x48
+   0043 F5                13699 	push	af
+   0044 33                13700 	inc	sp
+                          13701 ; genIpush
+   0045 3E 28             13702 	ld	a,#0x28
+   0047 F5                13703 	push	af
+   0048 33                13704 	inc	sp
+                          13705 ; genIpush
+   0049 3E 00             13706 	ld	a,#0x00
+   004B F5                13707 	push	af
+   004C 33                13708 	inc	sp
+                          13709 ; genCall
+   004D CD 00 00          13710 	call	_move_sprite
+   0050 E8 03             13711 	lda	sp,3(sp)
+                          13712 ;	main.c 59
+                          13713 ; genIpush
+   0052 3E 48             13714 	ld	a,#0x48
+   0054 F5                13715 	push	af
+   0055 33                13716 	inc	sp
+                          13717 ; genIpush
+   0056 3E 30             13718 	ld	a,#0x30
+   0058 F5                13719 	push	af
+   0059 33                13720 	inc	sp
                           13721 ; genIpush
-   00BA 21 64 00          13722 	ld	hl,#0x0064
-   00BD E5                13723 	push	hl
-                          13724 ; genCall
-   00BE CD 00 00          13725 	call	_delay
-   00C1 E8 02             13726 	lda	sp,2(sp)
-                          13727 ; genGoto
-   00C3 C3 A8 00          13728 	jp	00102$
-                          13729 ; genLabel
-   00C6                   13730 00104$:
-                          13731 ; genEndFunction
-                          13732 	
-   00C6 C9                13733 	ret
-   00C7                   13734 ___main_end:
-                          13735 ;	main.c 72
-                          13736 ; genLabel
-                          13737 ; genFunction
-                          13738 ;	---------------------------------
-                          13739 ; Function updateDisplay
-                          13740 ; ---------------------------------
-   00C7                   13741 ___updateDisplay_start:
-   00C7                   13742 _updateDisplay:
-   00C7 C5                13743 	push	bc
-   00C8 E8 FA             13744 	lda	sp,-6(sp)
-                          13745 ;	main.c 76
-                          13746 ; genAssign
-                          13747 ; AOP_STK for _updateDisplay_i_1_1
-   00CA F8 04             13748 	lda	hl,4(sp)
-   00CC 36 00             13749 	ld	(hl),#0x00
-   00CE 23                13750 	inc	hl
-   00CF 36 00             13751 	ld	(hl),#0x00
-                          13752 ; genLabel
-   00D1                   13753 00104$:
-                          13754 ; genCmpLt
-                          13755 ; AOP_STK for _updateDisplay_i_1_1
-   00D1 F8 04             13756 	lda	hl,4(sp)
-   00D3 5E                13757 	ld	e,(hl)
-   00D4 23                13758 	inc	hl
-   00D5 7E                13759 	ld	a,(hl)
-   00D6 EE 80             13760 	xor	a,#0x80
-   00D8 57                13761 	ld	d,a
-   00D9 21 F4 7F          13762 	ld	hl,#0x7FF4
-   00DC 19                13763 	add	hl,de
-   00DD DA A4 01          13764 	jp	c,00107$
-                          13765 ;	main.c 78
-                          13766 ; genIpush
-   00E0 21 68 08          13767 	ld	hl,#_display + 0
-   00E3 E5                13768 	push	hl
-                          13769 ; genCall
-   00E4 CD 00 00          13770 	call	_strlen
-   00E7 42                13771 	ld	b,d
-   00E8 4B                13772 	ld	c,e
-   00E9 E8 02             13773 	lda	sp,2(sp)
-                          13774 ; genMinus
-                          13775 ; AOP_STK for _updateDisplay_i_1_1
-                          13776 ; Removed redundent load
-                          13777 ; Removed redundent load
-   00EB F8 04             13778 	lda	hl,4(sp)
-   00ED 5E                13779 	ld	e,(hl)
-   00EE 23                13780 	inc	hl
-   00EF 56                13781 	ld	d,(hl)
-   00F0 79                13782 	ld	a,c
-   00F1 93                13783 	sub	a,e
-   00F2 5F                13784 	ld	e,a
-   00F3 78                13785 	ld	a,b
-   00F4 9A                13786 	sbc	a,d
-   00F5 47                13787 	ld	b,a
-   00F6 4B                13788 	ld	c,e
-                          13789 ; genMinus
-   00F7 0B                13790 	dec	bc
-                          13791 ;	main.c 80
-                          13792 ; genCmpGt
-   00F8 59                13793 	ld	e,c
-   00F9 78                13794 	ld	a,b
-   00FA EE 80             13795 	xor	a,#0x80
-   00FC 57                13796 	ld	d,a
-   00FD 21 00 80          13797 	ld	hl,#0x8000
-   0100 19                13798 	add	hl,de
-   0101 D2 5E 01          13799 	jp	nc,00102$
-                          13800 ;	main.c 82
-                          13801 ; genPlus
-                          13802 ;	genPlusIncr failed
-   0104 3E 68             13803 	ld	a,#<_display
-   0106 81                13804 	add	a,c
-   0107 5F                13805 	ld	e,a
-   0108 3E 08             13806 	ld	a,#>_display
-   010A 88                13807 	adc	a,b
-   010B 57                13808 	ld	d,a
-                          13809 ; genPointerGet
-   010C 1A                13810 	ld	a,(de)
-   010D 4F                13811 	ld	c,a
-                          13812 ; genMinus
-   010E 79                13813 	ld	a,c
-   010F C6 D0             13814 	add	a,#0xD0
-   0111 4F                13815 	ld	c,a
-                          13816 ; genLeftShift
-   0112 79                13817 	ld	a,c
-   0113 87                13818 	add	a,a
-   0114 4F                13819 	ld	c,a
-                          13820 ; genPlus
-                          13821 ; genPlusIncr
-                          13822 ;	genPlusIncr failed
-   0115 79                13823 	ld	a,c
-   0116 C6 50             13824 	add	a,#0x50
-   0118 4F                13825 	ld	c,a
-                          13826 ; genCast
-                          13827 ; AOP_STK for _updateDisplay_numberTile_3_3
-   0119 F8 02             13828 	lda	hl,2(sp)
-   011B 71                13829 	ld	(hl),c
-   011C 79                13830 	ld	a,c
-                          13831 ; genCast: sign extend untested.
-   011D 17                13832 	rla	
-   011E 9F                13833 	sbc	a,a
-   011F 23                13834 	inc	hl
-   0120 77                13835 	ld	(hl),a
-                          13836 ;	main.c 84
-                          13837 ; genMinus
-                          13838 ; AOP_STK for _updateDisplay_i_1_1
-   0121 11 0B 00          13839 	ld	de,#0x000B
-   0124 23                13840 	inc	hl
-   0125 2A                13841 	ld	a,(hl+)
-   0126 66                13842 	ld	h,(hl)
-   0127 6F                13843 	ld	l,a
-   0128 7B                13844 	ld	a,e
-   0129 95                13845 	sub	a,l
-   012A 5F                13846 	ld	e,a
-   012B 7A                13847 	ld	a,d
-   012C 9C                13848 	sbc	a,h
-   012D 47                13849 	ld	b,a
-   012E 4B                13850 	ld	c,e
-                          13851 ; genPlus
-                          13852 ;	genPlusIncr failed
-   012F 3E 77             13853 	ld	a,#<_displayDigits
-   0131 81                13854 	add	a,c
-   0132 5F                13855 	ld	e,a
-   0133 3E 08             13856 	ld	a,#>_displayDigits
-   0135 88                13857 	adc	a,b
-   0136 57                13858 	ld	d,a
-                          13859 ; genCast
-                          13860 ; AOP_STK for _updateDisplay_numberTile_3_3
-   0137 F8 02             13861 	lda	hl,2(sp)
-   0139 4E                13862 	ld	c,(hl)
-                          13863 ; genAssign (pointer)
-   013A 79                13864 	ld	a,c
-   013B 12                13865 	ld	(de),a
-                          13866 ;	main.c 85
-                          13867 ; genMinus
-                          13868 ; AOP_STK for _updateDisplay_i_1_1
-   013C 11 17 00          13869 	ld	de,#0x0017
-   013F 23                13870 	inc	hl
-   0140 23                13871 	inc	hl
-   0141 2A                13872 	ld	a,(hl+)
-   0142 66                13873 	ld	h,(hl)
-   0143 6F                13874 	ld	l,a
-   0144 7B                13875 	ld	a,e
-   0145 95                13876 	sub	a,l
-   0146 5F                13877 	ld	e,a
-   0147 7A                13878 	ld	a,d
-   0148 9C                13879 	sbc	a,h
-   0149 47                13880 	ld	b,a
-   014A 4B                13881 	ld	c,e
-                          13882 ; genPlus
-                          13883 ;	genPlusIncr failed
-   014B 3E 77             13884 	ld	a,#<_displayDigits
-   014D 81                13885 	add	a,c
-   014E 5F                13886 	ld	e,a
-   014F 3E 08             13887 	ld	a,#>_displayDigits
-   0151 88                13888 	adc	a,b
-   0152 57                13889 	ld	d,a
-                          13890 ; genPlus
-                          13891 ; AOP_STK for _updateDisplay_numberTile_3_3
-                          13892 ; genPlusIncr
-   0153 F8 02             13893 	lda	hl,2(sp)
-   0155 4E                13894 	ld	c,(hl)
-   0156 23                13895 	inc	hl
-   0157 46                13896 	ld	b,(hl)
-   0158 03                13897 	inc	bc
-                          13898 ; genCast
-                          13899 ; Removed redundent load
-                          13900 ; genAssign (pointer)
-   0159 79                13901 	ld	a,c
-   015A 12                13902 	ld	(de),a
-                          13903 ; genGoto
-   015B C3 9A 01          13904 	jp	00106$
-                          13905 ; genLabel
-   015E                   13906 00102$:
-                          13907 ;	main.c 89
-                          13908 ; genMinus
-                          13909 ; AOP_STK for _updateDisplay_i_1_1
-                          13910 ; AOP_STK for _updateDisplay_sloc0_1_0
-   015E 11 0B 00          13911 	ld	de,#0x000B
-   0161 F8 04             13912 	lda	hl,4(sp)
-   0163 2A                13913 	ld	a,(hl+)
-   0164 66                13914 	ld	h,(hl)
-   0165 6F                13915 	ld	l,a
-   0166 7B                13916 	ld	a,e
-   0167 95                13917 	sub	a,l
-   0168 5F                13918 	ld	e,a
-   0169 7A                13919 	ld	a,d
-   016A 9C                13920 	sbc	a,h
-   016B F8 01             13921 	lda	hl,1(sp)
-   016D 77                13922 	ld	(hl),a
-   016E 2B                13923 	dec	hl
-   016F 73                13924 	ld	(hl),e
-                          13925 ; genPlus
-                          13926 ; AOP_STK for _updateDisplay_sloc0_1_0
-                          13927 ;	genPlusIncr failed
-   0170 11 77 08          13928 	ld	de,#_displayDigits + 0
-   0173 2A                13929 	ld	a,(hl+)
-   0174 66                13930 	ld	h,(hl)
-   0175 6F                13931 	ld	l,a
-   0176 19                13932 	add	hl,de
-   0177 5D                13933 	ld	e,l
-   0178 54                13934 	ld	d,h
-                          13935 ; genAssign (pointer)
-   0179 3E 00             13936 	ld	a,#0x00
-   017B 12                13937 	ld	(de),a
-                          13938 ;	main.c 90
-                          13939 ; genMinus
-                          13940 ; AOP_STK for _updateDisplay_i_1_1
-                          13941 ; AOP_STK for _updateDisplay_sloc0_1_0
-   017C 11 17 00          13942 	ld	de,#0x0017
-   017F F8 04             13943 	lda	hl,4(sp)
-   0181 2A                13944 	ld	a,(hl+)
-   0182 66                13945 	ld	h,(hl)
-   0183 6F                13946 	ld	l,a
-   0184 7B                13947 	ld	a,e
-   0185 95                13948 	sub	a,l
-   0186 5F                13949 	ld	e,a
-   0187 7A                13950 	ld	a,d
-   0188 9C                13951 	sbc	a,h
-   0189 F8 01             13952 	lda	hl,1(sp)
-   018B 77                13953 	ld	(hl),a
-   018C 2B                13954 	dec	hl
-   018D 73                13955 	ld	(hl),e
-                          13956 ; genPlus
-                          13957 ; AOP_STK for _updateDisplay_sloc0_1_0
-                          13958 ;	genPlusIncr failed
-   018E 11 77 08          13959 	ld	de,#_displayDigits + 0
-   0191 2A                13960 	ld	a,(hl+)
-   0192 66                13961 	ld	h,(hl)
-   0193 6F                13962 	ld	l,a
-   0194 19                13963 	add	hl,de
-   0195 5D                13964 	ld	e,l
-   0196 54                13965 	ld	d,h
-                          13966 ; genAssign (pointer)
-   0197 3E 00             13967 	ld	a,#0x00
-   0199 12                13968 	ld	(de),a
-                          13969 ; genLabel
-   019A                   13970 00106$:
-                          13971 ;	main.c 76
-                          13972 ; genPlus
-                          13973 ; AOP_STK for _updateDisplay_i_1_1
-                          13974 ; genPlusIncr
-   019A F8 04             13975 	lda	hl,4(sp)
-   019C 34                13976 	inc	(hl)
-   019D 20 02             13977 	jr	nz,00113$
-   019F 23                13978 	inc	hl
-   01A0 34                13979 	inc	(hl)
-   01A1                   13980 00113$:
-                          13981 ; genGoto
-   01A1 C3 D1 00          13982 	jp	00104$
-                          13983 ; genLabel
-   01A4                   13984 00107$:
-                          13985 ;	main.c 94
-                          13986 ; genIpush
-   01A4 21 77 08          13987 	ld	hl,#_displayDigits + 0
-   01A7 E5                13988 	push	hl
-                          13989 ; genIpush
-   01A8 3E 02             13990 	ld	a,#0x02
-   01AA F5                13991 	push	af
-   01AB 33                13992 	inc	sp
-                          13993 ; genIpush
-   01AC 3E 0C             13994 	ld	a,#0x0C
-   01AE F5                13995 	push	af
-   01AF 33                13996 	inc	sp
-                          13997 ; genIpush
-   01B0 3E 01             13998 	ld	a,#0x01
-   01B2 F5                13999 	push	af
-   01B3 33                14000 	inc	sp
-                          14001 ; genIpush
-   01B4 3E 04             14002 	ld	a,#0x04
-   01B6 F5                14003 	push	af
-   01B7 33                14004 	inc	sp
-                          14005 ; genCall
-   01B8 CD 00 00          14006 	call	_set_bkg_tiles
-   01BB E8 06             14007 	lda	sp,6(sp)
-                          14008 ; genLabel
-   01BD                   14009 00108$:
-                          14010 ; genEndFunction
-   01BD E8 06             14011 	lda	sp,6(sp)
-   01BF C1                14012 	pop	bc
-   01C0 C9                14013 	ret
-   01C1                   14014 ___updateDisplay_end:
-                          14015 ;	main.c 97
-                          14016 ; genLabel
-                          14017 ; genFunction
-                          14018 ;	---------------------------------
-                          14019 ; Function keyboard
-                          14020 ; ---------------------------------
-   01C1                   14021 ___keyboard_start:
-   01C1                   14022 _keyboard:
-   01C1 C5                14023 	push	bc
-                          14024 	
-                          14025 ;	main.c 99
-                          14026 ; genCall
-   01C2 CD 00 00          14027 	call	_joypad
-   01C5 4B                14028 	ld	c,e
-                          14029 ; genCmpEq
-   01C6 79                14030 	ld	a,c ; 2
-   01C7 FE 01             14031 	cp	a,#0x01
-                          14032 ; Rule 5
-   01C9 CA 3E 02          14033 	jp	z,00103$
-   01CC                   14034 00125$:
-                          14035 ; genCmpEq
-   01CC 79                14036 	ld	a,c ; 2
-   01CD FE 02             14037 	cp	a,#0x02
-                          14038 ; Rule 5
-   01CF CA 72 02          14039 	jp	z,00104$
-   01D2                   14040 00126$:
-                          14041 ; genCmpEq
-   01D2 79                14042 	ld	a,c ; 2
-   01D3 FE 04             14043 	cp	a,#0x04
-                          14044 ; Rule 5
-   01D5 CA E1 01          14045 	jp	z,00101$
-   01D8                   14046 00127$:
-                          14047 ; genCmpEq
-   01D8 79                14048 	ld	a,c ; 2
-   01D9 FE 08             14049 	cp	a,#0x08
-                          14050 ; Rule 5
-   01DB CA 0A 02          14051 	jp	z,00102$
-   01DE                   14052 00128$:
-                          14053 ; genGoto
-   01DE C3 98 02          14054 	jp	00107$
-                          14055 ;	main.c 101
-                          14056 ; genLabel
-   01E1                   14057 00101$:
-                          14058 ; genCmpGt
-                          14059 ; AOP_HL for _cursorY
-   01E1 21 E5 08          14060 	ld	hl,#_cursorY + 0
-   01E4 5E                14061 	ld	e,(hl)
-   01E5 23                14062 	inc	hl
-   01E6 7E                14063 	ld	a,(hl)
-   01E7 EE 80             14064 	xor	a,#0x80
-   01E9 57                14065 	ld	d,a
-   01EA 21 FF 7F          14066 	ld	hl,#0x7FFF
-   01ED 19                14067 	add	hl,de
-   01EE D2 FB 01          14068 	jp	nc,00109$
-                          14069 ; genMinus
-                          14070 ; AOP_HL for _cursorY
-   01F1 21 E5 08          14071 	ld	hl,#_cursorY + 0
-   01F4 4E                14072 	ld	c,(hl)
-   01F5 23                14073 	inc	hl
-   01F6 46                14074 	ld	b,(hl)
-   01F7 0B                14075 	dec	bc
-                          14076 ; genGoto
-   01F8 C3 01 02          14077 	jp	00110$
-                          14078 ; genLabel
-   01FB                   14079 00109$:
-                          14080 ; genAssign
-                          14081 ; AOP_HL for _cursorY
-   01FB 21 E5 08          14082 	ld	hl,#_cursorY + 0
-   01FE 4E                14083 	ld	c,(hl)
-   01FF 23                14084 	inc	hl
-   0200 46                14085 	ld	b,(hl)
-                          14086 ; genLabel
-   0201                   14087 00110$:
-                          14088 ; genAssign
-                          14089 ; AOP_HL for _cursorY
-   0201 21 E5 08          14090 	ld	hl,#_cursorY + 0
-   0204 71                14091 	ld	(hl),c
-   0205 23                14092 	inc	hl
-   0206 70                14093 	ld	(hl),b
-                          14094 ;	main.c 102
-                          14095 ; genGoto
-   0207 C3 98 02          14096 	jp	00107$
-                          14097 ;	main.c 104
-                          14098 ; genLabel
-   020A                   14099 00102$:
-                          14100 ; genCmpLt
-                          14101 ; AOP_HL for _cursorY
-                          14102 ; AOP_HL for _maxPosY
-   020A 21 E6 08          14103 	ld	hl,#_cursorY + 0 + 1
-   020D 7E                14104 	ld	a,(hl)
-   020E EE 80             14105 	xor	a,#0x80
-   0210 5F                14106 	ld	e,a
-   0211 21 EA 08          14107 	ld	hl,#_maxPosY + 0 + 1
-   0214 7E                14108 	ld	a,(hl)
-   0215 EE 80             14109 	xor	a,#0x80
-   0217 57                14110 	ld	d,a
-   0218 21 E5 08          14111 	ld	hl,#_cursorY + 0
-   021B 7E                14112 	ld	a,(hl)
-   021C 21 E9 08          14113 	ld	hl,#_maxPosY + 0
-   021F 9E                14114 	sbc	a,(hl) ; 2
-   0220 7B                14115 	ld	a,e
-   0221 9A                14116 	sbc	a,d
-   0222 D2 2F 02          14117 	jp	nc,00111$
-                          14118 ; genPlus
-                          14119 ; AOP_HL for _cursorY
-                          14120 ; genPlusIncr
-   0225 21 E5 08          14121 	ld	hl,#_cursorY + 0
-   0228 4E                14122 	ld	c,(hl)
-   0229 23                14123 	inc	hl
-   022A 46                14124 	ld	b,(hl)
-   022B 03                14125 	inc	bc
-                          14126 ; genGoto
-   022C C3 35 02          14127 	jp	00112$
-                          14128 ; genLabel
-   022F                   14129 00111$:
-                          14130 ; genAssign
-                          14131 ; AOP_HL for _cursorY
-   022F 21 E5 08          14132 	ld	hl,#_cursorY + 0
-   0232 4E                14133 	ld	c,(hl)
-   0233 23                14134 	inc	hl
-   0234 46                14135 	ld	b,(hl)
-                          14136 ; genLabel
-   0235                   14137 00112$:
-                          14138 ; genAssign
-                          14139 ; AOP_HL for _cursorY
-   0235 21 E5 08          14140 	ld	hl,#_cursorY + 0
-   0238 71                14141 	ld	(hl),c
-   0239 23                14142 	inc	hl
-   023A 70                14143 	ld	(hl),b
-                          14144 ;	main.c 105
-                          14145 ; genGoto
-   023B C3 98 02          14146 	jp	00107$
-                          14147 ;	main.c 107
-                          14148 ; genLabel
-   023E                   14149 00103$:
-                          14150 ; genCmpLt
-                          14151 ; AOP_HL for _cursorX
-                          14152 ; AOP_HL for _maxPosX
-   023E 21 E4 08          14153 	ld	hl,#_cursorX + 0 + 1
-   0241 7E                14154 	ld	a,(hl)
-   0242 EE 80             14155 	xor	a,#0x80
-   0244 5F                14156 	ld	e,a
-   0245 21 E8 08          14157 	ld	hl,#_maxPosX + 0 + 1
-   0248 7E                14158 	ld	a,(hl)
-   0249 EE 80             14159 	xor	a,#0x80
-   024B 57                14160 	ld	d,a
-   024C 21 E3 08          14161 	ld	hl,#_cursorX + 0
-   024F 7E                14162 	ld	a,(hl)
-   0250 21 E7 08          14163 	ld	hl,#_maxPosX + 0
-   0253 9E                14164 	sbc	a,(hl) ; 2
-   0254 7B                14165 	ld	a,e
-   0255 9A                14166 	sbc	a,d
-   0256 D2 63 02          14167 	jp	nc,00113$
-                          14168 ; genPlus
-                          14169 ; AOP_HL for _cursorX
-                          14170 ; genPlusIncr
-   0259 21 E3 08          14171 	ld	hl,#_cursorX + 0
-   025C 4E                14172 	ld	c,(hl)
-   025D 23                14173 	inc	hl
-   025E 46                14174 	ld	b,(hl)
-   025F 03                14175 	inc	bc
-                          14176 ; genGoto
-   0260 C3 69 02          14177 	jp	00114$
-                          14178 ; genLabel
-   0263                   14179 00113$:
-                          14180 ; genAssign
-                          14181 ; AOP_HL for _cursorX
-   0263 21 E3 08          14182 	ld	hl,#_cursorX + 0
-   0266 4E                14183 	ld	c,(hl)
-   0267 23                14184 	inc	hl
-   0268 46                14185 	ld	b,(hl)
-                          14186 ; genLabel
-   0269                   14187 00114$:
-                          14188 ; genAssign
-                          14189 ; AOP_HL for _cursorX
-   0269 21 E3 08          14190 	ld	hl,#_cursorX + 0
-   026C 71                14191 	ld	(hl),c
-   026D 23                14192 	inc	hl
-   026E 70                14193 	ld	(hl),b
-                          14194 ;	main.c 108
-                          14195 ; genGoto
-   026F C3 98 02          14196 	jp	00107$
-                          14197 ;	main.c 110
-                          14198 ; genLabel
-   0272                   14199 00104$:
-                          14200 ; genCmpGt
-                          14201 ; AOP_HL for _cursorX
-   0272 21 E3 08          14202 	ld	hl,#_cursorX + 0
-   0275 5E                14203 	ld	e,(hl)
-   0276 23                14204 	inc	hl
-   0277 7E                14205 	ld	a,(hl)
-   0278 EE 80             14206 	xor	a,#0x80
-   027A 57                14207 	ld	d,a
-   027B 21 FF 7F          14208 	ld	hl,#0x7FFF
-   027E 19                14209 	add	hl,de
-   027F D2 8C 02          14210 	jp	nc,00115$
-                          14211 ; genMinus
-                          14212 ; AOP_HL for _cursorX
-   0282 21 E3 08          14213 	ld	hl,#_cursorX + 0
-   0285 4E                14214 	ld	c,(hl)
-   0286 23                14215 	inc	hl
-   0287 46                14216 	ld	b,(hl)
-   0288 0B                14217 	dec	bc
-                          14218 ; genGoto
-   0289 C3 92 02          14219 	jp	00116$
-                          14220 ; genLabel
-   028C                   14221 00115$:
-                          14222 ; genAssign
-                          14223 ; AOP_HL for _cursorX
-   028C 21 E3 08          14224 	ld	hl,#_cursorX + 0
-   028F 4E                14225 	ld	c,(hl)
-   0290 23                14226 	inc	hl
-   0291 46                14227 	ld	b,(hl)
-                          14228 ; genLabel
-   0292                   14229 00116$:
-                          14230 ; genAssign
-                          14231 ; AOP_HL for _cursorX
-   0292 21 E3 08          14232 	ld	hl,#_cursorX + 0
-   0295 71                14233 	ld	(hl),c
-   0296 23                14234 	inc	hl
-   0297 70                14235 	ld	(hl),b
-                          14236 ;	main.c 114
-                          14237 ; genLabel
-   0298                   14238 00107$:
-                          14239 ; genEndFunction
-                          14240 	
-   0298 C1                14241 	pop	bc
-   0299 C9                14242 	ret
-   029A                   14243 ___keyboard_end:
-                          14244 ;	main.c 117
-                          14245 ; genLabel
-                          14246 ; genFunction
-                          14247 ;	---------------------------------
-                          14248 ; Function changeCursorPosition
-                          14249 ; ---------------------------------
-   029A                   14250 ___changeCursorPosition_start:
-   029A                   14251 _changeCursorPosition:
-   029A C5                14252 	push	bc
-   029B E8 FA             14253 	lda	sp,-6(sp)
-                          14254 ;	main.c 119
-                          14255 ; genLeftShift
-                          14256 ; AOP_HL for _cursorY
-   029D 21 E5 08          14257 	ld	hl,#_cursorY + 0
-   02A0 4E                14258 	ld	c,(hl)
-   02A1 23                14259 	inc	hl
-   02A2 46                14260 	ld	b,(hl)
-   02A3 3E 05             14261 	ld	a,#0x04+1
-   02A5 18 05             14262 	jr	00104$
-   02A7                   14263 00103$:
-   02A7 B7                14264 	or	a,a
-   02A8 CB 11             14265 	rl	c
-   02AA CB 10             14266 	rl	b
-   02AC                   14267 00104$:
-   02AC 3D                14268 	dec	a
-   02AD 20 F8             14269 	jr	nz,00103$
-                          14270 ; genPlus
-                          14271 ; AOP_STK for _changeCursorPosition_sloc0_1_0
-                          14272 ;	genPlusIncr failed
-   02AF 21 93 08          14273 	ld	hl,#_cursorLocations + 0
-   02B2 09                14274 	add	hl,bc
-   02B3 7D                14275 	ld	a,l
-   02B4 54                14276 	ld	d,h
-   02B5 F8 02             14277 	lda	hl,2(sp)
-   02B7 22                14278 	ld	(hl+),a
-   02B8 72                14279 	ld	(hl),d
-                          14280 ; genLeftShift
-                          14281 ; AOP_HL for _cursorX
-   02B9 21 E3 08          14282 	ld	hl,#_cursorX + 0
-   02BC 4E                14283 	ld	c,(hl)
-   02BD 23                14284 	inc	hl
-   02BE 46                14285 	ld	b,(hl)
-   02BF 3E 03             14286 	ld	a,#0x02+1
-   02C1 18 05             14287 	jr	00106$
-   02C3                   14288 00105$:
-   02C3 B7                14289 	or	a,a
-   02C4 CB 11             14290 	rl	c
-   02C6 CB 10             14291 	rl	b
-   02C8                   14292 00106$:
-   02C8 3D                14293 	dec	a
-   02C9 20 F8             14294 	jr	nz,00105$
-                          14295 ; genPlus
-                          14296 ; AOP_STK for _changeCursorPosition_sloc0_1_0
-                          14297 ;	genPlusIncr failed
-   02CB F8 02             14298 	lda	hl,2(sp)
-   02CD 2A                14299 	ld	a,(hl+)
-   02CE 66                14300 	ld	h,(hl)
-   02CF 6F                14301 	ld	l,a
-   02D0 09                14302 	add	hl,bc
-   02D1 4D                14303 	ld	c,l
-   02D2 44                14304 	ld	b,h
-                          14305 ; genPointerGet
-                          14306 ; AOP_STK for _changeCursorPosition_positionX_1_1
-   02D3 59                14307 	ld	e,c
-   02D4 50                14308 	ld	d,b
-   02D5 1A                14309 	ld	a,(de)
-   02D6 F8 04             14310 	lda	hl,4(sp)
-   02D8 77                14311 	ld	(hl),a
-   02D9 13                14312 	inc	de
-   02DA 1A                14313 	ld	a,(de)
-   02DB 23                14314 	inc	hl
-   02DC 77                14315 	ld	(hl),a
-                          14316 ;	main.c 120
-                          14317 ; genPlus
-                          14318 ; genPlusIncr
-   02DD 59                14319 	ld	e,c
-   02DE 50                14320 	ld	d,b
-   02DF 13                14321 	inc	de
-   02E0 13                14322 	inc	de
-                          14323 ; genPointerGet
-                          14324 ; Removed redundent load
-                          14325 ; Removed redundent load
-   02E1 1A                14326 	ld	a,(de)
-   02E2 4F                14327 	ld	c,a
-   02E3 13                14328 	inc	de
-   02E4 1A                14329 	ld	a,(de)
-   02E5 47                14330 	ld	b,a
-                          14331 ;	main.c 122
-                          14332 ; genCast
-                          14333 ; AOP_STK for _changeCursorPosition_sloc0_1_0
-   02E6 F8 02             14334 	lda	hl,2(sp)
-   02E8 71                14335 	ld	(hl),c
-                          14336 ; genCast
-                          14337 ; AOP_STK for _changeCursorPosition_positionX_1_1
-   02E9 23                14338 	inc	hl
-   02EA 23                14339 	inc	hl
-   02EB 4E                14340 	ld	c,(hl)
-                          14341 ; genIpush
-                          14342 ; AOP_STK for _changeCursorPosition_sloc0_1_0
-   02EC 2B                14343 	dec	hl
-   02ED 2B                14344 	dec	hl
-   02EE 7E                14345 	ld	a,(hl)
-   02EF F5                14346 	push	af
-   02F0 33                14347 	inc	sp
-                          14348 ; genIpush
-   02F1 79                14349 	ld	a,c
-   02F2 F5                14350 	push	af
-   02F3 33                14351 	inc	sp
-                          14352 ; genIpush
-   02F4 3E 00             14353 	ld	a,#0x00
-   02F6 F5                14354 	push	af
-   02F7 33                14355 	inc	sp
-                          14356 ; genCall
-   02F8 CD 00 00          14357 	call	_move_sprite
-   02FB E8 03             14358 	lda	sp,3(sp)
-                          14359 ;	main.c 123
-                          14360 ; genPlus
-                          14361 ; AOP_STK for _changeCursorPosition_positionX_1_1
-                          14362 ; AOP_STK for _changeCursorPosition_sloc1_1_0
-                          14363 ; genPlusIncr
-                          14364 ;	genPlusIncr failed
-   02FD F8 04             14365 	lda	hl,4(sp)
-   02FF 5E                14366 	ld	e,(hl)
-   0300 23                14367 	inc	hl
-   0301 56                14368 	ld	d,(hl)
-   0302 21 08 00          14369 	ld	hl,#0x0008
-   0305 19                14370 	add	hl,de
-   0306 7D                14371 	ld	a,l
-   0307 54                14372 	ld	d,h
-   0308 F8 00             14373 	lda	hl,0(sp)
-   030A 22                14374 	ld	(hl+),a
-   030B 72                14375 	ld	(hl),d
-                          14376 ; genCast
-                          14377 ; AOP_STK for _changeCursorPosition_sloc1_1_0
-   030C 2B                14378 	dec	hl
-   030D 4E                14379 	ld	c,(hl)
-                          14380 ; genIpush
-                          14381 ; AOP_STK for _changeCursorPosition_sloc0_1_0
-   030E 23                14382 	inc	hl
-   030F 23                14383 	inc	hl
-   0310 7E                14384 	ld	a,(hl)
-   0311 F5                14385 	push	af
-   0312 33                14386 	inc	sp
-                          14387 ; genIpush
-   0313 79                14388 	ld	a,c
-   0314 F5                14389 	push	af
-   0315 33                14390 	inc	sp
-                          14391 ; genIpush
-   0316 3E 01             14392 	ld	a,#0x01
-   0318 F5                14393 	push	af
-   0319 33                14394 	inc	sp
-                          14395 ; genCall
-   031A CD 00 00          14396 	call	_move_sprite
-   031D E8 03             14397 	lda	sp,3(sp)
-                          14398 ; genLabel
-   031F                   14399 00101$:
-                          14400 ; genEndFunction
-   031F E8 06             14401 	lda	sp,6(sp)
-   0321 C1                14402 	pop	bc
-   0322 C9                14403 	ret
-   0323                   14404 ___changeCursorPosition_end:
-                          14405 ;	main.c 126
-                          14406 ; genLabel
-                          14407 ; genFunction
-                          14408 ;	---------------------------------
-                          14409 ; Function changeCursorDelay
-                          14410 ; ---------------------------------
-   0323                   14411 ___changeCursorDelay_start:
-   0323                   14412 _changeCursorDelay:
-   0323 C5                14413 	push	bc
-   0324 E8 FE             14414 	lda	sp,-2(sp)
-                          14415 ;	main.c 128
-                          14416 ; genCall
-   0326 CD 00 00          14417 	call	_clock
-   0329 42                14418 	ld	b,d
-   032A 4B                14419 	ld	c,e
-                          14420 ;	main.c 130
-                          14421 ; genMinus
-                          14422 ; AOP_HL for _lastTime
-                          14423 ; AOP_STK for _changeCursorDelay_sloc0_1_0
-                          14424 ; Removed redundent load
-                          14425 ; Removed redundent load
-   032B 21 8F 08          14426 	ld	hl,#_lastTime + 0
-   032E 5E                14427 	ld	e,(hl)
-   032F 23                14428 	inc	hl
-   0330 56                14429 	ld	d,(hl)
-   0331 79                14430 	ld	a,c
-   0332 93                14431 	sub	a,e
-   0333 5F                14432 	ld	e,a
-   0334 78                14433 	ld	a,b
-   0335 9A                14434 	sbc	a,d
-   0336 F8 01             14435 	lda	hl,1(sp)
-   0338 77                14436 	ld	(hl),a
-   0339 2B                14437 	dec	hl
-   033A 73                14438 	ld	(hl),e
-                          14439 ; genCmpLt
-                          14440 ; AOP_STK for _changeCursorDelay_sloc0_1_0
-   033B 5E                14441 	ld	e,(hl)
-   033C 23                14442 	inc	hl
-   033D 56                14443 	ld	d,(hl)
-   033E 21 EC FF          14444 	ld	hl,#0xFFEC
-   0341 19                14445 	add	hl,de
-   0342 D2 77 03          14446 	jp	nc,00106$
-                          14447 ;	main.c 132
-                          14448 ; genCmpEq
-                          14449 ; AOP_HL for _currentCursorSpriteIndex
-   0345 21 91 08          14450 	ld	hl,#_currentCursorSpriteIndex + 0
-   0348 2A                14451 	ld	a,(hl+)
-   0349 B6                14452 	or	a,(hl)
-   034A C2 4F 03          14453 	jp	nz,00110$
-   034D 18 03             14454 	jr	00111$
-   034F                   14455 00110$:
-   034F C3 5D 03          14456 	jp	00102$
-   0352                   14457 00111$:
-                          14458 ;	main.c 134
-                          14459 ; genAssign
-                          14460 ; AOP_HL for _currentCursorSpriteIndex
-   0352 21 91 08          14461 	ld	hl,#_currentCursorSpriteIndex + 0
-   0355 36 01             14462 	ld	(hl),#0x01
-   0357 23                14463 	inc	hl
-   0358 36 00             14464 	ld	(hl),#0x00
-                          14465 ; genGoto
-   035A C3 65 03          14466 	jp	00103$
-                          14467 ; genLabel
-   035D                   14468 00102$:
-                          14469 ;	main.c 138
-                          14470 ; genAssign
-                          14471 ; AOP_HL for _currentCursorSpriteIndex
-   035D 21 91 08          14472 	ld	hl,#_currentCursorSpriteIndex + 0
-   0360 36 00             14473 	ld	(hl),#0x00
-   0362 23                14474 	inc	hl
-   0363 36 00             14475 	ld	(hl),#0x00
-                          14476 ; genLabel
-   0365                   14477 00103$:
-                          14478 ;	main.c 141
-                          14479 ; genIpush
-                          14480 ; AOP_HL for _currentCursorSpriteIndex
-   0365 21 91 08          14481 	ld	hl,#_currentCursorSpriteIndex + 0
-   0368 2A                14482 	ld	a,(hl+)
-   0369 66                14483 	ld	h,(hl)
-   036A 6F                14484 	ld	l,a
-   036B E5                14485 	push	hl
-                          14486 ; genCall
-   036C CD 7B 03          14487 	call	_changeCursorSprite
-   036F E8 02             14488 	lda	sp,2(sp)
-                          14489 ;	main.c 142
-                          14490 ; genAssign
-                          14491 ; AOP_HL for _lastTime
-   0371 21 8F 08          14492 	ld	hl,#_lastTime + 0
-   0374 71                14493 	ld	(hl),c
-   0375 23                14494 	inc	hl
-   0376 70                14495 	ld	(hl),b
+   005A 3E 01             13722 	ld	a,#0x01
+   005C F5                13723 	push	af
+   005D 33                13724 	inc	sp
+                          13725 ; genCall
+   005E CD 00 00          13726 	call	_move_sprite
+   0061 E8 03             13727 	lda	sp,3(sp)
+                          13728 ;	main.c 61
+                          13729 ; genIpush
+   0063 21 80 00          13730 	ld	hl,#_keyboardTiles + 0
+   0066 E5                13731 	push	hl
+                          13732 ; genIpush
+   0067 3E 67             13733 	ld	a,#0x67
+   0069 F5                13734 	push	af
+   006A 33                13735 	inc	sp
+                          13736 ; genIpush
+   006B 3E 00             13737 	ld	a,#0x00
+   006D F5                13738 	push	af
+   006E 33                13739 	inc	sp
+                          13740 ; genCall
+   006F CD 00 00          13741 	call	_set_bkg_data
+   0072 E8 04             13742 	lda	sp,4(sp)
+                          13743 ;	main.c 62
+                          13744 ; genIpush
+   0074 21 00 07          13745 	ld	hl,#_keyboardMap + 0
+   0077 E5                13746 	push	hl
+                          13747 ; genIpush
+   0078 3E 12             13748 	ld	a,#0x12
+   007A F5                13749 	push	af
+   007B 33                13750 	inc	sp
+                          13751 ; genIpush
+   007C 3E 14             13752 	ld	a,#0x14
+   007E F5                13753 	push	af
+   007F 33                13754 	inc	sp
+                          13755 ; genIpush
+   0080 3E 00             13756 	ld	a,#0x00
+   0082 F5                13757 	push	af
+   0083 33                13758 	inc	sp
+                          13759 ; genIpush
+   0084 3E 00             13760 	ld	a,#0x00
+   0086 F5                13761 	push	af
+   0087 33                13762 	inc	sp
+                          13763 ; genCall
+   0088 CD 00 00          13764 	call	_set_bkg_tiles
+   008B E8 06             13765 	lda	sp,6(sp)
+                          13766 ;	main.c 64
+                          13767 ; genOr
+                          13768 ; AOP_SFR for _LCDC_REG
+                          13769 ; Type res[4] = l[4]&r[1]
+                          13770 ; Size res[1] = l[1]&r[1]
+   008D F0 00             13771 	ldh	a,(_LCDC_REG+0) ; x
+   008F F6 01             13772 	or	a,#0x01
+   0091 E0 00             13773 	ldh	(_LCDC_REG+0),a
+                          13774 ;	main.c 65
+                          13775 ; genOr
+                          13776 ; AOP_SFR for _LCDC_REG
+                          13777 ; Type res[4] = l[4]&r[1]
+                          13778 ; Size res[1] = l[1]&r[1]
+   0093 F0 00             13779 	ldh	a,(_LCDC_REG+0) ; x
+   0095 F6 02             13780 	or	a,#0x02
+   0097 E0 00             13781 	ldh	(_LCDC_REG+0),a
+                          13782 ;	main.c 66
+                          13783 ; genOr
+                          13784 ; AOP_SFR for _LCDC_REG
+                          13785 ; Type res[4] = l[4]&r[1]
+                          13786 ; Size res[1] = l[1]&r[1]
+   0099 F0 00             13787 	ldh	a,(_LCDC_REG+0) ; x
+   009B F6 80             13788 	or	a,#0x80
+   009D E0 00             13789 	ldh	(_LCDC_REG+0),a
+                          13790 ;	main.c 68
+                          13791 ; genLabel
+   009F                   13792 00102$:
+                          13793 ;	main.c 70
+                          13794 ; genCall
+   009F CD 8F 01          13795 	call	_keyboard
+                          13796 ;	main.c 71
+                          13797 ; genCall
+   00A2 CD B5 00          13798 	call	_updateDisplay
+                          13799 ;	main.c 72
+                          13800 ; genCall
+   00A5 CD 88 03          13801 	call	_changeCursorPosition
+                          13802 ;	main.c 74
+                          13803 ; genIpush
+   00A8 21 74 08          13804 	ld	hl,#_lastTime + 0
+   00AB E5                13805 	push	hl
+                          13806 ; genCall
+   00AC CD 11 04          13807 	call	_changeCursorDelay
+   00AF E8 02             13808 	lda	sp,2(sp)
+                          13809 ; genGoto
+   00B1 C3 9F 00          13810 	jp	00102$
+                          13811 ; genLabel
+   00B4                   13812 00104$:
+                          13813 ; genEndFunction
+                          13814 	
+   00B4 C9                13815 	ret
+   00B5                   13816 ___main_end:
+                          13817 ;	main.c 78
+                          13818 ; genLabel
+                          13819 ; genFunction
+                          13820 ;	---------------------------------
+                          13821 ; Function updateDisplay
+                          13822 ; ---------------------------------
+   00B5                   13823 ___updateDisplay_start:
+   00B5                   13824 _updateDisplay:
+   00B5 C5                13825 	push	bc
+   00B6 E8 DF             13826 	lda	sp,-33(sp)
+                          13827 ;	main.c 83
+                          13828 ; genAssign
+                          13829 ; AOP_STK for _updateDisplay_i_1_1
+   00B8 F8 1F             13830 	lda	hl,31(sp)
+   00BA 36 00             13831 	ld	(hl),#0x00
+   00BC 23                13832 	inc	hl
+   00BD 36 00             13833 	ld	(hl),#0x00
+                          13834 ; genAddrOf
+                          13835 ; AOP_STK for _updateDisplay_sloc0_1_0
+   00BF F8 07             13836 	lda	hl,7(sp)
+   00C1 54                13837 	ld	d,h
+   00C2 5D                13838 	ld	e,l
+   00C3 F8 03             13839 	lda	hl,3(sp)
+   00C5 73                13840 	ld	(hl),e
+   00C6 23                13841 	inc	hl
+   00C7 72                13842 	ld	(hl),d
+                          13843 ; genLabel
+   00C8                   13844 00104$:
+                          13845 ; genCmpLt
+                          13846 ; AOP_STK for _updateDisplay_i_1_1
+   00C8 F8 1F             13847 	lda	hl,31(sp)
+   00CA 5E                13848 	ld	e,(hl)
+   00CB 23                13849 	inc	hl
+   00CC 7E                13850 	ld	a,(hl)
+   00CD EE 80             13851 	xor	a,#0x80
+   00CF 57                13852 	ld	d,a
+   00D0 21 F4 7F          13853 	ld	hl,#0x7FF4
+   00D3 19                13854 	add	hl,de
+   00D4 DA 70 01          13855 	jp	c,00107$
+                          13856 ;	main.c 85
+                          13857 ; genPlus
+                          13858 ; AOP_STK for _updateDisplay_i_1_1
+                          13859 ;	genPlusIncr failed
+   00D7 11 68 08          13860 	ld	de,#_display + 0
+   00DA F8 1F             13861 	lda	hl,31(sp)
+   00DC 2A                13862 	ld	a,(hl+)
+   00DD 66                13863 	ld	h,(hl)
+   00DE 6F                13864 	ld	l,a
+   00DF 19                13865 	add	hl,de
+   00E0 5D                13866 	ld	e,l
+   00E1 54                13867 	ld	d,h
+                          13868 ; genPointerGet
+   00E2 1A                13869 	ld	a,(de)
+   00E3 4F                13870 	ld	c,a
+                          13871 ; genCmpEq
+   00E4 79                13872 	ld	a,c
+   00E5 B7                13873 	or	a,a
+                          13874 ; Rule 5
+   00E6 CA 37 01          13875 	jp	z,00102$
+   00E9                   13876 00113$:
+                          13877 ;	main.c 87
+                          13878 ; genCast
+                          13879 ; Removed redundent load
+   00E9 79                13880 	ld	a,c
+                          13881 ; genCast: sign extend untested.
+   00EA 17                13882 	rla	
+   00EB 9F                13883 	sbc	a,a
+   00EC 47                13884 	ld	b,a
+                          13885 ; genMinus
+   00ED 79                13886 	ld	a,c
+   00EE C6 D0             13887 	add	a,#0xD0
+   00F0 4F                13888 	ld	c,a
+   00F1 78                13889 	ld	a,b
+   00F2 CE FF             13890 	adc	a,#0xFF
+   00F4 47                13891 	ld	b,a
+                          13892 ; genLeftShift
+   00F5 B7                13893 	or	a,a
+   00F6 CB 11             13894 	rl	c
+   00F8 CB 10             13895 	rl	b
+                          13896 ; genPlus
+                          13897 ; AOP_STK for _updateDisplay_c_3_3
+                          13898 ; genPlusIncr
+                          13899 ;	genPlusIncr failed
+   00FA 21 50 00          13900 	ld	hl,#0x0050
+   00FD 09                13901 	add	hl,bc
+   00FE 7D                13902 	ld	a,l
+   00FF 54                13903 	ld	d,h
+   0100 F8 05             13904 	lda	hl,5(sp)
+   0102 22                13905 	ld	(hl+),a
+   0103 72                13906 	ld	(hl),d
+                          13907 ;	main.c 88
+                          13908 ; genPlus
+                          13909 ; AOP_STK for _updateDisplay_sloc0_1_0
+                          13910 ; AOP_STK for _updateDisplay_i_1_1
+                          13911 ;	genPlusIncr failed
+   0104 F8 03             13912 	lda	hl,3(sp)
+   0106 5E                13913 	ld	e,(hl)
+   0107 23                13914 	inc	hl
+   0108 56                13915 	ld	d,(hl)
+   0109 F8 1F             13916 	lda	hl,31(sp)
+   010B 2A                13917 	ld	a,(hl+)
+   010C 66                13918 	ld	h,(hl)
+   010D 6F                13919 	ld	l,a
+   010E 19                13920 	add	hl,de
+   010F 5D                13921 	ld	e,l
+   0110 54                13922 	ld	d,h
+                          13923 ; genCast
+                          13924 ; AOP_STK for _updateDisplay_c_3_3
+                          13925 ; AOP_STK for _updateDisplay_sloc1_1_0
+   0111 F8 05             13926 	lda	hl,5(sp)
+   0113 7E                13927 	ld	a,(hl)
+   0114 F8 02             13928 	lda	hl,2(sp)
+   0116 77                13929 	ld	(hl),a
+                          13930 ; genAssign (pointer)
+                          13931 ; AOP_STK for _updateDisplay_sloc1_1_0
+   0117 7E                13932 	ld	a,(hl)
+   0118 12                13933 	ld	(de),a
+                          13934 ;	main.c 89
+                          13935 ; genPlus
+                          13936 ; AOP_STK for _updateDisplay_i_1_1
+                          13937 ; genPlusIncr
+                          13938 ;	genPlusIncr failed
+   0119 F8 1F             13939 	lda	hl,31(sp)
+   011B 5E                13940 	ld	e,(hl)
+   011C 23                13941 	inc	hl
+   011D 56                13942 	ld	d,(hl)
+   011E 21 0C 00          13943 	ld	hl,#0x000C
+   0121 19                13944 	add	hl,de
+   0122 4D                13945 	ld	c,l
+   0123 44                13946 	ld	b,h
+                          13947 ; genPlus
+                          13948 ; AOP_STK for _updateDisplay_sloc0_1_0
+                          13949 ;	genPlusIncr failed
+   0124 F8 03             13950 	lda	hl,3(sp)
+   0126 2A                13951 	ld	a,(hl+)
+   0127 66                13952 	ld	h,(hl)
+   0128 6F                13953 	ld	l,a
+   0129 09                13954 	add	hl,bc
+   012A 5D                13955 	ld	e,l
+   012B 54                13956 	ld	d,h
+                          13957 ; genPlus
+                          13958 ; AOP_STK for _updateDisplay_c_3_3
+                          13959 ; genPlusIncr
+   012C F8 05             13960 	lda	hl,5(sp)
+   012E 4E                13961 	ld	c,(hl)
+   012F 23                13962 	inc	hl
+   0130 46                13963 	ld	b,(hl)
+   0131 03                13964 	inc	bc
+                          13965 ; genCast
+                          13966 ; Removed redundent load
+                          13967 ; genAssign (pointer)
+   0132 79                13968 	ld	a,c
+   0133 12                13969 	ld	(de),a
+                          13970 ; genGoto
+   0134 C3 66 01          13971 	jp	00106$
+                          13972 ; genLabel
+   0137                   13973 00102$:
+                          13974 ;	main.c 93
+                          13975 ; genPlus
+                          13976 ; AOP_STK for _updateDisplay_sloc0_1_0
+                          13977 ; AOP_STK for _updateDisplay_i_1_1
+                          13978 ;	genPlusIncr failed
+   0137 F8 03             13979 	lda	hl,3(sp)
+   0139 5E                13980 	ld	e,(hl)
+   013A 23                13981 	inc	hl
+   013B 56                13982 	ld	d,(hl)
+   013C F8 1F             13983 	lda	hl,31(sp)
+   013E 2A                13984 	ld	a,(hl+)
+   013F 66                13985 	ld	h,(hl)
+   0140 6F                13986 	ld	l,a
+   0141 19                13987 	add	hl,de
+   0142 5D                13988 	ld	e,l
+   0143 54                13989 	ld	d,h
+                          13990 ; genAssign (pointer)
+   0144 3E 00             13991 	ld	a,#0x00
+   0146 12                13992 	ld	(de),a
+                          13993 ;	main.c 94
+                          13994 ; genPlus
+                          13995 ; AOP_STK for _updateDisplay_i_1_1
+                          13996 ; AOP_STK for _updateDisplay_sloc2_1_0
+                          13997 ; genPlusIncr
+                          13998 ;	genPlusIncr failed
+   0147 F8 1F             13999 	lda	hl,31(sp)
+   0149 5E                14000 	ld	e,(hl)
+   014A 23                14001 	inc	hl
+   014B 56                14002 	ld	d,(hl)
+   014C 21 0C 00          14003 	ld	hl,#0x000C
+   014F 19                14004 	add	hl,de
+   0150 7D                14005 	ld	a,l
+   0151 54                14006 	ld	d,h
+   0152 F8 00             14007 	lda	hl,0(sp)
+   0154 22                14008 	ld	(hl+),a
+   0155 72                14009 	ld	(hl),d
+                          14010 ; genPlus
+                          14011 ; AOP_STK for _updateDisplay_sloc0_1_0
+                          14012 ; AOP_STK for _updateDisplay_sloc2_1_0
+                          14013 ;	genPlusIncr failed
+   0156 23                14014 	inc	hl
+   0157 23                14015 	inc	hl
+   0158 5E                14016 	ld	e,(hl)
+   0159 23                14017 	inc	hl
+   015A 56                14018 	ld	d,(hl)
+   015B F8 00             14019 	lda	hl,0(sp)
+   015D 2A                14020 	ld	a,(hl+)
+   015E 66                14021 	ld	h,(hl)
+   015F 6F                14022 	ld	l,a
+   0160 19                14023 	add	hl,de
+   0161 5D                14024 	ld	e,l
+   0162 54                14025 	ld	d,h
+                          14026 ; genAssign (pointer)
+   0163 3E 00             14027 	ld	a,#0x00
+   0165 12                14028 	ld	(de),a
+                          14029 ; genLabel
+   0166                   14030 00106$:
+                          14031 ;	main.c 83
+                          14032 ; genPlus
+                          14033 ; AOP_STK for _updateDisplay_i_1_1
+                          14034 ; genPlusIncr
+   0166 F8 1F             14035 	lda	hl,31(sp)
+   0168 34                14036 	inc	(hl)
+   0169 20 02             14037 	jr	nz,00116$
+   016B 23                14038 	inc	hl
+   016C 34                14039 	inc	(hl)
+   016D                   14040 00116$:
+                          14041 ; genGoto
+   016D C3 C8 00          14042 	jp	00104$
+                          14043 ; genLabel
+   0170                   14044 00107$:
+                          14045 ;	main.c 98
+                          14046 ; genIpush
+                          14047 ; AOP_STK for _updateDisplay_sloc0_1_0
+   0170 F8 03             14048 	lda	hl,3(sp)
+   0172 2A                14049 	ld	a,(hl+)
+   0173 66                14050 	ld	h,(hl)
+   0174 6F                14051 	ld	l,a
+   0175 E5                14052 	push	hl
+                          14053 ; genIpush
+   0176 3E 02             14054 	ld	a,#0x02
+   0178 F5                14055 	push	af
+   0179 33                14056 	inc	sp
+                          14057 ; genIpush
+   017A 3E 0C             14058 	ld	a,#0x0C
+   017C F5                14059 	push	af
+   017D 33                14060 	inc	sp
+                          14061 ; genIpush
+   017E 3E 01             14062 	ld	a,#0x01
+   0180 F5                14063 	push	af
+   0181 33                14064 	inc	sp
+                          14065 ; genIpush
+   0182 3E 04             14066 	ld	a,#0x04
+   0184 F5                14067 	push	af
+   0185 33                14068 	inc	sp
+                          14069 ; genCall
+   0186 CD 00 00          14070 	call	_set_bkg_tiles
+   0189 E8 06             14071 	lda	sp,6(sp)
+                          14072 ; genLabel
+   018B                   14073 00108$:
+                          14074 ; genEndFunction
+   018B E8 21             14075 	lda	sp,33(sp)
+   018D C1                14076 	pop	bc
+   018E C9                14077 	ret
+   018F                   14078 ___updateDisplay_end:
+                          14079 ;	main.c 101
+                          14080 ; genLabel
+                          14081 ; genFunction
+                          14082 ;	---------------------------------
+                          14083 ; Function keyboard
+                          14084 ; ---------------------------------
+   018F                   14085 ___keyboard_start:
+   018F                   14086 _keyboard:
+   018F C5                14087 	push	bc
+   0190 E8 FE             14088 	lda	sp,-2(sp)
+                          14089 ;	main.c 103
+                          14090 ; genIfx
+                          14091 ; AOP_HL for _keydown
+   0192 21 E4 08          14092 	ld	hl,#_keydown + 0
+                          14093 ; Rule 8
+   0195 2A                14094 	ld	a,(hl+)
+   0196 B6                14095 	or	a,(hl)
+   0197 CA A5 01          14096 	jp	z,00102$
+                          14097 ;	main.c 105
+                          14098 ; genCall
+   019A CD 00 00          14099 	call	_waitpadup
+                          14100 ;	main.c 106
+                          14101 ; genAssign
+                          14102 ; AOP_HL for _keydown
+   019D 21 E4 08          14103 	ld	hl,#_keydown + 0
+   01A0 36 00             14104 	ld	(hl),#0x00
+   01A2 23                14105 	inc	hl
+   01A3 36 00             14106 	ld	(hl),#0x00
+                          14107 ; genLabel
+   01A5                   14108 00102$:
+                          14109 ;	main.c 109
+                          14110 ; genCall
+   01A5 CD 00 00          14111 	call	_joypad
+   01A8 4B                14112 	ld	c,e
+                          14113 ; genCmpEq
+   01A9 79                14114 	ld	a,c ; 2
+   01AA FE 01             14115 	cp	a,#0x01
+                          14116 ; Rule 5
+   01AC CA 37 02          14117 	jp	z,00105$
+   01AF                   14118 00130$:
+                          14119 ; genCmpEq
+   01AF 79                14120 	ld	a,c ; 2
+   01B0 FE 02             14121 	cp	a,#0x02
+                          14122 ; Rule 5
+   01B2 CA 73 02          14123 	jp	z,00106$
+   01B5                   14124 00131$:
+                          14125 ; genCmpEq
+   01B5 79                14126 	ld	a,c ; 2
+   01B6 FE 04             14127 	cp	a,#0x04
+                          14128 ; Rule 5
+   01B8 CA CA 01          14129 	jp	z,00103$
+   01BB                   14130 00132$:
+                          14131 ; genCmpEq
+   01BB 79                14132 	ld	a,c ; 2
+   01BC FE 08             14133 	cp	a,#0x08
+                          14134 ; Rule 5
+   01BE CA FB 01          14135 	jp	z,00104$
+   01C1                   14136 00133$:
+                          14137 ; genCmpEq
+   01C1 79                14138 	ld	a,c ; 2
+   01C2 FE 10             14139 	cp	a,#0x10
+                          14140 ; Rule 5
+   01C4 CA A4 02          14141 	jp	z,00107$
+   01C7                   14142 00134$:
+                          14143 ; genGoto
+   01C7 C3 E0 02          14144 	jp	00110$
+                          14145 ;	main.c 112
+                          14146 ; genLabel
+   01CA                   14147 00103$:
+                          14148 ; genCmpGt
+                          14149 ; AOP_HL for _cursorY
+   01CA 21 DE 08          14150 	ld	hl,#_cursorY + 0
+   01CD 5E                14151 	ld	e,(hl)
+   01CE 23                14152 	inc	hl
+   01CF 7E                14153 	ld	a,(hl)
+   01D0 EE 80             14154 	xor	a,#0x80
+   01D2 57                14155 	ld	d,a
+   01D3 21 FF 7F          14156 	ld	hl,#0x7FFF
+   01D6 19                14157 	add	hl,de
+   01D7 D2 E4 01          14158 	jp	nc,00112$
+                          14159 ; genMinus
+                          14160 ; AOP_HL for _cursorY
+   01DA 21 DE 08          14161 	ld	hl,#_cursorY + 0
+   01DD 4E                14162 	ld	c,(hl)
+   01DE 23                14163 	inc	hl
+   01DF 46                14164 	ld	b,(hl)
+   01E0 0B                14165 	dec	bc
+                          14166 ; genGoto
+   01E1 C3 EA 01          14167 	jp	00113$
+                          14168 ; genLabel
+   01E4                   14169 00112$:
+                          14170 ; genAssign
+                          14171 ; AOP_HL for _cursorY
+   01E4 21 DE 08          14172 	ld	hl,#_cursorY + 0
+   01E7 4E                14173 	ld	c,(hl)
+   01E8 23                14174 	inc	hl
+   01E9 46                14175 	ld	b,(hl)
+                          14176 ; genLabel
+   01EA                   14177 00113$:
+                          14178 ; genAssign
+                          14179 ; AOP_HL for _cursorY
+   01EA 21 DE 08          14180 	ld	hl,#_cursorY + 0
+   01ED 71                14181 	ld	(hl),c
+   01EE 23                14182 	inc	hl
+   01EF 70                14183 	ld	(hl),b
+                          14184 ;	main.c 113
+                          14185 ; genAssign
+                          14186 ; AOP_HL for _keydown
+   01F0 21 E4 08          14187 	ld	hl,#_keydown + 0
+   01F3 36 01             14188 	ld	(hl),#0x01
+   01F5 23                14189 	inc	hl
+   01F6 36 00             14190 	ld	(hl),#0x00
+                          14191 ;	main.c 114
+                          14192 ; genGoto
+   01F8 C3 E0 02          14193 	jp	00110$
+                          14194 ;	main.c 116
+                          14195 ; genLabel
+   01FB                   14196 00104$:
+                          14197 ; genCmpLt
+                          14198 ; AOP_HL for _cursorY
+                          14199 ; AOP_HL for _maxPosY
+   01FB 21 DF 08          14200 	ld	hl,#_cursorY + 0 + 1
+   01FE 7E                14201 	ld	a,(hl)
+   01FF EE 80             14202 	xor	a,#0x80
+   0201 5F                14203 	ld	e,a
+   0202 21 E3 08          14204 	ld	hl,#_maxPosY + 0 + 1
+   0205 7E                14205 	ld	a,(hl)
+   0206 EE 80             14206 	xor	a,#0x80
+   0208 57                14207 	ld	d,a
+   0209 21 DE 08          14208 	ld	hl,#_cursorY + 0
+   020C 7E                14209 	ld	a,(hl)
+   020D 21 E2 08          14210 	ld	hl,#_maxPosY + 0
+   0210 9E                14211 	sbc	a,(hl) ; 2
+   0211 7B                14212 	ld	a,e
+   0212 9A                14213 	sbc	a,d
+   0213 D2 20 02          14214 	jp	nc,00114$
+                          14215 ; genPlus
+                          14216 ; AOP_HL for _cursorY
+                          14217 ; genPlusIncr
+   0216 21 DE 08          14218 	ld	hl,#_cursorY + 0
+   0219 4E                14219 	ld	c,(hl)
+   021A 23                14220 	inc	hl
+   021B 46                14221 	ld	b,(hl)
+   021C 03                14222 	inc	bc
+                          14223 ; genGoto
+   021D C3 26 02          14224 	jp	00115$
+                          14225 ; genLabel
+   0220                   14226 00114$:
+                          14227 ; genAssign
+                          14228 ; AOP_HL for _cursorY
+   0220 21 DE 08          14229 	ld	hl,#_cursorY + 0
+   0223 4E                14230 	ld	c,(hl)
+   0224 23                14231 	inc	hl
+   0225 46                14232 	ld	b,(hl)
+                          14233 ; genLabel
+   0226                   14234 00115$:
+                          14235 ; genAssign
+                          14236 ; AOP_HL for _cursorY
+   0226 21 DE 08          14237 	ld	hl,#_cursorY + 0
+   0229 71                14238 	ld	(hl),c
+   022A 23                14239 	inc	hl
+   022B 70                14240 	ld	(hl),b
+                          14241 ;	main.c 117
+                          14242 ; genAssign
+                          14243 ; AOP_HL for _keydown
+   022C 21 E4 08          14244 	ld	hl,#_keydown + 0
+   022F 36 01             14245 	ld	(hl),#0x01
+   0231 23                14246 	inc	hl
+   0232 36 00             14247 	ld	(hl),#0x00
+                          14248 ;	main.c 118
+                          14249 ; genGoto
+   0234 C3 E0 02          14250 	jp	00110$
+                          14251 ;	main.c 120
+                          14252 ; genLabel
+   0237                   14253 00105$:
+                          14254 ; genCmpLt
+                          14255 ; AOP_HL for _cursorX
+                          14256 ; AOP_HL for _maxPosX
+   0237 21 DD 08          14257 	ld	hl,#_cursorX + 0 + 1
+   023A 7E                14258 	ld	a,(hl)
+   023B EE 80             14259 	xor	a,#0x80
+   023D 5F                14260 	ld	e,a
+   023E 21 E1 08          14261 	ld	hl,#_maxPosX + 0 + 1
+   0241 7E                14262 	ld	a,(hl)
+   0242 EE 80             14263 	xor	a,#0x80
+   0244 57                14264 	ld	d,a
+   0245 21 DC 08          14265 	ld	hl,#_cursorX + 0
+   0248 7E                14266 	ld	a,(hl)
+   0249 21 E0 08          14267 	ld	hl,#_maxPosX + 0
+   024C 9E                14268 	sbc	a,(hl) ; 2
+   024D 7B                14269 	ld	a,e
+   024E 9A                14270 	sbc	a,d
+   024F D2 5C 02          14271 	jp	nc,00116$
+                          14272 ; genPlus
+                          14273 ; AOP_HL for _cursorX
+                          14274 ; genPlusIncr
+   0252 21 DC 08          14275 	ld	hl,#_cursorX + 0
+   0255 4E                14276 	ld	c,(hl)
+   0256 23                14277 	inc	hl
+   0257 46                14278 	ld	b,(hl)
+   0258 03                14279 	inc	bc
+                          14280 ; genGoto
+   0259 C3 62 02          14281 	jp	00117$
+                          14282 ; genLabel
+   025C                   14283 00116$:
+                          14284 ; genAssign
+                          14285 ; AOP_HL for _cursorX
+   025C 21 DC 08          14286 	ld	hl,#_cursorX + 0
+   025F 4E                14287 	ld	c,(hl)
+   0260 23                14288 	inc	hl
+   0261 46                14289 	ld	b,(hl)
+                          14290 ; genLabel
+   0262                   14291 00117$:
+                          14292 ; genAssign
+                          14293 ; AOP_HL for _cursorX
+   0262 21 DC 08          14294 	ld	hl,#_cursorX + 0
+   0265 71                14295 	ld	(hl),c
+   0266 23                14296 	inc	hl
+   0267 70                14297 	ld	(hl),b
+                          14298 ;	main.c 121
+                          14299 ; genAssign
+                          14300 ; AOP_HL for _keydown
+   0268 21 E4 08          14301 	ld	hl,#_keydown + 0
+   026B 36 01             14302 	ld	(hl),#0x01
+   026D 23                14303 	inc	hl
+   026E 36 00             14304 	ld	(hl),#0x00
+                          14305 ;	main.c 122
+                          14306 ; genGoto
+   0270 C3 E0 02          14307 	jp	00110$
+                          14308 ;	main.c 124
+                          14309 ; genLabel
+   0273                   14310 00106$:
+                          14311 ; genCmpGt
+                          14312 ; AOP_HL for _cursorX
+   0273 21 DC 08          14313 	ld	hl,#_cursorX + 0
+   0276 5E                14314 	ld	e,(hl)
+   0277 23                14315 	inc	hl
+   0278 7E                14316 	ld	a,(hl)
+   0279 EE 80             14317 	xor	a,#0x80
+   027B 57                14318 	ld	d,a
+   027C 21 FF 7F          14319 	ld	hl,#0x7FFF
+   027F 19                14320 	add	hl,de
+   0280 D2 8D 02          14321 	jp	nc,00118$
+                          14322 ; genMinus
+                          14323 ; AOP_HL for _cursorX
+   0283 21 DC 08          14324 	ld	hl,#_cursorX + 0
+   0286 4E                14325 	ld	c,(hl)
+   0287 23                14326 	inc	hl
+   0288 46                14327 	ld	b,(hl)
+   0289 0B                14328 	dec	bc
+                          14329 ; genGoto
+   028A C3 93 02          14330 	jp	00119$
+                          14331 ; genLabel
+   028D                   14332 00118$:
+                          14333 ; genAssign
+                          14334 ; AOP_HL for _cursorX
+   028D 21 DC 08          14335 	ld	hl,#_cursorX + 0
+   0290 4E                14336 	ld	c,(hl)
+   0291 23                14337 	inc	hl
+   0292 46                14338 	ld	b,(hl)
+                          14339 ; genLabel
+   0293                   14340 00119$:
+                          14341 ; genAssign
+                          14342 ; AOP_HL for _cursorX
+   0293 21 DC 08          14343 	ld	hl,#_cursorX + 0
+   0296 71                14344 	ld	(hl),c
+   0297 23                14345 	inc	hl
+   0298 70                14346 	ld	(hl),b
+                          14347 ;	main.c 125
+                          14348 ; genAssign
+                          14349 ; AOP_HL for _keydown
+   0299 21 E4 08          14350 	ld	hl,#_keydown + 0
+   029C 36 01             14351 	ld	(hl),#0x01
+   029E 23                14352 	inc	hl
+   029F 36 00             14353 	ld	(hl),#0x00
+                          14354 ;	main.c 126
+                          14355 ; genGoto
+   02A1 C3 E0 02          14356 	jp	00110$
+                          14357 ;	main.c 128
+                          14358 ; genLabel
+   02A4                   14359 00107$:
+                          14360 ; genLeftShift
+                          14361 ; AOP_HL for _cursorY
+   02A4 21 DE 08          14362 	ld	hl,#_cursorY + 0
+   02A7 4E                14363 	ld	c,(hl)
+   02A8 23                14364 	inc	hl
+   02A9 46                14365 	ld	b,(hl)
+   02AA 3E 03             14366 	ld	a,#0x02+1
+   02AC 18 05             14367 	jr	00136$
+   02AE                   14368 00135$:
+   02AE B7                14369 	or	a,a
+   02AF CB 11             14370 	rl	c
+   02B1 CB 10             14371 	rl	b
+   02B3                   14372 00136$:
+   02B3 3D                14373 	dec	a
+   02B4 20 F8             14374 	jr	nz,00135$
+                          14375 ; genPlus
+                          14376 ; AOP_STK for _keyboard_sloc0_1_0
+                          14377 ;	genPlusIncr failed
+   02B6 21 C8 08          14378 	ld	hl,#_keyboardOptions + 0
+   02B9 09                14379 	add	hl,bc
+   02BA 7D                14380 	ld	a,l
+   02BB 54                14381 	ld	d,h
+   02BC F8 00             14382 	lda	hl,0(sp)
+   02BE 22                14383 	ld	(hl+),a
+   02BF 72                14384 	ld	(hl),d
+                          14385 ; genAssign
+                          14386 ; AOP_HL for _cursorX
+   02C0 21 DC 08          14387 	ld	hl,#_cursorX + 0
+   02C3 4E                14388 	ld	c,(hl)
+   02C4 23                14389 	inc	hl
+   02C5 46                14390 	ld	b,(hl)
+                          14391 ; genPlus
+                          14392 ; AOP_STK for _keyboard_sloc0_1_0
+                          14393 ;	genPlusIncr failed
+   02C6 F8 00             14394 	lda	hl,0(sp)
+   02C8 2A                14395 	ld	a,(hl+)
+   02C9 66                14396 	ld	h,(hl)
+   02CA 6F                14397 	ld	l,a
+   02CB 09                14398 	add	hl,bc
+   02CC 5D                14399 	ld	e,l
+   02CD 54                14400 	ld	d,h
+                          14401 ; genPointerGet
+   02CE 1A                14402 	ld	a,(de)
+   02CF 4F                14403 	ld	c,a
+                          14404 ; genIpush
+   02D0 79                14405 	ld	a,c
+   02D1 F5                14406 	push	af
+   02D2 33                14407 	inc	sp
+                          14408 ; genCall
+   02D3 CD E4 02          14409 	call	_action
+   02D6 E8 01             14410 	lda	sp,1(sp)
+                          14411 ;	main.c 129
+                          14412 ; genAssign
+                          14413 ; AOP_HL for _keydown
+   02D8 21 E4 08          14414 	ld	hl,#_keydown + 0
+   02DB 36 01             14415 	ld	(hl),#0x01
+   02DD 23                14416 	inc	hl
+   02DE 36 00             14417 	ld	(hl),#0x00
+                          14418 ;	main.c 133
+                          14419 ; genLabel
+   02E0                   14420 00110$:
+                          14421 ; genEndFunction
+   02E0 E8 02             14422 	lda	sp,2(sp)
+   02E2 C1                14423 	pop	bc
+   02E3 C9                14424 	ret
+   02E4                   14425 ___keyboard_end:
+                          14426 ;	main.c 136
+                          14427 ; genLabel
+                          14428 ; genFunction
+                          14429 ;	---------------------------------
+                          14430 ; Function action
+                          14431 ; ---------------------------------
+   02E4                   14432 ___action_start:
+   02E4                   14433 _action:
+   02E4 C5                14434 	push	bc
+                          14435 	
+                          14436 ;	main.c 138
+                          14437 ; genCmpLt
+                          14438 ; AOP_STK for 
+   02E5 F8 04             14439 	lda	hl,4(sp)
+   02E7 7E                14440 	ld	a,(hl)
+   02E8 EE 80             14441 	xor	a,#0x80
+   02EA FE B0             14442 	cp	#0x30^0x80
+   02EC DA 30 03          14443 	jp	c,00113$
+                          14444 ; genCmpGt
+                          14445 ; AOP_STK for 
+   02EF 1E B9             14446 	ld	e,#0xB9
+   02F1 7E                14447 	ld	a,(hl)
+   02F2 EE 80             14448 	xor	a,#0x80
+   02F4 57                14449 	ld	d,a
+   02F5 7B                14450 	ld	a,e
+   02F6 9A                14451 	sbc	a,d
+   02F7 DA 30 03          14452 	jp	c,00113$
+                          14453 ; genMinus
+                          14454 ; AOP_STK for 
+   02FA 7E                14455 	ld	a,(hl)
+   02FB C6 D0             14456 	add	a,#0xD0
+   02FD 4F                14457 	ld	c,a
+                          14458 ; genJumpTab
+   02FE 59                14459 	ld	e,c
+   02FF 16 00             14460 	ld	d,#0x00
+   0301 21 08 03          14461 	ld	hl,#00117$
+   0304 19                14462 	add	hl,de
+   0305 19                14463 	add	hl,de
+   0306 19                14464 	add	hl,de
+   0307 E9                14465 	jp	(hl)
+   0308                   14466 00117$:
+   0308 C3 26 03          14467 	jp	00110$
+   030B C3 26 03          14468 	jp	00109$
+   030E C3 26 03          14469 	jp	00108$
+   0311 C3 26 03          14470 	jp	00107$
+   0314 C3 26 03          14471 	jp	00106$
+   0317 C3 26 03          14472 	jp	00105$
+   031A C3 26 03          14473 	jp	00104$
+   031D C3 26 03          14474 	jp	00103$
+   0320 C3 26 03          14475 	jp	00102$
+   0323 C3 26 03          14476 	jp	00101$
+                          14477 ;	main.c 150
+                          14478 ; genLabel
+   0326                   14479 00110$:
+                          14480 ; genLabel
+   0326                   14481 00109$:
+                          14482 ; genLabel
+   0326                   14483 00108$:
+                          14484 ; genLabel
+   0326                   14485 00107$:
+                          14486 ; genLabel
+   0326                   14487 00106$:
+                          14488 ; genLabel
+   0326                   14489 00105$:
+                          14490 ; genLabel
+   0326                   14491 00104$:
+                          14492 ; genLabel
+   0326                   14493 00103$:
+                          14494 ; genLabel
+   0326                   14495 00102$:
                           14496 ; genLabel
-   0377                   14497 00106$:
-                          14498 ; genEndFunction
-   0377 E8 02             14499 	lda	sp,2(sp)
-   0379 C1                14500 	pop	bc
-   037A C9                14501 	ret
-   037B                   14502 ___changeCursorDelay_end:
-                          14503 ;	main.c 146
-                          14504 ; genLabel
-                          14505 ; genFunction
-                          14506 ;	---------------------------------
-                          14507 ; Function changeCursorSprite
-                          14508 ; ---------------------------------
-   037B                   14509 ___changeCursorSprite_start:
-   037B                   14510 _changeCursorSprite:
+   0326                   14497 00101$:
+                          14498 ; genIpush
+                          14499 ; AOP_STK for 
+   0326 F8 04             14500 	lda	hl,4(sp)
+   0328 7E                14501 	ld	a,(hl)
+   0329 F5                14502 	push	af
+   032A 33                14503 	inc	sp
+                          14504 ; genCall
+   032B CD 32 03          14505 	call	_addToDisplay
+   032E E8 01             14506 	lda	sp,1(sp)
+                          14507 ;	main.c 154
+                          14508 ; genLabel
+   0330                   14509 00113$:
+                          14510 ; genEndFunction
                           14511 	
-                          14512 ;	main.c 148
-                          14513 ; genCmpEq
-                          14514 ; AOP_STK for 
-   037B F8 02             14515 	lda	hl,2(sp)
-   037D 2A                14516 	ld	a,(hl+)
-   037E B6                14517 	or	a,(hl)
-   037F C2 84 03          14518 	jp	nz,00107$
-   0382 18 03             14519 	jr	00108$
-   0384                   14520 00107$:
-   0384 C3 A4 03          14521 	jp	00102$
-   0387                   14522 00108$:
-                          14523 ;	main.c 150
-                          14524 ; genIpush
-   0387 3E 00             14525 	ld	a,#0x00
-   0389 F5                14526 	push	af
-   038A 33                14527 	inc	sp
-                          14528 ; genIpush
-   038B 3E 00             14529 	ld	a,#0x00
-   038D F5                14530 	push	af
-   038E 33                14531 	inc	sp
-                          14532 ; genCall
-   038F CD 00 00          14533 	call	_set_sprite_tile
-   0392 E8 02             14534 	lda	sp,2(sp)
-                          14535 ;	main.c 151
-                          14536 ; genIpush
-   0394 3E 02             14537 	ld	a,#0x02
-   0396 F5                14538 	push	af
-   0397 33                14539 	inc	sp
-                          14540 ; genIpush
-   0398 3E 01             14541 	ld	a,#0x01
-   039A F5                14542 	push	af
-   039B 33                14543 	inc	sp
-                          14544 ; genCall
-   039C CD 00 00          14545 	call	_set_sprite_tile
-   039F E8 02             14546 	lda	sp,2(sp)
-                          14547 ; genGoto
-   03A1 C3 BE 03          14548 	jp	00104$
-                          14549 ; genLabel
-   03A4                   14550 00102$:
-                          14551 ;	main.c 155
-                          14552 ; genIpush
-   03A4 3E 04             14553 	ld	a,#0x04
-   03A6 F5                14554 	push	af
-   03A7 33                14555 	inc	sp
-                          14556 ; genIpush
-   03A8 3E 00             14557 	ld	a,#0x00
-   03AA F5                14558 	push	af
-   03AB 33                14559 	inc	sp
-                          14560 ; genCall
-   03AC CD 00 00          14561 	call	_set_sprite_tile
-   03AF E8 02             14562 	lda	sp,2(sp)
-                          14563 ;	main.c 156
-                          14564 ; genIpush
-   03B1 3E 06             14565 	ld	a,#0x06
-   03B3 F5                14566 	push	af
-   03B4 33                14567 	inc	sp
-                          14568 ; genIpush
-   03B5 3E 01             14569 	ld	a,#0x01
-   03B7 F5                14570 	push	af
-   03B8 33                14571 	inc	sp
-                          14572 ; genCall
-   03B9 CD 00 00          14573 	call	_set_sprite_tile
-   03BC E8 02             14574 	lda	sp,2(sp)
-                          14575 ; genLabel
-   03BE                   14576 00104$:
-                          14577 ; genEndFunction
-                          14578 	
-   03BE C9                14579 	ret
-   03BF                   14580 ___changeCursorSprite_end:
-                          14581 ;	main.c 160
-                          14582 ; genLabel
-                          14583 ; genFunction
-                          14584 ;	---------------------------------
-                          14585 ; Function toDisplay
-                          14586 ; ---------------------------------
-   03BF                   14587 ___toDisplay_start:
-   03BF                   14588 _toDisplay:
-   03BF C5                14589 	push	bc
-   03C0 E8 F8             14590 	lda	sp,-8(sp)
-                          14591 ;	main.c 163
-                          14592 ; genAssign
-                          14593 ; AOP_STK for _toDisplay_numDigits_1_1
-   03C2 F8 04             14594 	lda	hl,4(sp)
-   03C4 36 01             14595 	ld	(hl),#0x01
-   03C6 23                14596 	inc	hl
-   03C7 36 00             14597 	ld	(hl),#0x00
-                          14598 ;	main.c 164
-                          14599 ; genAssign
-                          14600 ; (operands are equal 3)
-                          14601 ; genIpush
-                          14602 ; AOP_STK for 
-   03C9 F8 0C             14603 	lda	hl,12(sp)
-   03CB 2A                14604 	ld	a,(hl+)
-   03CC 66                14605 	ld	h,(hl)
-   03CD 6F                14606 	ld	l,a
-   03CE E5                14607 	push	hl
-                          14608 ; genCall
-   03CF CD 00 00          14609 	call	_abs
-   03D2 42                14610 	ld	b,d
-   03D3 4B                14611 	ld	c,e
-   03D4 E8 02             14612 	lda	sp,2(sp)
-                          14613 ;	main.c 165
-                          14614 ; genIpush
-   03D6 21 A5 04          14615 	ld	hl,#__str_0 + 0
-   03D9 E5                14616 	push	hl
-                          14617 ; genIpush
-   03DA 21 68 08          14618 	ld	hl,#_display + 0
-   03DD E5                14619 	push	hl
-                          14620 ; genCall
-   03DE CD 00 00          14621 	call	_strcpy
-   03E1 E8 04             14622 	lda	sp,4(sp)
-                          14623 ;	main.c 167
-                          14624 ; genLabel
-   03E3                   14625 00101$:
-                          14626 ; genCmpLt
-   03E3 21 F6 FF          14627 	ld	hl,#0xFFF6
-   03E6 09                14628 	add	hl,bc
-   03E7 D2 00 04          14629 	jp	nc,00103$
-                          14630 ;	main.c 169
-                          14631 ; genIpush
-   03EA 21 0A 00          14632 	ld	hl,#0x000A
-   03ED E5                14633 	push	hl
-                          14634 ; genIpush
-   03EE C5                14635 	push	bc
-                          14636 ; genCall
-   03EF CD 00 00          14637 	call	__divuint
-   03F2 42                14638 	ld	b,d
-   03F3 4B                14639 	ld	c,e
-   03F4 E8 04             14640 	lda	sp,4(sp)
-                          14641 ;	main.c 170
-                          14642 ; genPlus
-                          14643 ; AOP_STK for _toDisplay_numDigits_1_1
-                          14644 ; genPlusIncr
-   03F6 F8 04             14645 	lda	hl,4(sp)
-   03F8 34                14646 	inc	(hl)
-   03F9 20 02             14647 	jr	nz,00114$
-   03FB 23                14648 	inc	hl
-   03FC 34                14649 	inc	(hl)
-   03FD                   14650 00114$:
-                          14651 ; genGoto
-   03FD C3 E3 03          14652 	jp	00101$
-                          14653 ; genLabel
-   0400                   14654 00103$:
-                          14655 ;	main.c 173
-                          14656 ; genMinus
-                          14657 ; AOP_STK for _toDisplay_numDigits_1_1
-                          14658 ; AOP_STK for _toDisplay_i_1_1
-   0400 F8 04             14659 	lda	hl,4(sp)
-   0402 5E                14660 	ld	e,(hl)
-   0403 23                14661 	inc	hl
-   0404 56                14662 	ld	d,(hl)
-   0405 21 01 00          14663 	ld	hl,#0x0001
-   0408 7B                14664 	ld	a,e
-   0409 95                14665 	sub	a,l
-   040A 5F                14666 	ld	e,a
-   040B 7A                14667 	ld	a,d
-   040C 9C                14668 	sbc	a,h
-   040D F8 07             14669 	lda	hl,7(sp)
-   040F 77                14670 	ld	(hl),a
-   0410 2B                14671 	dec	hl
-   0411 73                14672 	ld	(hl),e
-                          14673 ; genAddrOf
-                          14674 ; AOP_STK for _toDisplay_sloc0_1_0
-   0412 F8 04             14675 	lda	hl,4(sp)
-   0414 54                14676 	ld	d,h
-   0415 5D                14677 	ld	e,l
-   0416 F8 00             14678 	lda	hl,0(sp)
-   0418 73                14679 	ld	(hl),e
-   0419 23                14680 	inc	hl
-   041A 72                14681 	ld	(hl),d
-                          14682 ; genLabel
-   041B                   14683 00104$:
-                          14684 ; genCmpGt
-                          14685 ; AOP_STK for _toDisplay_i_1_1
-   041B F8 06             14686 	lda	hl,6(sp)
-   041D 5E                14687 	ld	e,(hl)
-   041E 23                14688 	inc	hl
-   041F 7E                14689 	ld	a,(hl)
-   0420 EE 80             14690 	xor	a,#0x80
-   0422 57                14691 	ld	d,a
-   0423 21 00 80          14692 	ld	hl,#0x8000
-   0426 19                14693 	add	hl,de
-   0427 D2 A1 04          14694 	jp	nc,00108$
-                          14695 ;	main.c 176
-                          14696 ; genIpush
-                          14697 ; AOP_STK for _toDisplay_i_1_1
-   042A F8 06             14698 	lda	hl,6(sp)
-   042C 2A                14699 	ld	a,(hl+)
-   042D 66                14700 	ld	h,(hl)
-   042E 6F                14701 	ld	l,a
-   042F E5                14702 	push	hl
-                          14703 ; genIpush
-   0430 21 0A 00          14704 	ld	hl,#0x000A
-   0433 E5                14705 	push	hl
-                          14706 ; genCall
-   0434 CD A6 04          14707 	call	_pow
-   0437 42                14708 	ld	b,d
-   0438 4B                14709 	ld	c,e
-   0439 E8 04             14710 	lda	sp,4(sp)
+   0330 C1                14512 	pop	bc
+   0331 C9                14513 	ret
+   0332                   14514 ___action_end:
+                          14515 ;	main.c 157
+                          14516 ; genLabel
+                          14517 ; genFunction
+                          14518 ;	---------------------------------
+                          14519 ; Function addToDisplay
+                          14520 ; ---------------------------------
+   0332                   14521 ___addToDisplay_start:
+   0332                   14522 _addToDisplay:
+   0332 C5                14523 	push	bc
+                          14524 	
+                          14525 ;	main.c 159
+                          14526 ; genIpush
+   0333 21 68 08          14527 	ld	hl,#_display + 0
+   0336 E5                14528 	push	hl
+                          14529 ; genCall
+   0337 CD 00 00          14530 	call	_strlen
+   033A 42                14531 	ld	b,d
+   033B 4B                14532 	ld	c,e
+   033C E8 02             14533 	lda	sp,2(sp)
+                          14534 ; genCmpLt
+   033E 59                14535 	ld	e,c
+   033F 78                14536 	ld	a,b
+   0340 EE 80             14537 	xor	a,#0x80
+   0342 57                14538 	ld	d,a
+   0343 21 F4 7F          14539 	ld	hl,#0x7FF4
+   0346 19                14540 	add	hl,de
+   0347 DA 86 03          14541 	jp	c,00107$
+                          14542 ;	main.c 161
+                          14543 ; genPointerGet
+   034A 11 68 08          14544 	ld	de,#_display + 0
+   034D 1A                14545 	ld	a,(de)
+   034E 4F                14546 	ld	c,a
+                          14547 ; genCmpEq
+   034F 79                14548 	ld	a,c ; 2
+   0350 FE 30             14549 	cp	a,#0x30
+   0352 C2 57 03          14550 	jp	nz,00112$
+   0355 18 03             14551 	jr	00113$
+   0357                   14552 00112$:
+   0357 C3 6F 03          14553 	jp	00102$
+   035A                   14554 00113$:
+                          14555 ; genPlus
+                          14556 ; genPlusIncr
+   035A 11 69 08          14557 	ld	de,#_display + 0 + 1
+                          14558 ; genPointerGet
+   035D 1A                14559 	ld	a,(de)
+   035E 4F                14560 	ld	c,a
+                          14561 ; genCmpEq
+   035F 79                14562 	ld	a,c ; 2
+   0360 FE 2C             14563 	cp	a,#0x2C
+                          14564 ; Rule 5
+   0362 CA 6F 03          14565 	jp	z,00102$
+   0365                   14566 00114$:
+                          14567 ;	main.c 163
+                          14568 ; genAssign (pointer)
+                          14569 ; AOP_STK for 
+   0365 11 68 08          14570 	ld	de,#_display + 0
+   0368 F8 04             14571 	lda	hl,4(sp)
+   036A 7E                14572 	ld	a,(hl)
+   036B 12                14573 	ld	(de),a
+                          14574 ; genGoto
+   036C C3 86 03          14575 	jp	00107$
+                          14576 ; genLabel
+   036F                   14577 00102$:
+                          14578 ;	main.c 167
+                          14579 ; genIpush
+   036F 21 68 08          14580 	ld	hl,#_display + 0
+   0372 E5                14581 	push	hl
+                          14582 ; genCall
+   0373 CD 00 00          14583 	call	_strlen
+   0376 42                14584 	ld	b,d
+   0377 4B                14585 	ld	c,e
+   0378 E8 02             14586 	lda	sp,2(sp)
+                          14587 ; genPlus
+                          14588 ;	genPlusIncr failed
+   037A 3E 68             14589 	ld	a,#<_display
+   037C 81                14590 	add	a,c
+   037D 5F                14591 	ld	e,a
+   037E 3E 08             14592 	ld	a,#>_display
+   0380 88                14593 	adc	a,b
+   0381 57                14594 	ld	d,a
+                          14595 ; genAssign (pointer)
+                          14596 ; AOP_STK for 
+   0382 F8 04             14597 	lda	hl,4(sp)
+   0384 7E                14598 	ld	a,(hl)
+   0385 12                14599 	ld	(de),a
+                          14600 ; genLabel
+   0386                   14601 00107$:
+                          14602 ; genEndFunction
+                          14603 	
+   0386 C1                14604 	pop	bc
+   0387 C9                14605 	ret
+   0388                   14606 ___addToDisplay_end:
+                          14607 ;	main.c 172
+                          14608 ; genLabel
+                          14609 ; genFunction
+                          14610 ;	---------------------------------
+                          14611 ; Function changeCursorPosition
+                          14612 ; ---------------------------------
+   0388                   14613 ___changeCursorPosition_start:
+   0388                   14614 _changeCursorPosition:
+   0388 C5                14615 	push	bc
+   0389 E8 FA             14616 	lda	sp,-6(sp)
+                          14617 ;	main.c 174
+                          14618 ; genLeftShift
+                          14619 ; AOP_HL for _cursorY
+   038B 21 DE 08          14620 	ld	hl,#_cursorY + 0
+   038E 4E                14621 	ld	c,(hl)
+   038F 23                14622 	inc	hl
+   0390 46                14623 	ld	b,(hl)
+   0391 3E 05             14624 	ld	a,#0x04+1
+   0393 18 05             14625 	jr	00104$
+   0395                   14626 00103$:
+   0395 B7                14627 	or	a,a
+   0396 CB 11             14628 	rl	c
+   0398 CB 10             14629 	rl	b
+   039A                   14630 00104$:
+   039A 3D                14631 	dec	a
+   039B 20 F8             14632 	jr	nz,00103$
+                          14633 ; genPlus
+                          14634 ; AOP_STK for _changeCursorPosition_sloc0_1_0
+                          14635 ;	genPlusIncr failed
+   039D 21 78 08          14636 	ld	hl,#_cursorLocations + 0
+   03A0 09                14637 	add	hl,bc
+   03A1 7D                14638 	ld	a,l
+   03A2 54                14639 	ld	d,h
+   03A3 F8 02             14640 	lda	hl,2(sp)
+   03A5 22                14641 	ld	(hl+),a
+   03A6 72                14642 	ld	(hl),d
+                          14643 ; genLeftShift
+                          14644 ; AOP_HL for _cursorX
+   03A7 21 DC 08          14645 	ld	hl,#_cursorX + 0
+   03AA 4E                14646 	ld	c,(hl)
+   03AB 23                14647 	inc	hl
+   03AC 46                14648 	ld	b,(hl)
+   03AD 3E 03             14649 	ld	a,#0x02+1
+   03AF 18 05             14650 	jr	00106$
+   03B1                   14651 00105$:
+   03B1 B7                14652 	or	a,a
+   03B2 CB 11             14653 	rl	c
+   03B4 CB 10             14654 	rl	b
+   03B6                   14655 00106$:
+   03B6 3D                14656 	dec	a
+   03B7 20 F8             14657 	jr	nz,00105$
+                          14658 ; genPlus
+                          14659 ; AOP_STK for _changeCursorPosition_sloc0_1_0
+                          14660 ;	genPlusIncr failed
+   03B9 F8 02             14661 	lda	hl,2(sp)
+   03BB 2A                14662 	ld	a,(hl+)
+   03BC 66                14663 	ld	h,(hl)
+   03BD 6F                14664 	ld	l,a
+   03BE 09                14665 	add	hl,bc
+   03BF 4D                14666 	ld	c,l
+   03C0 44                14667 	ld	b,h
+                          14668 ; genPointerGet
+                          14669 ; AOP_STK for _changeCursorPosition_positionX_1_1
+   03C1 59                14670 	ld	e,c
+   03C2 50                14671 	ld	d,b
+   03C3 1A                14672 	ld	a,(de)
+   03C4 F8 04             14673 	lda	hl,4(sp)
+   03C6 77                14674 	ld	(hl),a
+   03C7 13                14675 	inc	de
+   03C8 1A                14676 	ld	a,(de)
+   03C9 23                14677 	inc	hl
+   03CA 77                14678 	ld	(hl),a
+                          14679 ;	main.c 175
+                          14680 ; genPlus
+                          14681 ; genPlusIncr
+   03CB 59                14682 	ld	e,c
+   03CC 50                14683 	ld	d,b
+   03CD 13                14684 	inc	de
+   03CE 13                14685 	inc	de
+                          14686 ; genPointerGet
+                          14687 ; Removed redundent load
+                          14688 ; Removed redundent load
+   03CF 1A                14689 	ld	a,(de)
+   03D0 4F                14690 	ld	c,a
+   03D1 13                14691 	inc	de
+   03D2 1A                14692 	ld	a,(de)
+   03D3 47                14693 	ld	b,a
+                          14694 ;	main.c 177
+                          14695 ; genCast
+                          14696 ; AOP_STK for _changeCursorPosition_sloc0_1_0
+   03D4 F8 02             14697 	lda	hl,2(sp)
+   03D6 71                14698 	ld	(hl),c
+                          14699 ; genCast
+                          14700 ; AOP_STK for _changeCursorPosition_positionX_1_1
+   03D7 23                14701 	inc	hl
+   03D8 23                14702 	inc	hl
+   03D9 4E                14703 	ld	c,(hl)
+                          14704 ; genIpush
+                          14705 ; AOP_STK for _changeCursorPosition_sloc0_1_0
+   03DA 2B                14706 	dec	hl
+   03DB 2B                14707 	dec	hl
+   03DC 7E                14708 	ld	a,(hl)
+   03DD F5                14709 	push	af
+   03DE 33                14710 	inc	sp
                           14711 ; genIpush
-   043B C5                14712 	push	bc
-                          14713 ; genIpush
-                          14714 ; AOP_STK for 
-   043C F8 0E             14715 	lda	hl,14(sp)
-   043E 2A                14716 	ld	a,(hl+)
-   043F 66                14717 	ld	h,(hl)
-   0440 6F                14718 	ld	l,a
-   0441 E5                14719 	push	hl
-                          14720 ; genCall
-   0442 CD 00 00          14721 	call	__divuint
-                          14722 ; AOP_STK for _toDisplay_digit_2_3
-   0445 F8 07             14723 	lda	hl,7(sp)
-   0447 72                14724 	ld	(hl),d
-   0448 2B                14725 	dec	hl
-   0449 73                14726 	ld	(hl),e
-   044A E8 04             14727 	lda	sp,4(sp)
-                          14728 ;	main.c 177
-                          14729 ; genIpush
-                          14730 ; AOP_STK for _toDisplay_i_1_1
-   044C F8 06             14731 	lda	hl,6(sp)
-   044E 2A                14732 	ld	a,(hl+)
-   044F 66                14733 	ld	h,(hl)
-   0450 6F                14734 	ld	l,a
-   0451 E5                14735 	push	hl
-                          14736 ; genIpush
-   0452 21 0A 00          14737 	ld	hl,#0x000A
-   0455 E5                14738 	push	hl
-                          14739 ; genCall
-   0456 CD A6 04          14740 	call	_pow
-   0459 42                14741 	ld	b,d
-   045A 4B                14742 	ld	c,e
-   045B E8 04             14743 	lda	sp,4(sp)
-                          14744 ; genIpush
-   045D C5                14745 	push	bc
-                          14746 ; genIpush
-                          14747 ; AOP_STK for 
-   045E F8 0E             14748 	lda	hl,14(sp)
-   0460 2A                14749 	ld	a,(hl+)
-   0461 66                14750 	ld	h,(hl)
-   0462 6F                14751 	ld	l,a
-   0463 E5                14752 	push	hl
-                          14753 ; genCall
-   0464 CD 00 00          14754 	call	__moduint
-   0467 42                14755 	ld	b,d
-   0468 4B                14756 	ld	c,e
-   0469 E8 04             14757 	lda	sp,4(sp)
-                          14758 ; genAssign
-                          14759 ; AOP_STK for 
-   046B F8 0C             14760 	lda	hl,12(sp)
-   046D 71                14761 	ld	(hl),c
-   046E 23                14762 	inc	hl
-   046F 70                14763 	ld	(hl),b
-                          14764 ;	main.c 179
-                          14765 ; genCast
-                          14766 ; AOP_STK for _toDisplay_digit_2_3
-   0470 F8 02             14767 	lda	hl,2(sp)
-   0472 4E                14768 	ld	c,(hl)
-                          14769 ; genPlus
-                          14770 ; genPlusIncr
-                          14771 ;	genPlusIncr failed
-   0473 79                14772 	ld	a,c
-   0474 C6 30             14773 	add	a,#0x30
-   0476 4F                14774 	ld	c,a
-                          14775 ; genAssign (pointer)
-                          14776 ; AOP_STK for _toDisplay_sloc0_1_0
-   0477 2B                14777 	dec	hl
-   0478 2B                14778 	dec	hl
-   0479 5E                14779 	ld	e,(hl)
-   047A 23                14780 	inc	hl
-   047B 56                14781 	ld	d,(hl)
-   047C 79                14782 	ld	a,c
-   047D 12                14783 	ld	(de),a
-                          14784 ;	main.c 181
-                          14785 ; genIpush
-                          14786 ; AOP_STK for _toDisplay_sloc0_1_0
-   047E 2B                14787 	dec	hl
-   047F 2A                14788 	ld	a,(hl+)
-   0480 66                14789 	ld	h,(hl)
-   0481 6F                14790 	ld	l,a
-   0482 E5                14791 	push	hl
-                          14792 ; genIpush
-   0483 21 68 08          14793 	ld	hl,#_display + 0
-   0486 E5                14794 	push	hl
-                          14795 ; genCall
-   0487 CD 00 00          14796 	call	_strcat
-   048A E8 04             14797 	lda	sp,4(sp)
-                          14798 ;	main.c 173
-                          14799 ; genMinus
-                          14800 ; AOP_STK for _toDisplay_i_1_1
-   048C F8 06             14801 	lda	hl,6(sp)
-   048E 5E                14802 	ld	e,(hl)
-   048F 23                14803 	inc	hl
-   0490 56                14804 	ld	d,(hl)
-   0491 21 01 00          14805 	ld	hl,#0x0001
-   0494 7B                14806 	ld	a,e
-   0495 95                14807 	sub	a,l
-   0496 5F                14808 	ld	e,a
-   0497 7A                14809 	ld	a,d
-   0498 9C                14810 	sbc	a,h
-   0499 F8 07             14811 	lda	hl,7(sp)
-   049B 77                14812 	ld	(hl),a
-   049C 2B                14813 	dec	hl
-   049D 73                14814 	ld	(hl),e
-                          14815 ; genGoto
-   049E C3 1B 04          14816 	jp	00104$
-                          14817 ; genLabel
-   04A1                   14818 00108$:
-                          14819 ; genEndFunction
-   04A1 E8 08             14820 	lda	sp,8(sp)
-   04A3 C1                14821 	pop	bc
-   04A4 C9                14822 	ret
-   04A5                   14823 ___toDisplay_end:
-   04A5                   14824 __str_0:
-   04A5 00                14825 	.db 0x00
-                          14826 ;	main.c 185
-                          14827 ; genLabel
-                          14828 ; genFunction
-                          14829 ;	---------------------------------
-                          14830 ; Function pow
-                          14831 ; ---------------------------------
-   04A6                   14832 ___pow_start:
-   04A6                   14833 _pow:
-   04A6 C5                14834 	push	bc
-   04A7 E8 FE             14835 	lda	sp,-2(sp)
-                          14836 ;	main.c 188
-                          14837 ; genAssign
-                          14838 ; AOP_STK for 
-                          14839 ; AOP_STK for _pow_result_1_1
-   04A9 F8 06             14840 	lda	hl,6(sp)
-   04AB 2A                14841 	ld	a,(hl+)
-   04AC 5E                14842 	ld	e,(hl)
-   04AD F8 00             14843 	lda	hl,0(sp)
-   04AF 22                14844 	ld	(hl+),a
-   04B0 73                14845 	ld	(hl),e
-                          14846 ;	main.c 190
-                          14847 ; genCmpEq
-                          14848 ; AOP_STK for 
-   04B1 F8 08             14849 	lda	hl,8(sp)
-   04B3 2A                14850 	ld	a,(hl+)
-   04B4 B6                14851 	or	a,(hl)
-   04B5 C2 BA 04          14852 	jp	nz,00112$
-   04B8 18 03             14853 	jr	00113$
-   04BA                   14854 00112$:
-   04BA C3 C3 04          14855 	jp	00102$
-   04BD                   14856 00113$:
-                          14857 ;	main.c 192
-                          14858 ; genRet
-   04BD 11 01 00          14859 	ld	de,#0x0001
-   04C0 C3 F7 04          14860 	jp	00107$
-                          14861 ; genLabel
-   04C3                   14862 00102$:
-                          14863 ;	main.c 195
-                          14864 ; genAssign
-   04C3 01 01 00          14865 	ld	bc,#0x0001
-                          14866 ; genLabel
-   04C6                   14867 00103$:
-                          14868 ; genCmpLt
-                          14869 ; AOP_STK for 
-   04C6 78                14870 	ld	a,b
-   04C7 EE 80             14871 	xor	a,#0x80
-   04C9 5F                14872 	ld	e,a
-   04CA F8 09             14873 	lda	hl,9(sp)
-   04CC 7E                14874 	ld	a,(hl)
-   04CD EE 80             14875 	xor	a,#0x80
-   04CF 57                14876 	ld	d,a
-   04D0 79                14877 	ld	a,c
-   04D1 2B                14878 	dec	hl
-   04D2 9E                14879 	sbc	a,(hl) ; 2
-   04D3 7B                14880 	ld	a,e
-   04D4 9A                14881 	sbc	a,d
-   04D5 D2 F2 04          14882 	jp	nc,00106$
-                          14883 ;	main.c 197
-                          14884 ; genIpush
-                          14885 ; AOP_STK for 
-   04D8 2B                14886 	dec	hl
-   04D9 2B                14887 	dec	hl
-   04DA 2A                14888 	ld	a,(hl+)
-   04DB 66                14889 	ld	h,(hl)
-   04DC 6F                14890 	ld	l,a
-   04DD E5                14891 	push	hl
-                          14892 ; genIpush
-                          14893 ; AOP_STK for _pow_result_1_1
-   04DE F8 02             14894 	lda	hl,2(sp)
-   04E0 2A                14895 	ld	a,(hl+)
-   04E1 66                14896 	ld	h,(hl)
-   04E2 6F                14897 	ld	l,a
-   04E3 E5                14898 	push	hl
-                          14899 ; genCall
-   04E4 CD 00 00          14900 	call	__mulsint
-                          14901 ; AOP_STK for _pow_result_1_1
-   04E7 F8 05             14902 	lda	hl,5(sp)
-   04E9 72                14903 	ld	(hl),d
-   04EA 2B                14904 	dec	hl
-   04EB 73                14905 	ld	(hl),e
-   04EC E8 04             14906 	lda	sp,4(sp)
-                          14907 ;	main.c 195
-                          14908 ; genPlus
-                          14909 ; genPlusIncr
-   04EE 03                14910 	inc	bc
-                          14911 ; genGoto
-   04EF C3 C6 04          14912 	jp	00103$
-                          14913 ; genLabel
-   04F2                   14914 00106$:
-                          14915 ;	main.c 200
-                          14916 ; genRet
-                          14917 ; AOP_STK for _pow_result_1_1
-   04F2 F8 00             14918 	lda	hl,0(sp)
-   04F4 5E                14919 	ld	e,(hl)
-   04F5 23                14920 	inc	hl
-   04F6 56                14921 	ld	d,(hl)
-                          14922 ; genLabel
-   04F7                   14923 00107$:
-                          14924 ; genEndFunction
-   04F7 E8 02             14925 	lda	sp,2(sp)
-   04F9 C1                14926 	pop	bc
-   04FA C9                14927 	ret
-   04FB                   14928 ___pow_end:
-                          14929 	.area _CODE
-   04FB                   14930 __str_1:
-   04FB 31 30 30 30 30 30 14931 	.ascii "100000"
-   0501 00                14932 	.db 0x00
+   03DF 79                14712 	ld	a,c
+   03E0 F5                14713 	push	af
+   03E1 33                14714 	inc	sp
+                          14715 ; genIpush
+   03E2 3E 00             14716 	ld	a,#0x00
+   03E4 F5                14717 	push	af
+   03E5 33                14718 	inc	sp
+                          14719 ; genCall
+   03E6 CD 00 00          14720 	call	_move_sprite
+   03E9 E8 03             14721 	lda	sp,3(sp)
+                          14722 ;	main.c 178
+                          14723 ; genPlus
+                          14724 ; AOP_STK for _changeCursorPosition_positionX_1_1
+                          14725 ; AOP_STK for _changeCursorPosition_sloc1_1_0
+                          14726 ; genPlusIncr
+                          14727 ;	genPlusIncr failed
+   03EB F8 04             14728 	lda	hl,4(sp)
+   03ED 5E                14729 	ld	e,(hl)
+   03EE 23                14730 	inc	hl
+   03EF 56                14731 	ld	d,(hl)
+   03F0 21 08 00          14732 	ld	hl,#0x0008
+   03F3 19                14733 	add	hl,de
+   03F4 7D                14734 	ld	a,l
+   03F5 54                14735 	ld	d,h
+   03F6 F8 00             14736 	lda	hl,0(sp)
+   03F8 22                14737 	ld	(hl+),a
+   03F9 72                14738 	ld	(hl),d
+                          14739 ; genCast
+                          14740 ; AOP_STK for _changeCursorPosition_sloc1_1_0
+   03FA 2B                14741 	dec	hl
+   03FB 4E                14742 	ld	c,(hl)
+                          14743 ; genIpush
+                          14744 ; AOP_STK for _changeCursorPosition_sloc0_1_0
+   03FC 23                14745 	inc	hl
+   03FD 23                14746 	inc	hl
+   03FE 7E                14747 	ld	a,(hl)
+   03FF F5                14748 	push	af
+   0400 33                14749 	inc	sp
+                          14750 ; genIpush
+   0401 79                14751 	ld	a,c
+   0402 F5                14752 	push	af
+   0403 33                14753 	inc	sp
+                          14754 ; genIpush
+   0404 3E 01             14755 	ld	a,#0x01
+   0406 F5                14756 	push	af
+   0407 33                14757 	inc	sp
+                          14758 ; genCall
+   0408 CD 00 00          14759 	call	_move_sprite
+   040B E8 03             14760 	lda	sp,3(sp)
+                          14761 ; genLabel
+   040D                   14762 00101$:
+                          14763 ; genEndFunction
+   040D E8 06             14764 	lda	sp,6(sp)
+   040F C1                14765 	pop	bc
+   0410 C9                14766 	ret
+   0411                   14767 ___changeCursorPosition_end:
+                          14768 ;	main.c 181
+                          14769 ; genLabel
+                          14770 ; genFunction
+                          14771 ;	---------------------------------
+                          14772 ; Function changeCursorDelay
+                          14773 ; ---------------------------------
+   0411                   14774 ___changeCursorDelay_start:
+   0411                   14775 _changeCursorDelay:
+   0411 C5                14776 	push	bc
+   0412 E8 FE             14777 	lda	sp,-2(sp)
+                          14778 ;	main.c 183
+                          14779 ; genCall
+   0414 CD 00 00          14780 	call	_clock
+   0417 42                14781 	ld	b,d
+   0418 4B                14782 	ld	c,e
+                          14783 ;	main.c 185
+                          14784 ; genMinus
+                          14785 ; AOP_HL for _lastTime
+                          14786 ; AOP_STK for _changeCursorDelay_sloc0_1_0
+                          14787 ; Removed redundent load
+                          14788 ; Removed redundent load
+   0419 21 74 08          14789 	ld	hl,#_lastTime + 0
+   041C 5E                14790 	ld	e,(hl)
+   041D 23                14791 	inc	hl
+   041E 56                14792 	ld	d,(hl)
+   041F 79                14793 	ld	a,c
+   0420 93                14794 	sub	a,e
+   0421 5F                14795 	ld	e,a
+   0422 78                14796 	ld	a,b
+   0423 9A                14797 	sbc	a,d
+   0424 F8 01             14798 	lda	hl,1(sp)
+   0426 77                14799 	ld	(hl),a
+   0427 2B                14800 	dec	hl
+   0428 73                14801 	ld	(hl),e
+                          14802 ; genCmpLt
+                          14803 ; AOP_STK for _changeCursorDelay_sloc0_1_0
+   0429 5E                14804 	ld	e,(hl)
+   042A 23                14805 	inc	hl
+   042B 56                14806 	ld	d,(hl)
+   042C 21 EC FF          14807 	ld	hl,#0xFFEC
+   042F 19                14808 	add	hl,de
+   0430 D2 65 04          14809 	jp	nc,00106$
+                          14810 ;	main.c 187
+                          14811 ; genCmpEq
+                          14812 ; AOP_HL for _currentCursorSpriteIndex
+   0433 21 76 08          14813 	ld	hl,#_currentCursorSpriteIndex + 0
+   0436 2A                14814 	ld	a,(hl+)
+   0437 B6                14815 	or	a,(hl)
+   0438 C2 3D 04          14816 	jp	nz,00110$
+   043B 18 03             14817 	jr	00111$
+   043D                   14818 00110$:
+   043D C3 4B 04          14819 	jp	00102$
+   0440                   14820 00111$:
+                          14821 ;	main.c 189
+                          14822 ; genAssign
+                          14823 ; AOP_HL for _currentCursorSpriteIndex
+   0440 21 76 08          14824 	ld	hl,#_currentCursorSpriteIndex + 0
+   0443 36 01             14825 	ld	(hl),#0x01
+   0445 23                14826 	inc	hl
+   0446 36 00             14827 	ld	(hl),#0x00
+                          14828 ; genGoto
+   0448 C3 53 04          14829 	jp	00103$
+                          14830 ; genLabel
+   044B                   14831 00102$:
+                          14832 ;	main.c 193
+                          14833 ; genAssign
+                          14834 ; AOP_HL for _currentCursorSpriteIndex
+   044B 21 76 08          14835 	ld	hl,#_currentCursorSpriteIndex + 0
+   044E 36 00             14836 	ld	(hl),#0x00
+   0450 23                14837 	inc	hl
+   0451 36 00             14838 	ld	(hl),#0x00
+                          14839 ; genLabel
+   0453                   14840 00103$:
+                          14841 ;	main.c 196
+                          14842 ; genIpush
+                          14843 ; AOP_HL for _currentCursorSpriteIndex
+   0453 21 76 08          14844 	ld	hl,#_currentCursorSpriteIndex + 0
+   0456 2A                14845 	ld	a,(hl+)
+   0457 66                14846 	ld	h,(hl)
+   0458 6F                14847 	ld	l,a
+   0459 E5                14848 	push	hl
+                          14849 ; genCall
+   045A CD 69 04          14850 	call	_changeCursorSprite
+   045D E8 02             14851 	lda	sp,2(sp)
+                          14852 ;	main.c 197
+                          14853 ; genAssign
+                          14854 ; AOP_HL for _lastTime
+   045F 21 74 08          14855 	ld	hl,#_lastTime + 0
+   0462 71                14856 	ld	(hl),c
+   0463 23                14857 	inc	hl
+   0464 70                14858 	ld	(hl),b
+                          14859 ; genLabel
+   0465                   14860 00106$:
+                          14861 ; genEndFunction
+   0465 E8 02             14862 	lda	sp,2(sp)
+   0467 C1                14863 	pop	bc
+   0468 C9                14864 	ret
+   0469                   14865 ___changeCursorDelay_end:
+                          14866 ;	main.c 201
+                          14867 ; genLabel
+                          14868 ; genFunction
+                          14869 ;	---------------------------------
+                          14870 ; Function changeCursorSprite
+                          14871 ; ---------------------------------
+   0469                   14872 ___changeCursorSprite_start:
+   0469                   14873 _changeCursorSprite:
+                          14874 	
+                          14875 ;	main.c 203
+                          14876 ; genCmpEq
+                          14877 ; AOP_STK for 
+   0469 F8 02             14878 	lda	hl,2(sp)
+   046B 2A                14879 	ld	a,(hl+)
+   046C B6                14880 	or	a,(hl)
+   046D C2 72 04          14881 	jp	nz,00107$
+   0470 18 03             14882 	jr	00108$
+   0472                   14883 00107$:
+   0472 C3 92 04          14884 	jp	00102$
+   0475                   14885 00108$:
+                          14886 ;	main.c 205
+                          14887 ; genIpush
+   0475 3E 00             14888 	ld	a,#0x00
+   0477 F5                14889 	push	af
+   0478 33                14890 	inc	sp
+                          14891 ; genIpush
+   0479 3E 00             14892 	ld	a,#0x00
+   047B F5                14893 	push	af
+   047C 33                14894 	inc	sp
+                          14895 ; genCall
+   047D CD 00 00          14896 	call	_set_sprite_tile
+   0480 E8 02             14897 	lda	sp,2(sp)
+                          14898 ;	main.c 206
+                          14899 ; genIpush
+   0482 3E 02             14900 	ld	a,#0x02
+   0484 F5                14901 	push	af
+   0485 33                14902 	inc	sp
+                          14903 ; genIpush
+   0486 3E 01             14904 	ld	a,#0x01
+   0488 F5                14905 	push	af
+   0489 33                14906 	inc	sp
+                          14907 ; genCall
+   048A CD 00 00          14908 	call	_set_sprite_tile
+   048D E8 02             14909 	lda	sp,2(sp)
+                          14910 ; genGoto
+   048F C3 AC 04          14911 	jp	00104$
+                          14912 ; genLabel
+   0492                   14913 00102$:
+                          14914 ;	main.c 210
+                          14915 ; genIpush
+   0492 3E 04             14916 	ld	a,#0x04
+   0494 F5                14917 	push	af
+   0495 33                14918 	inc	sp
+                          14919 ; genIpush
+   0496 3E 00             14920 	ld	a,#0x00
+   0498 F5                14921 	push	af
+   0499 33                14922 	inc	sp
+                          14923 ; genCall
+   049A CD 00 00          14924 	call	_set_sprite_tile
+   049D E8 02             14925 	lda	sp,2(sp)
+                          14926 ;	main.c 211
+                          14927 ; genIpush
+   049F 3E 06             14928 	ld	a,#0x06
+   04A1 F5                14929 	push	af
+   04A2 33                14930 	inc	sp
+                          14931 ; genIpush
+   04A3 3E 01             14932 	ld	a,#0x01
+   04A5 F5                14933 	push	af
+   04A6 33                14934 	inc	sp
+                          14935 ; genCall
+   04A7 CD 00 00          14936 	call	_set_sprite_tile
+   04AA E8 02             14937 	lda	sp,2(sp)
+                          14938 ; genLabel
+   04AC                   14939 00104$:
+                          14940 ; genEndFunction
+                          14941 	
+   04AC C9                14942 	ret
+   04AD                   14943 ___changeCursorSprite_end:
+                          14944 	.area _CODE
+   04AD                   14945 __str_0:
+   04AD 30                14946 	.ascii "0"
+   04AE 00                14947 	.db 0x00
 ASxxxx Assembler V01.75  (GameBoy Z80-like CPU), page 1.
 
 Symbol Table
@@ -14989,75 +15004,69 @@ Symbol Table
     _VBK_REG                           **** GX
     _WX_REG                            **** GX
     _WY_REG                            **** GX
-  0 ___changeCursorDelay_end           037B R
-  0 ___changeCursorDelay_start         0323 R
-  0 ___changeCursorPosition_end        0323 R
-  0 ___changeCursorPosition_start      029A R
-  0 ___changeCursorSprite_end          03BF R
-  0 ___changeCursorSprite_start        037B R
-  0 ___keyboard_end                    029A R
-  0 ___keyboard_start                  01C1 R
-  0 ___main_end                        00C7 R
+  0 ___action_end                      0332 R
+  0 ___action_start                    02E4 R
+  0 ___addToDisplay_end                0388 R
+  0 ___addToDisplay_start              0332 R
+  0 ___changeCursorDelay_end           0469 R
+  0 ___changeCursorDelay_start         0411 R
+  0 ___changeCursorPosition_end        0411 R
+  0 ___changeCursorPosition_start      0388 R
+  0 ___changeCursorSprite_end          04AD R
+  0 ___changeCursorSprite_start        0469 R
+  0 ___keyboard_end                    02E4 R
+  0 ___keyboard_start                  018F R
+  0 ___main_end                        00B5 R
   0 ___main_start                      0000 R
-  0 ___pow_end                         04FB R
-  0 ___pow_start                       04A6 R
-  0 ___toDisplay_end                   04A5 R
-  0 ___toDisplay_start                 03BF R
-  0 ___updateDisplay_end               01C1 R
-  0 ___updateDisplay_start             00C7 R
+  0 ___updateDisplay_end               018F R
+  0 ___updateDisplay_start             00B5 R
     __cpu                              **** GX
-    __divuint                          **** GX
     __io_in                            **** GX
     __io_out                           **** GX
     __io_status                        **** GX
-    __moduint                          **** GX
-    __mulsint                          **** GX
-  0 __str_0                            04A5 R
-  0 __str_1                            04FB R
-    _abs                               **** GX
-  0 _changeCursorDelay                 0323 GR
-  0 _changeCursorPosition              029A GR
-  0 _changeCursorSprite                037B GR
+  0 __str_0                            04AD R
+  0 _action                            02E4 GR
+  0 _addToDisplay                      0332 GR
+  0 _changeCursorDelay                 0411 GR
+  0 _changeCursorPosition              0388 GR
+  0 _changeCursorSprite                0469 GR
     _clock                             **** GX
-  1 _currentCursorSpriteIndex          0891 GR
+  1 _currentCursorSpriteIndex          0876 GR
   1 _cursor                            0000 GR
-  1 _cursorLocations                   0893 GR
-  1 _cursorX                           08E3 GR
-  1 _cursorY                           08E5 GR
-    _delay                             **** GX
+  1 _cursorLocations                   0878 GR
+  1 _cursorX                           08DC GR
+  1 _cursorY                           08DE GR
   1 _display                           0868 GR
-  1 _displayDigits                     0877 GR
     _joypad                            **** GX
-  0 _keyboard                          01C1 GR
+  0 _keyboard                          018F GR
   1 _keyboardMap                       0700 GR
+  1 _keyboardOptions                   08C8 GR
   1 _keyboardTiles                     0080 GR
-  1 _lastTime                          088F GR
+  1 _keydown                           08E4 GR
+  1 _lastTime                          0874 GR
   0 _main                              0000 GR
-  1 _maxPosX                           08E7 GR
-  1 _maxPosY                           08E9 GR
+  1 _maxPosX                           08E0 GR
+  1 _maxPosY                           08E2 GR
     _move_sprite                       **** GX
-  0 _pow                               04A6 GR
     _set_bkg_data                      **** GX
     _set_bkg_tiles                     **** GX
     _set_sprite_data                   **** GX
     _set_sprite_tile                   **** GX
-    _strcat                            **** GX
-    _strcpy                            **** GX
     _strlen                            **** GX
     _sys_time                          **** GX
-  0 _toDisplay                         03BF GR
-  0 _updateDisplay                     00C7 GR
+  0 _updateDisplay                     00B5 GR
+    _waitpadup                         **** GX
 
 ASxxxx Assembler V01.75  (GameBoy Z80-like CPU), page 2.
 
 Area Table
 
-   0 _CODE                              size  502   flags 0
-   1 _DATA                              size  8EB   flags 0
+   0 _CODE                              size  4AF   flags 0
+   1 _DATA                              size  8E6   flags 0
    2 _OVERLAY                           size    0   flags 0
    3 _ISEG                              size    0   flags 0
    4 _BSEG                              size    0   flags 0
    5 _XSEG                              size    0   flags 0
-   6 _GSINIT                            size 345A   flags 0
+   6 _GSINIT                            size 34BC   flags 0
    7 _GSFINAL                           size    0   flags 0
    8 _HOME                              size    0   flags 0
