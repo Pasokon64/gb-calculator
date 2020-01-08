@@ -7,5 +7,6 @@ char * mul(char*, char*);
 char * div(char*, char*);
 
 int pow(int, int);
+int compare(char*, char*);
 
 #endif

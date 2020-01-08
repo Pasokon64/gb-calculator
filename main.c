@@ -69,6 +69,9 @@ void main()
     set_bkg_data(0, 103, keyboardTiles);
     set_bkg_tiles(0, 0, 20, 18, keyboardMap);
 
+    set_bkg_tiles(4, 16, 2, 2, 0);
+    set_bkg_tiles(10, 16, 2, 2, 0);
+
     SHOW_BKG;
     SHOW_SPRITES;
     DISPLAY_ON;
@@ -172,6 +175,16 @@ void action(char option)
     case '=':
         solve();
         break;
+    case 'c':
+        clearString(&display);
+        strcpy(display, "0");
+        break;
+    case '<':
+        if (strlen(display) > 2)
+            display[strlen(display) - 1] = '\0';
+        else 
+            display[strlen(display) - 1] = '0';
+        break;
     default:
         break;
     }
@@ -225,7 +238,11 @@ void solve() {
     case '*':
         strcpy(result, mul(n1, n2));
         break;
+    case '/':
+        strcpy(result, div(n1, n2));
+        break;
     default:
+        strcpy(result, sum(n1, n2));
         break;
     }
 

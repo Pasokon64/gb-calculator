@@ -136,6 +136,66 @@ char *mul(char *n1, char *n2) {
     return result;
 }
 
+char *div(char *n1, char *n2) {
+
+    char count[12] = "0";
+    char numerator[12];
+
+    strcpy(numerator, n1);
+
+    while (compare(numerator, n2))
+    {
+        strcpy(numerator, sub(numerator, n2));
+        strcpy(count, sum(count, "1"));
+    }
+
+    return count;
+}
+
+int compare(char *n1, char *n2) {
+
+    size_t i;
+    int num1[12] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+    int num2[12] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+    int lastIndex1 = strlen(n1) - 1;
+    int lastIndex2 = strlen(n2) - 1;
+
+    if (lastIndex1 > lastIndex2)
+    {
+        return 1;
+    }
+
+    for (i = 0; i <= lastIndex1; i++)
+    {
+        num1[lastIndex1 - i] = (int)n1[i] - 48;
+    }
+
+    for (i = 0; i <= lastIndex2; i++)
+    {
+        num2[lastIndex2 - i] = (int)n2[i] - 48;
+    }
+
+    for (i = lastIndex1; i > 0; i--)
+    {
+        if (i != 0)
+        {
+            if (num1[i] > num2[i])
+            {
+                return 1;
+            }
+        }
+        else {
+
+            if (num1[i] >= num2[i])
+            {
+                return 1;
+            }
+        }
+    }
+
+    return 0;
+}
+
 int pow(int a, int b) {
 
     size_t i;
