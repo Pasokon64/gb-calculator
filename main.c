@@ -222,6 +222,9 @@ void solve() {
     case '-':
         strcpy(result, sub(n1, n2));
         break;
+    case '*':
+        strcpy(result, mul(n1, n2));
+        break;
     default:
         break;
     }

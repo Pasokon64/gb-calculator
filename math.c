@@ -72,29 +72,14 @@ char *sub(char *n1, char *n2)
 
     clearString(resultString);
 
-    if (n1 >= n2)
+    for (i = 0; i <= lastIndex1; i++)
     {
-        for (i = 0; i <= lastIndex1; i++)
-        {
-            num1[lastIndex1 - i] = (int)n1[i] - 48;
-        }
-
-        for (i = 0; i <= lastIndex2; i++)
-        {
-            num2[lastIndex2 - i] = (int)n2[i] - 48;
-        }
+        num1[lastIndex1 - i] = (int)n1[i] - 48;
     }
-    else
-    {
-        for (i = 0; i <= lastIndex1; i++)
-        {
-            num1[lastIndex1 - i] = (int)n2[i] - 48;
-        }
 
-        for (i = 0; i <= lastIndex2; i++)
-        {
-            num2[lastIndex2 - i] = (int)n1[i] - 48;
-        }
+    for (i = 0; i <= lastIndex2; i++)
+    {
+        num2[lastIndex2 - i] = (int)n2[i] - 48;
     }
 
     for (i = 0; i < 12; i++)
@@ -126,4 +111,40 @@ char *sub(char *n1, char *n2)
     }
 
     return resultString;
+}
+
+char *mul(char *n1, char *n2) {
+
+    size_t i;
+    char result[12] = "0";
+    int qtdMult = 0;
+    int lastIndex2 = strlen(n2) - 1;
+
+    for (i = 0; i <= lastIndex2; i++)
+    {
+        qtdMult += ((int)n2[i] - 48) * pow(10, lastIndex2 - i);
+    }
+
+    if (qtdMult > 0)
+    {
+        for (i = 0; i < qtdMult; i++)
+        {
+            strcpy(result, sum(result, n1));
+        }
+    }
+
+    return result;
+}
+
+int pow(int a, int b) {
+
+    size_t i;
+    int result = 1;
+
+    for (i = 0; i < b; i++)
+    {
+        result *= a;
+    }
+
+    return result;
 }
