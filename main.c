@@ -194,9 +194,19 @@ void addToDisplay(char option)
 
 void storeOperation(char option) {
 
-    strcpy(n1, display);
-    operation = option;
-    shiftOperator = 1;
+    if (operation == '\0')
+    {
+        strcpy(n1, display);
+        operation = option;
+        shiftOperator = 1;
+    }
+    else 
+    {
+        solve();
+        strcpy(n1, display);
+        operation = option;
+        shiftOperator = 1;
+    }
 }
 
 void solve() {
@@ -214,7 +224,7 @@ void solve() {
         break;
     }
 
-    shiftOperator = 1;
+    operation = '\0';
     clearString(&n1);
     clearString(&n2);
     clearString(&display);

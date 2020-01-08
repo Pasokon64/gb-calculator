@@ -1,9 +1,9 @@
                               1 ;--------------------------------------------------------
                               2 ; File Created by SDCC : FreeWare ANSI-C Compiler
-                              3 ; Version 2.2.1 Tue Jan 07 20:37:05 2020
+                              3 ; Version 2.2.1 Wed Jan 08 00:23:03 2020
                               4 
                               5 ;--------------------------------------------------------
-                              6 	.module lcc62040
+                              6 	.module lcc117480
                               7 	
                               8 ;--------------------------------------------------------
                               9 ; Public variables in this module
@@ -187,7 +187,7 @@
                             187 	.area _GSINIT
                             188 	.area _GSFINAL
                             189 	.area _GSINIT
-                            190 ;	main.c 266
+                            190 ;	main.c 276
                             191 ; genAssign (pointer)
    0000 11 00 00            192 	ld	de,#_cursor + 0
    0003 3E 00               193 	ld	a,#0x00
@@ -954,7 +954,7 @@
                             954 ; genAssign (pointer)
    02FD 3E 00               955 	ld	a,#0x00
    02FF 12                  956 	ld	(de),a
-                            957 ;	main.c 266
+                            957 ;	main.c 276
                             958 ; genAssign (pointer)
    0300 11 80 00            959 	ld	de,#_keyboardTiles + 0
    0303 3E 00               960 	ld	a,#0x00
@@ -10937,7 +10937,7 @@
                           10937 ; genAssign (pointer)
    29FD 3E 07             10938 	ld	a,#0x07
    29FF 12                10939 	ld	(de),a
-                          10940 ;	main.c 266
+                          10940 ;	main.c 276
                           10941 ; genAssign (pointer)
    2A00 11 00 07          10942 	ld	de,#_keyboardMap + 0
    2A03 3E 00             10943 	ld	a,#0x00
@@ -13096,7 +13096,7 @@
                           13096 ; genAssign (pointer)
    326D 3E 00             13097 	ld	a,#0x00
    326F 12                13098 	ld	(de),a
-                          13099 ;	main.c 266
+                          13099 ;	main.c 276
                           13100 ; genAssign (pointer)
    3270 11 68 08          13101 	ld	de,#_n1 + 0
    3273 3E 30             13102 	ld	a,#0x30
@@ -13107,7 +13107,7 @@
                           13107 ; genAssign (pointer)
    3279 3E 00             13108 	ld	a,#0x00
    327B 12                13109 	ld	(de),a
-                          13110 ;	main.c 266
+                          13110 ;	main.c 276
                           13111 ; genAssign (pointer)
    327C 11 74 08          13112 	ld	de,#_n2 + 0
    327F 3E 30             13113 	ld	a,#0x30
@@ -13118,12 +13118,12 @@
                           13118 ; genAssign (pointer)
    3285 3E 00             13119 	ld	a,#0x00
    3287 12                13120 	ld	(de),a
-                          13121 ;	main.c 266
+                          13121 ;	main.c 276
                           13122 ; genAssign
                           13123 ; AOP_HL for _operation
    3288 21 80 08          13124 	ld	hl,#_operation + 0
    328B 36 00             13125 	ld	(hl),#0x00
-                          13126 ;	main.c 266
+                          13126 ;	main.c 276
                           13127 ; genAssign (pointer)
    328D 11 81 08          13128 	ld	de,#_display + 0
    3290 3E 30             13129 	ld	a,#0x30
@@ -13134,21 +13134,21 @@
                           13134 ; genAssign (pointer)
    3296 3E 00             13135 	ld	a,#0x00
    3298 12                13136 	ld	(de),a
-                          13137 ;	main.c 266
+                          13137 ;	main.c 276
                           13138 ; genAssign
                           13139 ; AOP_HL for _lastTime
    3299 21 8D 08          13140 	ld	hl,#_lastTime + 0
    329C 36 00             13141 	ld	(hl),#0x00
    329E 23                13142 	inc	hl
    329F 36 00             13143 	ld	(hl),#0x00
-                          13144 ;	main.c 266
+                          13144 ;	main.c 276
                           13145 ; genAssign
                           13146 ; AOP_HL for _currentCursorSpriteIndex
    32A1 21 8F 08          13147 	ld	hl,#_currentCursorSpriteIndex + 0
    32A4 36 00             13148 	ld	(hl),#0x00
    32A6 23                13149 	inc	hl
    32A7 36 00             13150 	ld	(hl),#0x00
-                          13151 ;	main.c 266
+                          13151 ;	main.c 276
                           13152 ; genAssign (pointer)
    32A9 11 91 08          13153 	ld	de,#_cursorLocations + 0
    32AC 3E 28             13154 	ld	a,#0x28
@@ -13507,7 +13507,7 @@
    3435 13                13507 	inc	de
    3436 3E 00             13508 	ld	a,#0x00
    3438 12                13509 	ld	(de),a
-                          13510 ;	main.c 266
+                          13510 ;	main.c 276
                           13511 ; genAssign (pointer)
    3439 11 E1 08          13512 	ld	de,#_keyboardOptions + 0
    343C 3E 20             13513 	ld	a,#0x20
@@ -13626,42 +13626,42 @@
                           13626 ; genAssign (pointer)
    34AE 3E 3D             13627 	ld	a,#0x3D
    34B0 12                13628 	ld	(de),a
-                          13629 ;	main.c 266
+                          13629 ;	main.c 276
                           13630 ; genAssign
                           13631 ; AOP_HL for _cursorX
    34B1 21 F5 08          13632 	ld	hl,#_cursorX + 0
    34B4 36 00             13633 	ld	(hl),#0x00
    34B6 23                13634 	inc	hl
    34B7 36 00             13635 	ld	(hl),#0x00
-                          13636 ;	main.c 266
+                          13636 ;	main.c 276
                           13637 ; genAssign
                           13638 ; AOP_HL for _cursorY
    34B9 21 F7 08          13639 	ld	hl,#_cursorY + 0
    34BC 36 00             13640 	ld	(hl),#0x00
    34BE 23                13641 	inc	hl
    34BF 36 00             13642 	ld	(hl),#0x00
-                          13643 ;	main.c 266
+                          13643 ;	main.c 276
                           13644 ; genAssign
                           13645 ; AOP_HL for _maxPosX
    34C1 21 F9 08          13646 	ld	hl,#_maxPosX + 0
    34C4 36 00             13647 	ld	(hl),#0x00
    34C6 23                13648 	inc	hl
    34C7 36 00             13649 	ld	(hl),#0x00
-                          13650 ;	main.c 266
+                          13650 ;	main.c 276
                           13651 ; genAssign
                           13652 ; AOP_HL for _maxPosY
    34C9 21 FB 08          13653 	ld	hl,#_maxPosY + 0
    34CC 36 00             13654 	ld	(hl),#0x00
    34CE 23                13655 	inc	hl
    34CF 36 00             13656 	ld	(hl),#0x00
-                          13657 ;	main.c 266
+                          13657 ;	main.c 276
                           13658 ; genAssign
                           13659 ; AOP_HL for _keydown
    34D1 21 FD 08          13660 	ld	hl,#_keydown + 0
    34D4 36 00             13661 	ld	(hl),#0x00
    34D6 23                13662 	inc	hl
    34D7 36 00             13663 	ld	(hl),#0x00
-                          13664 ;	main.c 266
+                          13664 ;	main.c 276
                           13665 ; genAssign
                           13666 ; AOP_HL for _shiftOperator
    34D9 21 FF 08          13667 	ld	hl,#_shiftOperator + 0
@@ -15416,13 +15416,13 @@
    064B CD 5E 06          15416 	call	_updateDisplay
                           15417 ;	main.c 80
                           15418 ; genCall
-   064E CD 2F 0A          15419 	call	_changeCursorPosition
+   064E CD 5B 0A          15419 	call	_changeCursorPosition
                           15420 ;	main.c 82
                           15421 ; genIpush
    0651 21 8D 08          15422 	ld	hl,#_lastTime + 0
    0654 E5                15423 	push	hl
                           15424 ; genCall
-   0655 CD B8 0A          15425 	call	_changeCursorDelay
+   0655 CD E4 0A          15425 	call	_changeCursorDelay
    0658 E8 02             15426 	lda	sp,2(sp)
                           15427 ; genGoto
    065A C3 48 06          15428 	jp	00102$
@@ -16237,7 +16237,7 @@
                           16237 ; genLabel
    093F                   16238 00117$:
                           16239 ; genCall
-   093F CD B6 09          16240 	call	_solve
+   093F CD E5 09          16240 	call	_solve
                           16241 ;	main.c 177
                           16242 ; genLabel
    0942                   16243 00120$:
@@ -16347,500 +16347,541 @@
    0999                   16347 _storeOperation:
                           16348 	
                           16349 ;	main.c 197
-                          16350 ; genIpush
-   0999 21 81 08          16351 	ld	hl,#_display + 0
-   099C E5                16352 	push	hl
-                          16353 ; genIpush
-   099D 21 68 08          16354 	ld	hl,#_n1 + 0
-   09A0 E5                16355 	push	hl
-                          16356 ; genCall
-   09A1 CD 00 00          16357 	call	_strcpy
-   09A4 E8 04             16358 	lda	sp,4(sp)
-                          16359 ;	main.c 198
-                          16360 ; genAssign
-                          16361 ; AOP_STK for 
-                          16362 ; AOP_HL for _operation
-   09A6 F8 02             16363 	lda	hl,2(sp)
-   09A8 7E                16364 	ld	a,(hl)
-   09A9 21 80 08          16365 	ld	hl,#_operation + 0
-   09AC 77                16366 	ld	(hl),a
-                          16367 ;	main.c 199
-                          16368 ; genAssign
-                          16369 ; AOP_HL for _shiftOperator
-   09AD 21 FF 08          16370 	ld	hl,#_shiftOperator + 0
-   09B0 36 01             16371 	ld	(hl),#0x01
-   09B2 23                16372 	inc	hl
-   09B3 36 00             16373 	ld	(hl),#0x00
-                          16374 ; genLabel
-   09B5                   16375 00101$:
-                          16376 ; genEndFunction
-                          16377 	
-   09B5 C9                16378 	ret
-   09B6                   16379 ___storeOperation_end:
-                          16380 ;	main.c 202
-                          16381 ; genLabel
-                          16382 ; genFunction
-                          16383 ;	---------------------------------
-                          16384 ; Function solve
-                          16385 ; ---------------------------------
-   09B6                   16386 ___solve_start:
-   09B6                   16387 _solve:
-   09B6 C5                16388 	push	bc
-   09B7 E8 F2             16389 	lda	sp,-14(sp)
-                          16390 ;	main.c 205
-                          16391 ; genIpush
-   09B9 21 81 08          16392 	ld	hl,#_display + 0
-   09BC E5                16393 	push	hl
-                          16394 ; genIpush
-   09BD 21 74 08          16395 	ld	hl,#_n2 + 0
-   09C0 E5                16396 	push	hl
-                          16397 ; genCall
-   09C1 CD 00 00          16398 	call	_strcpy
-   09C4 E8 04             16399 	lda	sp,4(sp)
-                          16400 ;	main.c 207
-                          16401 ; genCmpEq
-                          16402 ; AOP_HL for _operation
-   09C6 21 80 08          16403 	ld	hl,#_operation + 0
-   09C9 7E                16404 	ld	a,(hl) ; 2
-   09CA FE 2B             16405 	cp	a,#0x2B
-   09CC C2 D1 09          16406 	jp	nz,00107$
-   09CF 18 03             16407 	jr	00108$
-   09D1                   16408 00107$:
-   09D1 C3 F8 09          16409 	jp	00103$
-   09D4                   16410 00108$:
-                          16411 ;	main.c 210
-                          16412 ; genIpush
-   09D4 21 74 08          16413 	ld	hl,#_n2 + 0
-   09D7 E5                16414 	push	hl
-                          16415 ; genIpush
-   09D8 21 68 08          16416 	ld	hl,#_n1 + 0
-   09DB E5                16417 	push	hl
-                          16418 ; genCall
-   09DC CD 00 00          16419 	call	_sum
-                          16420 ; AOP_STK for _solve_sloc0_1_0
-   09DF F8 05             16421 	lda	hl,5(sp)
-   09E1 72                16422 	ld	(hl),d
-   09E2 2B                16423 	dec	hl
-   09E3 73                16424 	ld	(hl),e
-   09E4 E8 04             16425 	lda	sp,4(sp)
-                          16426 ; genAddrOf
-   09E6 F8 02             16427 	lda	hl,2(sp)
-   09E8 54                16428 	ld	d,h
-   09E9 5D                16429 	ld	e,l
-   09EA 4B                16430 	ld	c,e
-   09EB 42                16431 	ld	b,d
-                          16432 ; genIpush
-                          16433 ; AOP_STK for _solve_sloc0_1_0
-   09EC F8 00             16434 	lda	hl,0(sp)
-   09EE 2A                16435 	ld	a,(hl+)
-   09EF 66                16436 	ld	h,(hl)
-   09F0 6F                16437 	ld	l,a
-   09F1 E5                16438 	push	hl
-                          16439 ; genIpush
-   09F2 C5                16440 	push	bc
-                          16441 ; genCall
-   09F3 CD 00 00          16442 	call	_strcpy
-   09F6 E8 04             16443 	lda	sp,4(sp)
-                          16444 ;	main.c 215
-                          16445 ; genLabel
-   09F8                   16446 00103$:
-                          16447 ;	main.c 217
-                          16448 ; genAssign
-                          16449 ; AOP_HL for _shiftOperator
-   09F8 21 FF 08          16450 	ld	hl,#_shiftOperator + 0
-   09FB 36 01             16451 	ld	(hl),#0x01
-   09FD 23                16452 	inc	hl
-   09FE 36 00             16453 	ld	(hl),#0x00
-                          16454 ;	main.c 218
+                          16350 ; genCmpEq
+                          16351 ; AOP_HL for _operation
+   0999 21 80 08          16352 	ld	hl,#_operation + 0
+   099C 7E                16353 	ld	a,(hl)
+   099D B7                16354 	or	a,a
+   099E C2 A3 09          16355 	jp	nz,00107$
+   09A1 18 03             16356 	jr	00108$
+   09A3                   16357 00107$:
+   09A3 C3 C5 09          16358 	jp	00102$
+   09A6                   16359 00108$:
+                          16360 ;	main.c 199
+                          16361 ; genIpush
+   09A6 21 81 08          16362 	ld	hl,#_display + 0
+   09A9 E5                16363 	push	hl
+                          16364 ; genIpush
+   09AA 21 68 08          16365 	ld	hl,#_n1 + 0
+   09AD E5                16366 	push	hl
+                          16367 ; genCall
+   09AE CD 00 00          16368 	call	_strcpy
+   09B1 E8 04             16369 	lda	sp,4(sp)
+                          16370 ;	main.c 200
+                          16371 ; genAssign
+                          16372 ; AOP_STK for 
+                          16373 ; AOP_HL for _operation
+   09B3 F8 02             16374 	lda	hl,2(sp)
+   09B5 7E                16375 	ld	a,(hl)
+   09B6 21 80 08          16376 	ld	hl,#_operation + 0
+   09B9 77                16377 	ld	(hl),a
+                          16378 ;	main.c 201
+                          16379 ; genAssign
+                          16380 ; AOP_HL for _shiftOperator
+   09BA 21 FF 08          16381 	ld	hl,#_shiftOperator + 0
+   09BD 36 01             16382 	ld	(hl),#0x01
+   09BF 23                16383 	inc	hl
+   09C0 36 00             16384 	ld	(hl),#0x00
+                          16385 ; genGoto
+   09C2 C3 E4 09          16386 	jp	00104$
+                          16387 ; genLabel
+   09C5                   16388 00102$:
+                          16389 ;	main.c 205
+                          16390 ; genCall
+   09C5 CD E5 09          16391 	call	_solve
+                          16392 ;	main.c 206
+                          16393 ; genIpush
+   09C8 21 81 08          16394 	ld	hl,#_display + 0
+   09CB E5                16395 	push	hl
+                          16396 ; genIpush
+   09CC 21 68 08          16397 	ld	hl,#_n1 + 0
+   09CF E5                16398 	push	hl
+                          16399 ; genCall
+   09D0 CD 00 00          16400 	call	_strcpy
+   09D3 E8 04             16401 	lda	sp,4(sp)
+                          16402 ;	main.c 207
+                          16403 ; genAssign
+                          16404 ; AOP_STK for 
+                          16405 ; AOP_HL for _operation
+   09D5 F8 02             16406 	lda	hl,2(sp)
+   09D7 7E                16407 	ld	a,(hl)
+   09D8 21 80 08          16408 	ld	hl,#_operation + 0
+   09DB 77                16409 	ld	(hl),a
+                          16410 ;	main.c 208
+                          16411 ; genAssign
+                          16412 ; AOP_HL for _shiftOperator
+   09DC 21 FF 08          16413 	ld	hl,#_shiftOperator + 0
+   09DF 36 01             16414 	ld	(hl),#0x01
+   09E1 23                16415 	inc	hl
+   09E2 36 00             16416 	ld	(hl),#0x00
+                          16417 ; genLabel
+   09E4                   16418 00104$:
+                          16419 ; genEndFunction
+                          16420 	
+   09E4 C9                16421 	ret
+   09E5                   16422 ___storeOperation_end:
+                          16423 ;	main.c 212
+                          16424 ; genLabel
+                          16425 ; genFunction
+                          16426 ;	---------------------------------
+                          16427 ; Function solve
+                          16428 ; ---------------------------------
+   09E5                   16429 ___solve_start:
+   09E5                   16430 _solve:
+   09E5 C5                16431 	push	bc
+   09E6 E8 F2             16432 	lda	sp,-14(sp)
+                          16433 ;	main.c 215
+                          16434 ; genIpush
+   09E8 21 81 08          16435 	ld	hl,#_display + 0
+   09EB E5                16436 	push	hl
+                          16437 ; genIpush
+   09EC 21 74 08          16438 	ld	hl,#_n2 + 0
+   09EF E5                16439 	push	hl
+                          16440 ; genCall
+   09F0 CD 00 00          16441 	call	_strcpy
+   09F3 E8 04             16442 	lda	sp,4(sp)
+                          16443 ;	main.c 217
+                          16444 ; genCmpEq
+                          16445 ; AOP_HL for _operation
+   09F5 21 80 08          16446 	ld	hl,#_operation + 0
+   09F8 7E                16447 	ld	a,(hl) ; 2
+   09F9 FE 2B             16448 	cp	a,#0x2B
+   09FB C2 00 0A          16449 	jp	nz,00107$
+   09FE 18 03             16450 	jr	00108$
+   0A00                   16451 00107$:
+   0A00 C3 27 0A          16452 	jp	00103$
+   0A03                   16453 00108$:
+                          16454 ;	main.c 220
                           16455 ; genIpush
-   0A00 21 68 08          16456 	ld	hl,#_n1 + 0
-   0A03 E5                16457 	push	hl
-                          16458 ; genCall
-   0A04 CD 78 05          16459 	call	_clearString
-   0A07 E8 02             16460 	lda	sp,2(sp)
-                          16461 ;	main.c 219
-                          16462 ; genIpush
-   0A09 21 74 08          16463 	ld	hl,#_n2 + 0
-   0A0C E5                16464 	push	hl
-                          16465 ; genCall
-   0A0D CD 78 05          16466 	call	_clearString
-   0A10 E8 02             16467 	lda	sp,2(sp)
-                          16468 ;	main.c 220
-                          16469 ; genIpush
-   0A12 21 81 08          16470 	ld	hl,#_display + 0
-   0A15 E5                16471 	push	hl
-                          16472 ; genCall
-   0A16 CD 78 05          16473 	call	_clearString
-   0A19 E8 02             16474 	lda	sp,2(sp)
-                          16475 ;	main.c 221
-                          16476 ; genAddrOf
-   0A1B F8 02             16477 	lda	hl,2(sp)
-   0A1D 54                16478 	ld	d,h
-   0A1E 5D                16479 	ld	e,l
-   0A1F 4B                16480 	ld	c,e
-   0A20 42                16481 	ld	b,d
+   0A03 21 74 08          16456 	ld	hl,#_n2 + 0
+   0A06 E5                16457 	push	hl
+                          16458 ; genIpush
+   0A07 21 68 08          16459 	ld	hl,#_n1 + 0
+   0A0A E5                16460 	push	hl
+                          16461 ; genCall
+   0A0B CD 00 00          16462 	call	_sum
+                          16463 ; AOP_STK for _solve_sloc0_1_0
+   0A0E F8 05             16464 	lda	hl,5(sp)
+   0A10 72                16465 	ld	(hl),d
+   0A11 2B                16466 	dec	hl
+   0A12 73                16467 	ld	(hl),e
+   0A13 E8 04             16468 	lda	sp,4(sp)
+                          16469 ; genAddrOf
+   0A15 F8 02             16470 	lda	hl,2(sp)
+   0A17 54                16471 	ld	d,h
+   0A18 5D                16472 	ld	e,l
+   0A19 4B                16473 	ld	c,e
+   0A1A 42                16474 	ld	b,d
+                          16475 ; genIpush
+                          16476 ; AOP_STK for _solve_sloc0_1_0
+   0A1B F8 00             16477 	lda	hl,0(sp)
+   0A1D 2A                16478 	ld	a,(hl+)
+   0A1E 66                16479 	ld	h,(hl)
+   0A1F 6F                16480 	ld	l,a
+   0A20 E5                16481 	push	hl
                           16482 ; genIpush
    0A21 C5                16483 	push	bc
-                          16484 ; genIpush
-   0A22 21 81 08          16485 	ld	hl,#_display + 0
-   0A25 E5                16486 	push	hl
-                          16487 ; genCall
-   0A26 CD 00 00          16488 	call	_strcpy
-   0A29 E8 04             16489 	lda	sp,4(sp)
-                          16490 ; genLabel
-   0A2B                   16491 00104$:
-                          16492 ; genEndFunction
-   0A2B E8 0E             16493 	lda	sp,14(sp)
-   0A2D C1                16494 	pop	bc
-   0A2E C9                16495 	ret
-   0A2F                   16496 ___solve_end:
-                          16497 ;	main.c 224
-                          16498 ; genLabel
-                          16499 ; genFunction
-                          16500 ;	---------------------------------
-                          16501 ; Function changeCursorPosition
-                          16502 ; ---------------------------------
-   0A2F                   16503 ___changeCursorPosition_start:
-   0A2F                   16504 _changeCursorPosition:
-   0A2F C5                16505 	push	bc
-   0A30 E8 FA             16506 	lda	sp,-6(sp)
-                          16507 ;	main.c 226
-                          16508 ; genLeftShift
-                          16509 ; AOP_HL for _cursorY
-   0A32 21 F7 08          16510 	ld	hl,#_cursorY + 0
-   0A35 4E                16511 	ld	c,(hl)
-   0A36 23                16512 	inc	hl
-   0A37 46                16513 	ld	b,(hl)
-   0A38 3E 05             16514 	ld	a,#0x04+1
-   0A3A 18 05             16515 	jr	00104$
-   0A3C                   16516 00103$:
-   0A3C B7                16517 	or	a,a
-   0A3D CB 11             16518 	rl	c
-   0A3F CB 10             16519 	rl	b
-   0A41                   16520 00104$:
-   0A41 3D                16521 	dec	a
-   0A42 20 F8             16522 	jr	nz,00103$
-                          16523 ; genPlus
-                          16524 ; AOP_STK for _changeCursorPosition_sloc0_1_0
-                          16525 ;	genPlusIncr failed
-   0A44 21 91 08          16526 	ld	hl,#_cursorLocations + 0
-   0A47 09                16527 	add	hl,bc
-   0A48 7D                16528 	ld	a,l
-   0A49 54                16529 	ld	d,h
-   0A4A F8 02             16530 	lda	hl,2(sp)
-   0A4C 22                16531 	ld	(hl+),a
-   0A4D 72                16532 	ld	(hl),d
-                          16533 ; genLeftShift
-                          16534 ; AOP_HL for _cursorX
-   0A4E 21 F5 08          16535 	ld	hl,#_cursorX + 0
-   0A51 4E                16536 	ld	c,(hl)
-   0A52 23                16537 	inc	hl
-   0A53 46                16538 	ld	b,(hl)
-   0A54 3E 03             16539 	ld	a,#0x02+1
-   0A56 18 05             16540 	jr	00106$
-   0A58                   16541 00105$:
-   0A58 B7                16542 	or	a,a
-   0A59 CB 11             16543 	rl	c
-   0A5B CB 10             16544 	rl	b
-   0A5D                   16545 00106$:
-   0A5D 3D                16546 	dec	a
-   0A5E 20 F8             16547 	jr	nz,00105$
-                          16548 ; genPlus
-                          16549 ; AOP_STK for _changeCursorPosition_sloc0_1_0
-                          16550 ;	genPlusIncr failed
-   0A60 F8 02             16551 	lda	hl,2(sp)
-   0A62 2A                16552 	ld	a,(hl+)
-   0A63 66                16553 	ld	h,(hl)
-   0A64 6F                16554 	ld	l,a
-   0A65 09                16555 	add	hl,bc
-   0A66 4D                16556 	ld	c,l
-   0A67 44                16557 	ld	b,h
-                          16558 ; genPointerGet
-                          16559 ; AOP_STK for _changeCursorPosition_positionX_1_1
-   0A68 59                16560 	ld	e,c
-   0A69 50                16561 	ld	d,b
-   0A6A 1A                16562 	ld	a,(de)
-   0A6B F8 04             16563 	lda	hl,4(sp)
-   0A6D 77                16564 	ld	(hl),a
-   0A6E 13                16565 	inc	de
-   0A6F 1A                16566 	ld	a,(de)
-   0A70 23                16567 	inc	hl
-   0A71 77                16568 	ld	(hl),a
-                          16569 ;	main.c 227
-                          16570 ; genPlus
-                          16571 ; genPlusIncr
-   0A72 59                16572 	ld	e,c
-   0A73 50                16573 	ld	d,b
-   0A74 13                16574 	inc	de
-   0A75 13                16575 	inc	de
-                          16576 ; genPointerGet
-                          16577 ; Removed redundent load
-                          16578 ; Removed redundent load
-   0A76 1A                16579 	ld	a,(de)
-   0A77 4F                16580 	ld	c,a
-   0A78 13                16581 	inc	de
-   0A79 1A                16582 	ld	a,(de)
-   0A7A 47                16583 	ld	b,a
-                          16584 ;	main.c 229
-                          16585 ; genCast
-                          16586 ; AOP_STK for _changeCursorPosition_sloc0_1_0
-   0A7B F8 02             16587 	lda	hl,2(sp)
-   0A7D 71                16588 	ld	(hl),c
-                          16589 ; genCast
-                          16590 ; AOP_STK for _changeCursorPosition_positionX_1_1
-   0A7E 23                16591 	inc	hl
-   0A7F 23                16592 	inc	hl
-   0A80 4E                16593 	ld	c,(hl)
-                          16594 ; genIpush
-                          16595 ; AOP_STK for _changeCursorPosition_sloc0_1_0
-   0A81 2B                16596 	dec	hl
-   0A82 2B                16597 	dec	hl
-   0A83 7E                16598 	ld	a,(hl)
-   0A84 F5                16599 	push	af
-   0A85 33                16600 	inc	sp
-                          16601 ; genIpush
-   0A86 79                16602 	ld	a,c
-   0A87 F5                16603 	push	af
-   0A88 33                16604 	inc	sp
-                          16605 ; genIpush
-   0A89 3E 00             16606 	ld	a,#0x00
-   0A8B F5                16607 	push	af
-   0A8C 33                16608 	inc	sp
-                          16609 ; genCall
-   0A8D CD 00 00          16610 	call	_move_sprite
-   0A90 E8 03             16611 	lda	sp,3(sp)
-                          16612 ;	main.c 230
-                          16613 ; genPlus
-                          16614 ; AOP_STK for _changeCursorPosition_positionX_1_1
-                          16615 ; AOP_STK for _changeCursorPosition_sloc1_1_0
-                          16616 ; genPlusIncr
-                          16617 ;	genPlusIncr failed
-   0A92 F8 04             16618 	lda	hl,4(sp)
-   0A94 5E                16619 	ld	e,(hl)
-   0A95 23                16620 	inc	hl
-   0A96 56                16621 	ld	d,(hl)
-   0A97 21 08 00          16622 	ld	hl,#0x0008
-   0A9A 19                16623 	add	hl,de
-   0A9B 7D                16624 	ld	a,l
-   0A9C 54                16625 	ld	d,h
-   0A9D F8 00             16626 	lda	hl,0(sp)
-   0A9F 22                16627 	ld	(hl+),a
-   0AA0 72                16628 	ld	(hl),d
-                          16629 ; genCast
-                          16630 ; AOP_STK for _changeCursorPosition_sloc1_1_0
-   0AA1 2B                16631 	dec	hl
-   0AA2 4E                16632 	ld	c,(hl)
-                          16633 ; genIpush
-                          16634 ; AOP_STK for _changeCursorPosition_sloc0_1_0
-   0AA3 23                16635 	inc	hl
-   0AA4 23                16636 	inc	hl
-   0AA5 7E                16637 	ld	a,(hl)
-   0AA6 F5                16638 	push	af
-   0AA7 33                16639 	inc	sp
-                          16640 ; genIpush
-   0AA8 79                16641 	ld	a,c
-   0AA9 F5                16642 	push	af
-   0AAA 33                16643 	inc	sp
-                          16644 ; genIpush
-   0AAB 3E 01             16645 	ld	a,#0x01
-   0AAD F5                16646 	push	af
-   0AAE 33                16647 	inc	sp
-                          16648 ; genCall
-   0AAF CD 00 00          16649 	call	_move_sprite
-   0AB2 E8 03             16650 	lda	sp,3(sp)
-                          16651 ; genLabel
-   0AB4                   16652 00101$:
-                          16653 ; genEndFunction
-   0AB4 E8 06             16654 	lda	sp,6(sp)
-   0AB6 C1                16655 	pop	bc
-   0AB7 C9                16656 	ret
-   0AB8                   16657 ___changeCursorPosition_end:
-                          16658 ;	main.c 233
-                          16659 ; genLabel
-                          16660 ; genFunction
-                          16661 ;	---------------------------------
-                          16662 ; Function changeCursorDelay
-                          16663 ; ---------------------------------
-   0AB8                   16664 ___changeCursorDelay_start:
-   0AB8                   16665 _changeCursorDelay:
-   0AB8 C5                16666 	push	bc
-   0AB9 E8 FE             16667 	lda	sp,-2(sp)
-                          16668 ;	main.c 235
-                          16669 ; genCall
-   0ABB CD 00 00          16670 	call	_clock
-   0ABE 42                16671 	ld	b,d
-   0ABF 4B                16672 	ld	c,e
-                          16673 ;	main.c 237
-                          16674 ; genMinus
-                          16675 ; AOP_HL for _lastTime
-                          16676 ; AOP_STK for _changeCursorDelay_sloc0_1_0
-                          16677 ; Removed redundent load
-                          16678 ; Removed redundent load
-   0AC0 21 8D 08          16679 	ld	hl,#_lastTime + 0
-   0AC3 5E                16680 	ld	e,(hl)
-   0AC4 23                16681 	inc	hl
-   0AC5 56                16682 	ld	d,(hl)
-   0AC6 79                16683 	ld	a,c
-   0AC7 93                16684 	sub	a,e
-   0AC8 5F                16685 	ld	e,a
-   0AC9 78                16686 	ld	a,b
-   0ACA 9A                16687 	sbc	a,d
-   0ACB F8 01             16688 	lda	hl,1(sp)
-   0ACD 77                16689 	ld	(hl),a
-   0ACE 2B                16690 	dec	hl
-   0ACF 73                16691 	ld	(hl),e
-                          16692 ; genCmpLt
-                          16693 ; AOP_STK for _changeCursorDelay_sloc0_1_0
-   0AD0 5E                16694 	ld	e,(hl)
-   0AD1 23                16695 	inc	hl
-   0AD2 56                16696 	ld	d,(hl)
-   0AD3 21 EC FF          16697 	ld	hl,#0xFFEC
-   0AD6 19                16698 	add	hl,de
-   0AD7 D2 0C 0B          16699 	jp	nc,00106$
-                          16700 ;	main.c 239
-                          16701 ; genCmpEq
-                          16702 ; AOP_HL for _currentCursorSpriteIndex
-   0ADA 21 8F 08          16703 	ld	hl,#_currentCursorSpriteIndex + 0
-   0ADD 2A                16704 	ld	a,(hl+)
-   0ADE B6                16705 	or	a,(hl)
-   0ADF C2 E4 0A          16706 	jp	nz,00110$
-   0AE2 18 03             16707 	jr	00111$
-   0AE4                   16708 00110$:
-   0AE4 C3 F2 0A          16709 	jp	00102$
-   0AE7                   16710 00111$:
-                          16711 ;	main.c 241
-                          16712 ; genAssign
-                          16713 ; AOP_HL for _currentCursorSpriteIndex
-   0AE7 21 8F 08          16714 	ld	hl,#_currentCursorSpriteIndex + 0
-   0AEA 36 01             16715 	ld	(hl),#0x01
-   0AEC 23                16716 	inc	hl
-   0AED 36 00             16717 	ld	(hl),#0x00
-                          16718 ; genGoto
-   0AEF C3 FA 0A          16719 	jp	00103$
-                          16720 ; genLabel
-   0AF2                   16721 00102$:
-                          16722 ;	main.c 245
-                          16723 ; genAssign
-                          16724 ; AOP_HL for _currentCursorSpriteIndex
-   0AF2 21 8F 08          16725 	ld	hl,#_currentCursorSpriteIndex + 0
-   0AF5 36 00             16726 	ld	(hl),#0x00
-   0AF7 23                16727 	inc	hl
-   0AF8 36 00             16728 	ld	(hl),#0x00
-                          16729 ; genLabel
-   0AFA                   16730 00103$:
-                          16731 ;	main.c 248
-                          16732 ; genIpush
-                          16733 ; AOP_HL for _currentCursorSpriteIndex
-   0AFA 21 8F 08          16734 	ld	hl,#_currentCursorSpriteIndex + 0
-   0AFD 2A                16735 	ld	a,(hl+)
-   0AFE 66                16736 	ld	h,(hl)
-   0AFF 6F                16737 	ld	l,a
-   0B00 E5                16738 	push	hl
-                          16739 ; genCall
-   0B01 CD 10 0B          16740 	call	_changeCursorSprite
-   0B04 E8 02             16741 	lda	sp,2(sp)
-                          16742 ;	main.c 249
-                          16743 ; genAssign
-                          16744 ; AOP_HL for _lastTime
-   0B06 21 8D 08          16745 	ld	hl,#_lastTime + 0
-   0B09 71                16746 	ld	(hl),c
-   0B0A 23                16747 	inc	hl
-   0B0B 70                16748 	ld	(hl),b
-                          16749 ; genLabel
-   0B0C                   16750 00106$:
-                          16751 ; genEndFunction
-   0B0C E8 02             16752 	lda	sp,2(sp)
-   0B0E C1                16753 	pop	bc
-   0B0F C9                16754 	ret
-   0B10                   16755 ___changeCursorDelay_end:
-                          16756 ;	main.c 253
-                          16757 ; genLabel
-                          16758 ; genFunction
-                          16759 ;	---------------------------------
-                          16760 ; Function changeCursorSprite
-                          16761 ; ---------------------------------
-   0B10                   16762 ___changeCursorSprite_start:
-   0B10                   16763 _changeCursorSprite:
-                          16764 	
-                          16765 ;	main.c 255
-                          16766 ; genCmpEq
-                          16767 ; AOP_STK for 
-   0B10 F8 02             16768 	lda	hl,2(sp)
-   0B12 2A                16769 	ld	a,(hl+)
-   0B13 B6                16770 	or	a,(hl)
-   0B14 C2 19 0B          16771 	jp	nz,00107$
-   0B17 18 03             16772 	jr	00108$
-   0B19                   16773 00107$:
-   0B19 C3 39 0B          16774 	jp	00102$
-   0B1C                   16775 00108$:
-                          16776 ;	main.c 257
-                          16777 ; genIpush
-   0B1C 3E 00             16778 	ld	a,#0x00
-   0B1E F5                16779 	push	af
-   0B1F 33                16780 	inc	sp
-                          16781 ; genIpush
-   0B20 3E 00             16782 	ld	a,#0x00
-   0B22 F5                16783 	push	af
-   0B23 33                16784 	inc	sp
-                          16785 ; genCall
-   0B24 CD 00 00          16786 	call	_set_sprite_tile
-   0B27 E8 02             16787 	lda	sp,2(sp)
-                          16788 ;	main.c 258
-                          16789 ; genIpush
-   0B29 3E 02             16790 	ld	a,#0x02
-   0B2B F5                16791 	push	af
-   0B2C 33                16792 	inc	sp
-                          16793 ; genIpush
-   0B2D 3E 01             16794 	ld	a,#0x01
-   0B2F F5                16795 	push	af
-   0B30 33                16796 	inc	sp
-                          16797 ; genCall
-   0B31 CD 00 00          16798 	call	_set_sprite_tile
-   0B34 E8 02             16799 	lda	sp,2(sp)
-                          16800 ; genGoto
-   0B36 C3 53 0B          16801 	jp	00104$
-                          16802 ; genLabel
-   0B39                   16803 00102$:
-                          16804 ;	main.c 262
-                          16805 ; genIpush
-   0B39 3E 04             16806 	ld	a,#0x04
-   0B3B F5                16807 	push	af
-   0B3C 33                16808 	inc	sp
-                          16809 ; genIpush
-   0B3D 3E 00             16810 	ld	a,#0x00
-   0B3F F5                16811 	push	af
-   0B40 33                16812 	inc	sp
-                          16813 ; genCall
-   0B41 CD 00 00          16814 	call	_set_sprite_tile
-   0B44 E8 02             16815 	lda	sp,2(sp)
-                          16816 ;	main.c 263
-                          16817 ; genIpush
-   0B46 3E 06             16818 	ld	a,#0x06
-   0B48 F5                16819 	push	af
-   0B49 33                16820 	inc	sp
-                          16821 ; genIpush
-   0B4A 3E 01             16822 	ld	a,#0x01
-   0B4C F5                16823 	push	af
-   0B4D 33                16824 	inc	sp
-                          16825 ; genCall
-   0B4E CD 00 00          16826 	call	_set_sprite_tile
-   0B51 E8 02             16827 	lda	sp,2(sp)
-                          16828 ; genLabel
-   0B53                   16829 00104$:
-                          16830 ; genEndFunction
-                          16831 	
-   0B53 C9                16832 	ret
-   0B54                   16833 ___changeCursorSprite_end:
-                          16834 	.area _CODE
-   0B54                   16835 __str_1:
-   0B54 30                16836 	.ascii "0"
-   0B55 00                16837 	.db 0x00
-   0B56                   16838 __str_2:
-   0B56 30                16839 	.ascii "0"
-   0B57 00                16840 	.db 0x00
-   0B58                   16841 __str_3:
-   0B58 30                16842 	.ascii "0"
-   0B59 00                16843 	.db 0x00
+                          16484 ; genCall
+   0A22 CD 00 00          16485 	call	_strcpy
+   0A25 E8 04             16486 	lda	sp,4(sp)
+                          16487 ;	main.c 225
+                          16488 ; genLabel
+   0A27                   16489 00103$:
+                          16490 ;	main.c 227
+                          16491 ; genAssign
+                          16492 ; AOP_HL for _operation
+   0A27 21 80 08          16493 	ld	hl,#_operation + 0
+   0A2A 36 00             16494 	ld	(hl),#0x00
+                          16495 ;	main.c 228
+                          16496 ; genIpush
+   0A2C 21 68 08          16497 	ld	hl,#_n1 + 0
+   0A2F E5                16498 	push	hl
+                          16499 ; genCall
+   0A30 CD 78 05          16500 	call	_clearString
+   0A33 E8 02             16501 	lda	sp,2(sp)
+                          16502 ;	main.c 229
+                          16503 ; genIpush
+   0A35 21 74 08          16504 	ld	hl,#_n2 + 0
+   0A38 E5                16505 	push	hl
+                          16506 ; genCall
+   0A39 CD 78 05          16507 	call	_clearString
+   0A3C E8 02             16508 	lda	sp,2(sp)
+                          16509 ;	main.c 230
+                          16510 ; genIpush
+   0A3E 21 81 08          16511 	ld	hl,#_display + 0
+   0A41 E5                16512 	push	hl
+                          16513 ; genCall
+   0A42 CD 78 05          16514 	call	_clearString
+   0A45 E8 02             16515 	lda	sp,2(sp)
+                          16516 ;	main.c 231
+                          16517 ; genAddrOf
+   0A47 F8 02             16518 	lda	hl,2(sp)
+   0A49 54                16519 	ld	d,h
+   0A4A 5D                16520 	ld	e,l
+   0A4B 4B                16521 	ld	c,e
+   0A4C 42                16522 	ld	b,d
+                          16523 ; genIpush
+   0A4D C5                16524 	push	bc
+                          16525 ; genIpush
+   0A4E 21 81 08          16526 	ld	hl,#_display + 0
+   0A51 E5                16527 	push	hl
+                          16528 ; genCall
+   0A52 CD 00 00          16529 	call	_strcpy
+   0A55 E8 04             16530 	lda	sp,4(sp)
+                          16531 ; genLabel
+   0A57                   16532 00104$:
+                          16533 ; genEndFunction
+   0A57 E8 0E             16534 	lda	sp,14(sp)
+   0A59 C1                16535 	pop	bc
+   0A5A C9                16536 	ret
+   0A5B                   16537 ___solve_end:
+                          16538 ;	main.c 234
+                          16539 ; genLabel
+                          16540 ; genFunction
+                          16541 ;	---------------------------------
+                          16542 ; Function changeCursorPosition
+                          16543 ; ---------------------------------
+   0A5B                   16544 ___changeCursorPosition_start:
+   0A5B                   16545 _changeCursorPosition:
+   0A5B C5                16546 	push	bc
+   0A5C E8 FA             16547 	lda	sp,-6(sp)
+                          16548 ;	main.c 236
+                          16549 ; genLeftShift
+                          16550 ; AOP_HL for _cursorY
+   0A5E 21 F7 08          16551 	ld	hl,#_cursorY + 0
+   0A61 4E                16552 	ld	c,(hl)
+   0A62 23                16553 	inc	hl
+   0A63 46                16554 	ld	b,(hl)
+   0A64 3E 05             16555 	ld	a,#0x04+1
+   0A66 18 05             16556 	jr	00104$
+   0A68                   16557 00103$:
+   0A68 B7                16558 	or	a,a
+   0A69 CB 11             16559 	rl	c
+   0A6B CB 10             16560 	rl	b
+   0A6D                   16561 00104$:
+   0A6D 3D                16562 	dec	a
+   0A6E 20 F8             16563 	jr	nz,00103$
+                          16564 ; genPlus
+                          16565 ; AOP_STK for _changeCursorPosition_sloc0_1_0
+                          16566 ;	genPlusIncr failed
+   0A70 21 91 08          16567 	ld	hl,#_cursorLocations + 0
+   0A73 09                16568 	add	hl,bc
+   0A74 7D                16569 	ld	a,l
+   0A75 54                16570 	ld	d,h
+   0A76 F8 02             16571 	lda	hl,2(sp)
+   0A78 22                16572 	ld	(hl+),a
+   0A79 72                16573 	ld	(hl),d
+                          16574 ; genLeftShift
+                          16575 ; AOP_HL for _cursorX
+   0A7A 21 F5 08          16576 	ld	hl,#_cursorX + 0
+   0A7D 4E                16577 	ld	c,(hl)
+   0A7E 23                16578 	inc	hl
+   0A7F 46                16579 	ld	b,(hl)
+   0A80 3E 03             16580 	ld	a,#0x02+1
+   0A82 18 05             16581 	jr	00106$
+   0A84                   16582 00105$:
+   0A84 B7                16583 	or	a,a
+   0A85 CB 11             16584 	rl	c
+   0A87 CB 10             16585 	rl	b
+   0A89                   16586 00106$:
+   0A89 3D                16587 	dec	a
+   0A8A 20 F8             16588 	jr	nz,00105$
+                          16589 ; genPlus
+                          16590 ; AOP_STK for _changeCursorPosition_sloc0_1_0
+                          16591 ;	genPlusIncr failed
+   0A8C F8 02             16592 	lda	hl,2(sp)
+   0A8E 2A                16593 	ld	a,(hl+)
+   0A8F 66                16594 	ld	h,(hl)
+   0A90 6F                16595 	ld	l,a
+   0A91 09                16596 	add	hl,bc
+   0A92 4D                16597 	ld	c,l
+   0A93 44                16598 	ld	b,h
+                          16599 ; genPointerGet
+                          16600 ; AOP_STK for _changeCursorPosition_positionX_1_1
+   0A94 59                16601 	ld	e,c
+   0A95 50                16602 	ld	d,b
+   0A96 1A                16603 	ld	a,(de)
+   0A97 F8 04             16604 	lda	hl,4(sp)
+   0A99 77                16605 	ld	(hl),a
+   0A9A 13                16606 	inc	de
+   0A9B 1A                16607 	ld	a,(de)
+   0A9C 23                16608 	inc	hl
+   0A9D 77                16609 	ld	(hl),a
+                          16610 ;	main.c 237
+                          16611 ; genPlus
+                          16612 ; genPlusIncr
+   0A9E 59                16613 	ld	e,c
+   0A9F 50                16614 	ld	d,b
+   0AA0 13                16615 	inc	de
+   0AA1 13                16616 	inc	de
+                          16617 ; genPointerGet
+                          16618 ; Removed redundent load
+                          16619 ; Removed redundent load
+   0AA2 1A                16620 	ld	a,(de)
+   0AA3 4F                16621 	ld	c,a
+   0AA4 13                16622 	inc	de
+   0AA5 1A                16623 	ld	a,(de)
+   0AA6 47                16624 	ld	b,a
+                          16625 ;	main.c 239
+                          16626 ; genCast
+                          16627 ; AOP_STK for _changeCursorPosition_sloc0_1_0
+   0AA7 F8 02             16628 	lda	hl,2(sp)
+   0AA9 71                16629 	ld	(hl),c
+                          16630 ; genCast
+                          16631 ; AOP_STK for _changeCursorPosition_positionX_1_1
+   0AAA 23                16632 	inc	hl
+   0AAB 23                16633 	inc	hl
+   0AAC 4E                16634 	ld	c,(hl)
+                          16635 ; genIpush
+                          16636 ; AOP_STK for _changeCursorPosition_sloc0_1_0
+   0AAD 2B                16637 	dec	hl
+   0AAE 2B                16638 	dec	hl
+   0AAF 7E                16639 	ld	a,(hl)
+   0AB0 F5                16640 	push	af
+   0AB1 33                16641 	inc	sp
+                          16642 ; genIpush
+   0AB2 79                16643 	ld	a,c
+   0AB3 F5                16644 	push	af
+   0AB4 33                16645 	inc	sp
+                          16646 ; genIpush
+   0AB5 3E 00             16647 	ld	a,#0x00
+   0AB7 F5                16648 	push	af
+   0AB8 33                16649 	inc	sp
+                          16650 ; genCall
+   0AB9 CD 00 00          16651 	call	_move_sprite
+   0ABC E8 03             16652 	lda	sp,3(sp)
+                          16653 ;	main.c 240
+                          16654 ; genPlus
+                          16655 ; AOP_STK for _changeCursorPosition_positionX_1_1
+                          16656 ; AOP_STK for _changeCursorPosition_sloc1_1_0
+                          16657 ; genPlusIncr
+                          16658 ;	genPlusIncr failed
+   0ABE F8 04             16659 	lda	hl,4(sp)
+   0AC0 5E                16660 	ld	e,(hl)
+   0AC1 23                16661 	inc	hl
+   0AC2 56                16662 	ld	d,(hl)
+   0AC3 21 08 00          16663 	ld	hl,#0x0008
+   0AC6 19                16664 	add	hl,de
+   0AC7 7D                16665 	ld	a,l
+   0AC8 54                16666 	ld	d,h
+   0AC9 F8 00             16667 	lda	hl,0(sp)
+   0ACB 22                16668 	ld	(hl+),a
+   0ACC 72                16669 	ld	(hl),d
+                          16670 ; genCast
+                          16671 ; AOP_STK for _changeCursorPosition_sloc1_1_0
+   0ACD 2B                16672 	dec	hl
+   0ACE 4E                16673 	ld	c,(hl)
+                          16674 ; genIpush
+                          16675 ; AOP_STK for _changeCursorPosition_sloc0_1_0
+   0ACF 23                16676 	inc	hl
+   0AD0 23                16677 	inc	hl
+   0AD1 7E                16678 	ld	a,(hl)
+   0AD2 F5                16679 	push	af
+   0AD3 33                16680 	inc	sp
+                          16681 ; genIpush
+   0AD4 79                16682 	ld	a,c
+   0AD5 F5                16683 	push	af
+   0AD6 33                16684 	inc	sp
+                          16685 ; genIpush
+   0AD7 3E 01             16686 	ld	a,#0x01
+   0AD9 F5                16687 	push	af
+   0ADA 33                16688 	inc	sp
+                          16689 ; genCall
+   0ADB CD 00 00          16690 	call	_move_sprite
+   0ADE E8 03             16691 	lda	sp,3(sp)
+                          16692 ; genLabel
+   0AE0                   16693 00101$:
+                          16694 ; genEndFunction
+   0AE0 E8 06             16695 	lda	sp,6(sp)
+   0AE2 C1                16696 	pop	bc
+   0AE3 C9                16697 	ret
+   0AE4                   16698 ___changeCursorPosition_end:
+                          16699 ;	main.c 243
+                          16700 ; genLabel
+                          16701 ; genFunction
+                          16702 ;	---------------------------------
+                          16703 ; Function changeCursorDelay
+                          16704 ; ---------------------------------
+   0AE4                   16705 ___changeCursorDelay_start:
+   0AE4                   16706 _changeCursorDelay:
+   0AE4 C5                16707 	push	bc
+   0AE5 E8 FE             16708 	lda	sp,-2(sp)
+                          16709 ;	main.c 245
+                          16710 ; genCall
+   0AE7 CD 00 00          16711 	call	_clock
+   0AEA 42                16712 	ld	b,d
+   0AEB 4B                16713 	ld	c,e
+                          16714 ;	main.c 247
+                          16715 ; genMinus
+                          16716 ; AOP_HL for _lastTime
+                          16717 ; AOP_STK for _changeCursorDelay_sloc0_1_0
+                          16718 ; Removed redundent load
+                          16719 ; Removed redundent load
+   0AEC 21 8D 08          16720 	ld	hl,#_lastTime + 0
+   0AEF 5E                16721 	ld	e,(hl)
+   0AF0 23                16722 	inc	hl
+   0AF1 56                16723 	ld	d,(hl)
+   0AF2 79                16724 	ld	a,c
+   0AF3 93                16725 	sub	a,e
+   0AF4 5F                16726 	ld	e,a
+   0AF5 78                16727 	ld	a,b
+   0AF6 9A                16728 	sbc	a,d
+   0AF7 F8 01             16729 	lda	hl,1(sp)
+   0AF9 77                16730 	ld	(hl),a
+   0AFA 2B                16731 	dec	hl
+   0AFB 73                16732 	ld	(hl),e
+                          16733 ; genCmpLt
+                          16734 ; AOP_STK for _changeCursorDelay_sloc0_1_0
+   0AFC 5E                16735 	ld	e,(hl)
+   0AFD 23                16736 	inc	hl
+   0AFE 56                16737 	ld	d,(hl)
+   0AFF 21 EC FF          16738 	ld	hl,#0xFFEC
+   0B02 19                16739 	add	hl,de
+   0B03 D2 38 0B          16740 	jp	nc,00106$
+                          16741 ;	main.c 249
+                          16742 ; genCmpEq
+                          16743 ; AOP_HL for _currentCursorSpriteIndex
+   0B06 21 8F 08          16744 	ld	hl,#_currentCursorSpriteIndex + 0
+   0B09 2A                16745 	ld	a,(hl+)
+   0B0A B6                16746 	or	a,(hl)
+   0B0B C2 10 0B          16747 	jp	nz,00110$
+   0B0E 18 03             16748 	jr	00111$
+   0B10                   16749 00110$:
+   0B10 C3 1E 0B          16750 	jp	00102$
+   0B13                   16751 00111$:
+                          16752 ;	main.c 251
+                          16753 ; genAssign
+                          16754 ; AOP_HL for _currentCursorSpriteIndex
+   0B13 21 8F 08          16755 	ld	hl,#_currentCursorSpriteIndex + 0
+   0B16 36 01             16756 	ld	(hl),#0x01
+   0B18 23                16757 	inc	hl
+   0B19 36 00             16758 	ld	(hl),#0x00
+                          16759 ; genGoto
+   0B1B C3 26 0B          16760 	jp	00103$
+                          16761 ; genLabel
+   0B1E                   16762 00102$:
+                          16763 ;	main.c 255
+                          16764 ; genAssign
+                          16765 ; AOP_HL for _currentCursorSpriteIndex
+   0B1E 21 8F 08          16766 	ld	hl,#_currentCursorSpriteIndex + 0
+   0B21 36 00             16767 	ld	(hl),#0x00
+   0B23 23                16768 	inc	hl
+   0B24 36 00             16769 	ld	(hl),#0x00
+                          16770 ; genLabel
+   0B26                   16771 00103$:
+                          16772 ;	main.c 258
+                          16773 ; genIpush
+                          16774 ; AOP_HL for _currentCursorSpriteIndex
+   0B26 21 8F 08          16775 	ld	hl,#_currentCursorSpriteIndex + 0
+   0B29 2A                16776 	ld	a,(hl+)
+   0B2A 66                16777 	ld	h,(hl)
+   0B2B 6F                16778 	ld	l,a
+   0B2C E5                16779 	push	hl
+                          16780 ; genCall
+   0B2D CD 3C 0B          16781 	call	_changeCursorSprite
+   0B30 E8 02             16782 	lda	sp,2(sp)
+                          16783 ;	main.c 259
+                          16784 ; genAssign
+                          16785 ; AOP_HL for _lastTime
+   0B32 21 8D 08          16786 	ld	hl,#_lastTime + 0
+   0B35 71                16787 	ld	(hl),c
+   0B36 23                16788 	inc	hl
+   0B37 70                16789 	ld	(hl),b
+                          16790 ; genLabel
+   0B38                   16791 00106$:
+                          16792 ; genEndFunction
+   0B38 E8 02             16793 	lda	sp,2(sp)
+   0B3A C1                16794 	pop	bc
+   0B3B C9                16795 	ret
+   0B3C                   16796 ___changeCursorDelay_end:
+                          16797 ;	main.c 263
+                          16798 ; genLabel
+                          16799 ; genFunction
+                          16800 ;	---------------------------------
+                          16801 ; Function changeCursorSprite
+                          16802 ; ---------------------------------
+   0B3C                   16803 ___changeCursorSprite_start:
+   0B3C                   16804 _changeCursorSprite:
+                          16805 	
+                          16806 ;	main.c 265
+                          16807 ; genCmpEq
+                          16808 ; AOP_STK for 
+   0B3C F8 02             16809 	lda	hl,2(sp)
+   0B3E 2A                16810 	ld	a,(hl+)
+   0B3F B6                16811 	or	a,(hl)
+   0B40 C2 45 0B          16812 	jp	nz,00107$
+   0B43 18 03             16813 	jr	00108$
+   0B45                   16814 00107$:
+   0B45 C3 65 0B          16815 	jp	00102$
+   0B48                   16816 00108$:
+                          16817 ;	main.c 267
+                          16818 ; genIpush
+   0B48 3E 00             16819 	ld	a,#0x00
+   0B4A F5                16820 	push	af
+   0B4B 33                16821 	inc	sp
+                          16822 ; genIpush
+   0B4C 3E 00             16823 	ld	a,#0x00
+   0B4E F5                16824 	push	af
+   0B4F 33                16825 	inc	sp
+                          16826 ; genCall
+   0B50 CD 00 00          16827 	call	_set_sprite_tile
+   0B53 E8 02             16828 	lda	sp,2(sp)
+                          16829 ;	main.c 268
+                          16830 ; genIpush
+   0B55 3E 02             16831 	ld	a,#0x02
+   0B57 F5                16832 	push	af
+   0B58 33                16833 	inc	sp
+                          16834 ; genIpush
+   0B59 3E 01             16835 	ld	a,#0x01
+   0B5B F5                16836 	push	af
+   0B5C 33                16837 	inc	sp
+                          16838 ; genCall
+   0B5D CD 00 00          16839 	call	_set_sprite_tile
+   0B60 E8 02             16840 	lda	sp,2(sp)
+                          16841 ; genGoto
+   0B62 C3 7F 0B          16842 	jp	00104$
+                          16843 ; genLabel
+   0B65                   16844 00102$:
+                          16845 ;	main.c 272
+                          16846 ; genIpush
+   0B65 3E 04             16847 	ld	a,#0x04
+   0B67 F5                16848 	push	af
+   0B68 33                16849 	inc	sp
+                          16850 ; genIpush
+   0B69 3E 00             16851 	ld	a,#0x00
+   0B6B F5                16852 	push	af
+   0B6C 33                16853 	inc	sp
+                          16854 ; genCall
+   0B6D CD 00 00          16855 	call	_set_sprite_tile
+   0B70 E8 02             16856 	lda	sp,2(sp)
+                          16857 ;	main.c 273
+                          16858 ; genIpush
+   0B72 3E 06             16859 	ld	a,#0x06
+   0B74 F5                16860 	push	af
+   0B75 33                16861 	inc	sp
+                          16862 ; genIpush
+   0B76 3E 01             16863 	ld	a,#0x01
+   0B78 F5                16864 	push	af
+   0B79 33                16865 	inc	sp
+                          16866 ; genCall
+   0B7A CD 00 00          16867 	call	_set_sprite_tile
+   0B7D E8 02             16868 	lda	sp,2(sp)
+                          16869 ; genLabel
+   0B7F                   16870 00104$:
+                          16871 ; genEndFunction
+                          16872 	
+   0B7F C9                16873 	ret
+   0B80                   16874 ___changeCursorSprite_end:
+                          16875 	.area _CODE
+   0B80                   16876 __str_1:
+   0B80 30                16877 	.ascii "0"
+   0B81 00                16878 	.db 0x00
+   0B82                   16879 __str_2:
+   0B82 30                16880 	.ascii "0"
+   0B83 00                16881 	.db 0x00
+   0B84                   16882 __str_3:
+   0B84 30                16883 	.ascii "0"
+   0B85 00                16884 	.db 0x00
 ASxxxx Assembler V01.75  (GameBoy Z80-like CPU), page 1.
 
 Symbol Table
@@ -16904,21 +16945,21 @@ Symbol Table
   0 ___action_start                    0893 R
   0 ___addToDisplay_end                0999 R
   0 ___addToDisplay_start              0943 R
-  0 ___changeCursorDelay_end           0B10 R
-  0 ___changeCursorDelay_start         0AB8 R
-  0 ___changeCursorPosition_end        0AB8 R
-  0 ___changeCursorPosition_start      0A2F R
-  0 ___changeCursorSprite_end          0B54 R
-  0 ___changeCursorSprite_start        0B10 R
+  0 ___changeCursorDelay_end           0B3C R
+  0 ___changeCursorDelay_start         0AE4 R
+  0 ___changeCursorPosition_end        0AE4 R
+  0 ___changeCursorPosition_start      0A5B R
+  0 ___changeCursorSprite_end          0B80 R
+  0 ___changeCursorSprite_start        0B3C R
   0 ___clearString_end                 05A9 R
   0 ___clearString_start               0578 R
   0 ___keyboard_end                    0893 R
   0 ___keyboard_start                  073E R
   0 ___main_end                        065E R
   0 ___main_start                      05A9 R
-  0 ___solve_end                       0A2F R
-  0 ___solve_start                     09B6 R
-  0 ___storeOperation_end              09B6 R
+  0 ___solve_end                       0A5B R
+  0 ___solve_start                     09E5 R
+  0 ___storeOperation_end              09E5 R
   0 ___storeOperation_start            0999 R
   0 ___sum_end                         0577 R
   0 ___sum_start                       0000 R
@@ -16931,14 +16972,14 @@ Symbol Table
     __io_status                        **** GX
     __modsint                          **** GX
   0 __str_0                            0577 R
-  0 __str_1                            0B54 R
-  0 __str_2                            0B56 R
-  0 __str_3                            0B58 R
+  0 __str_1                            0B80 R
+  0 __str_2                            0B82 R
+  0 __str_3                            0B84 R
   0 _action                            0893 GR
   0 _addToDisplay                      0943 GR
-  0 _changeCursorDelay                 0AB8 GR
-  0 _changeCursorPosition              0A2F GR
-  0 _changeCursorSprite                0B10 GR
+  0 _changeCursorDelay                 0AE4 GR
+  0 _changeCursorPosition              0A5B GR
+  0 _changeCursorSprite                0B3C GR
   0 _clearString                       0578 GR
     _clock                             **** GX
   1 _currentCursorSpriteIndex          088F GR
@@ -16966,7 +17007,7 @@ Symbol Table
     _set_sprite_data                   **** GX
     _set_sprite_tile                   **** GX
   1 _shiftOperator                     08FF GR
-  0 _solve                             09B6 GR
+  0 _solve                             09E5 GR
   0 _storeOperation                    0999 GR
     _strcpy                            **** GX
     _strlen                            **** GX
@@ -16979,7 +17020,7 @@ Symbol Table
 
 Area Table
 
-   0 _CODE                              size  B5A   flags 0
+   0 _CODE                              size  B86   flags 0
    1 _DATA                              size  901   flags 0
    2 _OVERLAY                           size    0   flags 0
    3 _ISEG                              size    0   flags 0
