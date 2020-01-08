@@ -219,7 +219,9 @@ void solve() {
     case '+':
         strcpy(result, sum(n1, n2));
         break;
-    
+    case '-':
+        strcpy(result, sub(n1, n2));
+        break;
     default:
         break;
     }
