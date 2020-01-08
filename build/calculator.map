@@ -17,45 +17,49 @@ AREA .  .ABS.
 		l__LIT	0000
 		s__SFR	0000
 		l__GSINITTAIL	0001
-		l__BSS	0059
-		l__BASE	01A3
+		l__BSS	005C
 		l__HEADER	01E1
 		l__HOME	01E3
 		s__CODE	0200
-		l__CODE	04AF
-		s__HOME	06AF
-		s__BASE	0892
-		l__DATA	08E6
-		s__LIT	0A35
-		s__GSINIT	0A35
-		l__GSINIT	34BC
-		s__GSINITTAIL	3EF1
-		s__GSFINAL	3EF2
+		l__BASE	02E6
+		l__DATA	0901
+		l__CODE	0B5A
+		s__HOME	0D5A
+		s__BASE	0F3D
+		s__LIT	1223
+		s__GSINIT	1223
+		l__GSINIT	34E1
+		s__GSINITTAIL	4704
+		s__GSFINAL	4705
 		.OAM	C000
 		s__DATA	C0A0
-		s__BSS	C986
-		s__HEAP	C9DF
-		s__BSEG	C9DF
-		s__ISEG	C9DF
-		s__XSEG	C9DF
-		s__OVERLAY	C9DF
+		s__BSS	C9A1
+		s__HEAP	C9FD
+		s__BSEG	C9FD
+		s__ISEG	C9FD
+		s__XSEG	C9FD
+		s__OVERLAY	C9FD
 		.STACK	E000
 		.refresh_OAM	FF80
 		l__SFR	10000
 AREA _CODE
 	RADIX HEX
 	BASE 0200
-	SIZE 04AF
+	SIZE 0B5A
 	ATTRIB REL CON
 	GLOBALS
-		_main	0200
-		_updateDisplay	02B5
-		_keyboard	038F
-		_action	04E4
-		_addToDisplay	0532
-		_changeCursorPosition	0588
-		_changeCursorDelay	0611
-		_changeCursorSprite	0669
+		_sum	0200
+		_clearString	0778
+		_main	07A9
+		_updateDisplay	085E
+		_keyboard	093E
+		_action	0A93
+		_addToDisplay	0B43
+		_storeOperation	0B99
+		_solve	0BB6
+		_changeCursorPosition	0C2F
+		_changeCursorDelay	0CB8
+		_changeCursorSprite	0D10
 AREA _HEADER
 	RADIX HEX
 	BASE 0000
@@ -65,163 +69,189 @@ AREA _HEADER
 		_exit	01D2
 AREA _HOME
 	RADIX HEX
-	BASE 06AF
+	BASE 0D5A
 	SIZE 01E3
 	ATTRIB REL CON
 	GLOBALS
-		.set_mode	06AF
-		.remove_VBL	06BF
-		.remove_LCD	06C5
-		.remove_TIM	06CB
-		.remove_SIO	06D1
-		.remove_JOY	06D7
-		.add_VBL	06DD
-		.add_LCD	06E3
-		.add_TIM	06E9
-		.add_SIO	06EF
-		.add_JOY	06F5
-		.remove_int	06FB
-		.add_int	071B
-		.wait_vbl_done	0737
-		_wait_vbl_done	0737
-		_display_off	074E
-		.display_off	074E
-		.serial_IO	076F
-		_mode	079E
-		_get_mode	07A7
-		_enable_interrupts	07AC
-		_disable_interrupts	07AE
-		_reset	07B0
-		.reset	07B0
-		_set_interrupts	07B6
-		_remove_VBL	07C1
-		_remove_LCD	07CC
-		_remove_TIM	07D7
-		_remove_SIO	07E2
-		_remove_JOY	07ED
-		_add_VBL	07F8
-		_add_LCD	0803
-		_add_TIM	080E
-		_add_SIO	0819
-		_add_JOY	0824
-		_clock	082F
-		__printTStates	0838
-		banked_call	0839
-		banked_ret	0852
-		_strlen	085B
+		.set_mode	0D5A
+		.remove_VBL	0D6A
+		.remove_LCD	0D70
+		.remove_TIM	0D76
+		.remove_SIO	0D7C
+		.remove_JOY	0D82
+		.add_VBL	0D88
+		.add_LCD	0D8E
+		.add_TIM	0D94
+		.add_SIO	0D9A
+		.add_JOY	0DA0
+		.remove_int	0DA6
+		.add_int	0DC6
+		.wait_vbl_done	0DE2
+		_wait_vbl_done	0DE2
+		_display_off	0DF9
+		.display_off	0DF9
+		.serial_IO	0E1A
+		_mode	0E49
+		_get_mode	0E52
+		_enable_interrupts	0E57
+		_disable_interrupts	0E59
+		_reset	0E5B
+		.reset	0E5B
+		_set_interrupts	0E61
+		_remove_VBL	0E6C
+		_remove_LCD	0E77
+		_remove_TIM	0E82
+		_remove_SIO	0E8D
+		_remove_JOY	0E98
+		_add_VBL	0EA3
+		_add_LCD	0EAE
+		_add_TIM	0EB9
+		_add_SIO	0EC4
+		_add_JOY	0ECF
+		_clock	0EDA
+		__printTStates	0EE3
+		banked_call	0EE4
+		banked_ret	0EFD
+		_strlen	0F06
 AREA _BASE
 	RADIX HEX
-	BASE 0892
-	SIZE 01A3
+	BASE 0F3D
+	SIZE 02E6
 	ATTRIB REL CON
 	GLOBALS
-		.mv_sprite	0892
-		_move_sprite	08A1
-		_set_win_data	08AE
-		_set_bkg_data	08AE
-		_set_sprite_data	08FB
-		.padup	092A
-		_waitpadup	092A
-		.jpad	093A
-		.wait_pad	0967
-		_joypad	096E
-		_waitpad	0973
-		.set_sprite_tile	097D
-		_set_sprite_tile	098A
-		.copy_vram	0995
-		_get_data	09A4
-		_set_data	09A4
-		_set_bkg_tiles	09B7
-		.set_xy_wtt	09CB
-		.set_xy_btt	09DC
-		.set_xy_tt	09EB
-		_set_tiles	0A1C
+		_strcpy	0F3D
+		_memcpy	0F4F
+		_strcmp	0F6F
+		.mv_sprite	0F93
+		_move_sprite	0FA2
+		_set_win_data	0FAF
+		_set_bkg_data	0FAF
+		_set_sprite_data	0FFC
+		.padup	102B
+		_waitpadup	102B
+		.jpad	103B
+		.wait_pad	1068
+		_joypad	106F
+		_waitpad	1074
+		.set_sprite_tile	107E
+		_set_sprite_tile	108B
+		__modslong	1096
+		__divslong	1096
+		__mulslong	1096
+		__divschar	1097
+		__modschar	10A3
+		__divsint	10AE
+		__modsint	10BF
+		__divuchar	10CE
+		__moduchar	10DA
+		__divuint	10E5
+		__moduint	10F6
+		.mod8	1105
+		.div8	1105
+		.mod16	110D
+		.div16	110D
+		.modu8	1143
+		.divu8	1143
+		.modu16	1146
+		.divu16	1146
+		.copy_vram	1183
+		_get_data	1192
+		_set_data	1192
+		_set_bkg_tiles	11A5
+		.set_xy_wtt	11B9
+		.set_xy_btt	11CA
+		.set_xy_tt	11D9
+		_set_tiles	120A
 AREA _LIT
 	RADIX HEX
-	BASE 0A35
+	BASE 1223
 	SIZE 0000
 	ATTRIB REL CON
 AREA _GSINIT
 	RADIX HEX
-	BASE 0A35
-	SIZE 34BC
+	BASE 1223
+	SIZE 34E1
 	ATTRIB REL CON
 	GLOBALS
-		gsinit	0A35
+		gsinit	1223
 AREA _GSINITTAIL
 	RADIX HEX
-	BASE 3EF1
+	BASE 4704
 	SIZE 0001
 	ATTRIB REL CON
 AREA _GSFINAL
 	RADIX HEX
-	BASE 3EF2
+	BASE 4705
 	SIZE 0000
 	ATTRIB REL CON
 AREA _DATA
 	RADIX HEX
 	BASE C0A0
-	SIZE 08E6
+	SIZE 0901
 	ATTRIB REL CON
 	GLOBALS
 		_cursor	C0A0
 		_keyboardTiles	C120
 		_keyboardMap	C7A0
-		_display	C908
-		_lastTime	C914
-		_currentCursorSpriteIndex	C916
-		_cursorLocations	C918
-		_keyboardOptions	C968
-		_cursorX	C97C
-		_cursorY	C97E
-		_maxPosX	C980
-		_maxPosY	C982
-		_keydown	C984
+		_n1	C908
+		_n2	C914
+		_operation	C920
+		_display	C921
+		_lastTime	C92D
+		_currentCursorSpriteIndex	C92F
+		_cursorLocations	C931
+		_keyboardOptions	C981
+		_cursorX	C995
+		_cursorY	C997
+		_maxPosX	C999
+		_maxPosY	C99B
+		_keydown	C99D
+		_shiftOperator	C99F
 AREA _BSS
 	RADIX HEX
-	BASE C986
-	SIZE 0059
+	BASE C9A1
+	SIZE 005C
 	ATTRIB REL CON
 	GLOBALS
-		__cpu	C986
-		.mode	C987
-		__io_out	C988
-		__io_in	C989
-		__io_status	C98A
-		.vbl_done	C98B
-		__current_bank	C98C
-		_sys_time	C98D
-		.sys_time	C98D
-		.int_0x40	C98F
-		.int_0x48	C99F
-		.int_0x50	C9AF
-		.int_0x58	C9BF
-		.int_0x60	C9CF
+		__cpu	C9A1
+		.mode	C9A2
+		__io_out	C9A3
+		__io_in	C9A4
+		__io_status	C9A5
+		.vbl_done	C9A6
+		__current_bank	C9A7
+		_sys_time	C9A8
+		.sys_time	C9A8
+		.int_0x40	C9AA
+		.int_0x48	C9BA
+		.int_0x50	C9CA
+		.int_0x58	C9DA
+		.int_0x60	C9EA
 AREA _HEAP
 	RADIX HEX
-	BASE C9DF
+	BASE C9FD
 	SIZE 0000
 	ATTRIB REL CON
 	GLOBALS
-		_malloc_heap_start	C9DF
+		_malloc_heap_start	C9FD
 AREA _OVERLAY
 	RADIX HEX
-	BASE C9DF
+	BASE C9FD
 	SIZE 0000
 	ATTRIB REL CON
 AREA _ISEG
 	RADIX HEX
-	BASE C9DF
+	BASE C9FD
 	SIZE 0000
 	ATTRIB REL CON
 AREA _BSEG
 	RADIX HEX
-	BASE C9DF
+	BASE C9FD
 	SIZE 0000
 	ATTRIB REL CON
 AREA _XSEG
 	RADIX HEX
-	BASE C9DF
+	BASE C9FD
 	SIZE 0000
 	ATTRIB REL CON
 AREA _SFR
@@ -289,10 +319,12 @@ MODULES
 	FILE c:\gbdk\lib/small/asxxxx/gb/crt0.o
 		NAME Runtime
 	FILE build\main.o
-		NAME lcc115480
+		NAME lcc62040
 LIBRARIES
 	LIBRARY c:\gbdk\lib/small/asxxxx/gb/gb.lib
 		MODULE sfr.o
+	LIBRARY c:\gbdk\lib/small/asxxxx/gbz80/gbz80.lib
+		MODULE asm_string.o
 	LIBRARY c:\gbdk\lib/small/asxxxx/gb/gb.lib
 		MODULE mv_spr.o
 	LIBRARY c:\gbdk\lib/small/asxxxx/gb/gb.lib
@@ -303,6 +335,8 @@ LIBRARIES
 		MODULE set_spr.o
 	LIBRARY c:\gbdk\lib/small/asxxxx/gbz80/gbz80.lib
 		MODULE strlen.o
+	LIBRARY c:\gbdk\lib/small/asxxxx/gbz80/gbz80.lib
+		MODULE div.o
 	LIBRARY c:\gbdk\lib/small/asxxxx/gb/gb.lib
 		MODULE cpy_data.o
 	LIBRARY c:\gbdk\lib/small/asxxxx/gb/gb.lib

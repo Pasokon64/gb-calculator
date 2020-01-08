@@ -4,39 +4,46 @@
 #include <string.h>
 #include <time.h>
 #include "math.c"
+#include "util.c"
 #include "tiles/cursor.c"
 #include "tiles/keyboard.c"
 #include "tiles/keyboardmap.c"
 
+void solve();
 void keyboard();
 void action(char);
 void updateDisplay();
 void addToDisplay(char);
 void changeCursorDelay();
+void storeOperation(char);
 void changeCursorPosition();
 void changeCursorSprite(int);
 
+char n1[12] = "0";
+char n2[12] = "0";
+char operation = '\0';
 char display[12] = "0";
 
 unsigned int lastTime = 0;
 int currentCursorSpriteIndex = 0;
 
 int cursorLocations[][4][2] =
-    {
-        {{40, 48}, {64, 48}, {88, 48}, {120, 48}},
-        {{40, 72}, {64, 72}, {88, 72}, {120, 72}},
-        {{40, 96}, {64, 96}, {88, 96}, {120, 96}},
-        {{40, 120}, {64, 120}, {88, 120}, {120, 120}},
-        {{40, 144}, {64, 144}, {88, 144}, {120, 144}},
+{
+    {{40, 48}, {64, 48}, {88, 48}, {120, 48}},
+    {{40, 72}, {64, 72}, {88, 72}, {120, 72}},
+    {{40, 96}, {64, 96}, {88, 96}, {120, 96}},
+    {{40, 120}, {64, 120}, {88, 120}, {120, 120}},
+    {{40, 144}, {64, 144}, {88, 144}, {120, 144}},
 };
 
 char keyboardOptions[][4] =
-    {
-        {' ', 'c', '<', '/'},
-        {'7', '8', '9', '*'},
-        {'4', '5', '6', '-'},
-        {'1', '2', '3', '+'},
-        {'%', '0', ',', '='}};
+{
+    {' ', 'c', '<', '/'},
+    {'7', '8', '9', '*'},
+    {'4', '5', '6', '-'},
+    {'1', '2', '3', '+'},
+    {'%', '0', ',', '='}
+};
 
 int cursorX = 0;
 int cursorY = 0;
@@ -44,6 +51,7 @@ int maxPosX = 0;
 int maxPosY = 0;
 
 int keydown = 0;
+int shiftOperator = 0;
 
 void main()
 {
@@ -82,7 +90,7 @@ void updateDisplay() {
 
     for (i = 0; i < 12; i++)
     {
-        if (display[i] != '\0')
+        if (display[i] != '\0' && display[i] != ' ')
         {
             int c = 80 + (((int)display[i] - 48) * 2);
             displayMap[i] = c; 
@@ -135,6 +143,12 @@ void keyboard()
 
 void action(char option)
 {
+    if (shiftOperator)
+    {
+        shiftOperator = 0;
+        clearString(&display);
+    }
+
     switch (option)
     {
     case '0':
@@ -148,6 +162,15 @@ void action(char option)
     case '8':
     case '9':
         addToDisplay(option);
+        break;
+    case '+':
+    case '-':
+    case '*':
+    case '/':
+        storeOperation(option);
+        break;
+    case '=':
+        solve();
         break;
     default:
         break;
@@ -167,6 +190,35 @@ void addToDisplay(char option)
             display[strlen(display)] = option;
         }
     }
+}
+
+void storeOperation(char option) {
+
+    strcpy(n1, display);
+    operation = option;
+    shiftOperator = 1;
+}
+
+void solve() {
+
+    char result[12];
+    strcpy(n2, display);
+
+    switch (operation)
+    {
+    case '+':
+        strcpy(result, sum(n1, n2));
+        break;
+    
+    default:
+        break;
+    }
+
+    shiftOperator = 1;
+    clearString(&n1);
+    clearString(&n2);
+    clearString(&display);
+    strcpy(display, result);
 }
 
 void changeCursorPosition()
